@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
+  <div class="container">
     market
   </div>
 </template>
@@ -10,7 +10,25 @@ export default {
   data() {
     return {
 
+
     };
+  },
+  methods: {
+    async test() {
+      const params = {
+        url: '/demo',
+        payload: {
+          saf: 'af',
+        },
+        auth: true,
+      };
+      const result = await this.get(params);
+      console.log(result);
+    },
+
+  },
+  mounted() {
+    this.test();
   },
 };
 </script>
