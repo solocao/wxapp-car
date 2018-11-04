@@ -48,7 +48,7 @@
                 <i class="icon icon-news"></i>
               </div>
               <div class="aui-flex-box">
-                <p>您有 <em>8888元新用户大礼包</em>尚未领取</p>
+                <p>您有 <span>8888元新用户大礼包</span>尚未领取</p>
               </div>
               <div class="aui-flex-arrow"></div>
             </div>
@@ -536,9 +536,9 @@
     padding-left: 10px;
   }
 
-  .aui-tour-layout .aui-flex-news .aui-flex-box p em {
+  .aui-tour-layout .aui-flex-news .aui-flex-box p span {
     font-size: 12px;
-    color: #23beae;
+    color: #2FAB3F;
     font-style: normal;
   }
 

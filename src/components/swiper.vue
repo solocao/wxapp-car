@@ -34,6 +34,7 @@ export default {
   height: auto;
   overflow: hidden;
   background-color: #fff;
+  border-radius: 6px;
 }
 
 swiper-item {
@@ -42,6 +43,11 @@ swiper-item {
   text-align: center;
   font-size: 50rpx;
   box-sizing: border-box;
+
+  image {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
 

@@ -38,8 +38,6 @@ export default {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
-  margin-right: 10px;
-  margin-left: 10px;
   .a-img {
     width: 68px;
     height: 68px;

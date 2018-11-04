@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
+  <div class="market">
     <Swiper :images="images" />
-    <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo">获取用户信息</button>
+    <market-tip></market-tip>
+    <!-- <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo">获取用户信息</button> -->
     <div class="active-container">
-      <active-row></active-row>
+      <active-row v-for="i in 8" :key="i"></active-row>
     </div>
   </div>
 </template>
@@ -12,13 +13,19 @@
 import Swiper from '@/components/swiper';
 import ActiveRow from '@/components/row/ActiveRow';
 
+import MarketTip from '@/components/MarketTip';
+
 export default {
-  components: { Swiper, ActiveRow },
+  components: {
+    Swiper,
+    ActiveRow,
+    MarketTip,
+  },
   data() {
     return {
       images: [
-        { url: 'https://img-oss.yunshanmeicai.com/goods/default/31d8dfa4-0d7b-4694-80f9-41b07c9d0a3a.png' },
-        { url: 'https://img-oss.yunshanmeicai.com/goods/default/e83c8f0f-4acc-4729-bcbb-294f2b314977.jpg' },
+        { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
+        { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
       indicatorDots: false,
       autoplay: false,
@@ -50,6 +57,9 @@ export default {
 </script>
 
 <style style="less" scoped>
+.market {
+  padding: 10px;
+}
 .active-container {
   width: 100%;
 }
