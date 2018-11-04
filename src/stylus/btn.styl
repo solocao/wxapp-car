@@ -1,0 +1,138 @@
+//按钮
+@import "common.styl"
+
+.btn-box {
+  margin: 15px !important;
+}
+
+.btn {
+  position: relative;
+  background-color: #fff;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 2px;
+  line-height: 45px;
+  font-size: 16px;
+  padding: 0 15px;
+  color: #333;
+  height 45px;
+
+  &::after {
+    border_line();
+    border-width: 1px;
+    border-radius: 4px;
+  }
+}
+
+/* type */
+.btn_color-primary {
+  color: #fff;
+  background-color: #4b0;
+
+  &::after {
+    border-color: #0a0;
+  }
+}
+
+.btn_color-warn {
+  color: #fff;
+  background-color: #f85;
+
+  &::after {
+    border-color: #f85;
+  }
+}
+
+.btn_color-danger {
+  color: #fff;
+  background-color: #f44;
+
+  &::after {
+    border-color: #e33;
+  }
+}
+
+.btn_color-DodgerBlue {
+  color: #fff;
+  background-color: #1D9ED7;
+
+  &::after {
+    border-color: #1D9ED7;
+  }
+}
+
+.btn_color-diyBlue {
+  color: #fff;
+  background-color: #25ABDF;
+
+  &::after {
+    border-color: #25ABDF;
+  }
+}
+
+/* size */
+.btn_size-large {
+  border-radius: 0;
+  margin-bottom: 0;
+  line-height: 50px;
+  border: none;
+  height: 50px;
+}
+
+.btn_size-small {
+  display: inline-block;
+  line-height: 30px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  font-size: 12px;
+  height: 30px;
+}
+
+.btn_size-mini {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+  line-height: 21px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  font-size: 10px;
+  height: 22px;
+}
+
+/* 背景透明 */
+.btn-plain.btn {
+  background-color: transparent;
+}
+
+.btn-plain.btn-primary {
+  color: #06BF04;
+}
+
+.btn-plain.btn-warn {
+  color: #FF6600;
+}
+
+.btn-plain.btn-danger {
+  color: #FF4444;
+}
+
+/* 重写button组件的button-hover样式 */
+.button-hover {
+  opacity: 0.9;
+}
+
+/* disabled */
+.btn.btn-disabled {
+  /* 防止样式被 button[disabled] 的规则覆盖，所以使用了important */
+  color: #fff !important;
+  background: #999 !important;
+  border-color: #999 !important;
+  cursor: not-allowed !important;
+  opacity: 1 !important;
+
+  &::after {
+    border-color: #999 !important;
+  }
+}

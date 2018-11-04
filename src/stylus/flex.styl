@@ -1,0 +1,148 @@
+//弹性布局封装
+.f {
+  display: flex;
+}
+
+//快速居中布局
+.f-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//快速等分布局
+.f-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+//快速等分布局
+.f-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//x居中
+.f-x-c {
+  justify-content: center;
+}
+
+//x等分
+.f-x-b {
+  justify-content: space-between;
+}
+
+//x等分
+.f-x-a {
+  justify-content: space-around;
+}
+
+//x从头排列
+.f-x-s {
+  justify-content: flex-start;
+}
+
+//x结尾排列
+.f-x-e {
+  justify-content: flex-end !important;
+}
+
+//y居中
+.f-y-c {
+  align-items: center;
+}
+
+//y从头排列
+.f-y-s {
+  align-items: flex-start;
+}
+
+//y结尾排列
+.f-y-e {
+  align-items: flex-end;
+}
+
+//y轴向下超过容器不换行
+.f-col {
+  flex-direction: column;
+}
+
+//y轴向上超过容器不换行
+.f-col_r {
+  flex-direction: column-reverse;
+}
+
+//x轴超过容器向下扩展
+.f-w {
+  flex-wrap: wrap;
+}
+
+//x轴超过容器向上扩展
+.f-w_r {
+  flex-wrap: wrap-reverse;
+}
+
+//y轴向下超过容器换列,向右扩张
+.f-col-w {
+  flex-flow: column wrap
+}
+
+//y轴向下超过容器换列,向左扩张
+.f-col-w_r {
+  flex-flow: column wrap-reverse
+}
+
+//y轴向上超过容器换列,向右扩张
+.f-col_r-w {
+  flex-flow: column-reverse wrap
+}
+
+//y轴向上超过容器换列,向左扩张
+.f-col_r-w_r {
+  flex-flow: column-reverse wrap-reverse
+}
+
+.f-s-c {
+  align-self: center
+}
+
+.f-s-s {
+  align-self: flex-start
+}
+
+.f-s-e {
+  align-self: flex-end
+}
+
+//不压缩
+.f-no {
+  flex: none;
+}
+
+//等分剩余空间
+.f-1 {
+  flex: 1;
+}
+
+//控制多行
+.f-c-s {
+  align-content: flex-start;
+}
+
+.f-c-c {
+  align-content: center;
+}
+
+.f-c-e {
+  align-content: flex-end;
+}
+
+.f-c-b {
+  align-content: space-between
+}
+
+.f-c-a {
+  align-content: space-around
+}

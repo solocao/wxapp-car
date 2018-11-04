@@ -1,0 +1,266 @@
+@import "common.styl"
+
+$mg(value) {
+  .mg{value} {
+    margin: value;
+  }
+
+  .mg{value}-lr {
+    margin-left: value;
+    margin-right: value;
+  }
+
+  .mg{value}-tb {
+    margin-top: value;
+    margin-bottom: value;
+  }
+
+  .mg{value}-l {
+    margin-left: value;
+  }
+
+  .mg{value}-r {
+    margin-right: value;
+  }
+
+  .mg{value}-t {
+    margin-top: value;
+  }
+
+  .mg{value}-b {
+    margin-bottom: value;
+  }
+}
+
+$pd(value) {
+  .pd{value} {
+    padding: value;
+  }
+
+  .pd{value}-lr {
+    padding-left: value;
+    padding-right: value;
+  }
+
+  .pd{value}-tb {
+    padding-top: value;
+    padding-bottom: value;
+  }
+
+  .pd{value}-l {
+    padding-left: value;
+  }
+
+  .pd{value}-r {
+    padding-right: value;
+  }
+
+  .pd{value}-t {
+    padding-top: value;
+  }
+
+  .pd{value}-b {
+    padding-bottom: value;
+  }
+}
+
+//边距
+for $i in 1..20 {
+  $mg($i* 5px)
+  $pd($i* 5px)
+}
+
+.pd-no-l {
+  padding-left 0;
+}
+
+.pd-no-r {
+  padding-right 0;
+}
+
+.pd-no-t {
+  padding-top 0;
+}
+
+.pd-no-b {
+  padding-bottom 0;
+}
+
+.mg-no-l {
+  margin-left 0;
+}
+
+.mg-no-r {
+  margin-right 0;
+}
+
+.mg-no-t {
+  margin-top 0;
+}
+
+.mg-no-b {
+  margin-bottom 0;
+}
+
+//遍历行高
+for $i in 0..20 {
+  .lh{$i*5} {
+    line-height: ($i * 5px);
+  }
+}
+
+//遍历宽度
+for $i in 0..20 {
+  .w{$i*5} {
+    width: ($i * 5px);
+  }
+}
+
+//遍历百分比宽度
+for $i in 1..19 {
+  .w-{$i*5} {
+    width: ($i * 5%);
+  }
+}
+
+.w {
+  width: 100%;
+}
+
+//遍历高度
+for $i in 1..20 {
+  .h{$i*5} {
+    height: ($i * 5px);
+  }
+}
+
+//遍历百分比高度
+for $i in 1..19 {
+  .h-{$i*5} {
+    height: ($i * 5%);
+  }
+}
+
+.h {
+  height: 100%;
+}
+
+.c {
+  color: #009DDA;
+}
+
+//颜色
+for $i in 1..9 {
+  .c{$i}{$i}{$i} {
+    color: s('#' + $i* 111)
+  }
+}
+
+.eee {
+  color: #eee;
+}
+
+.bg-d8 {
+  background-color: #d8d8d8 !important;
+}
+
+.bg-f8 {
+  background-color: #f8f8f8 !important;
+}
+
+.bg-eee {
+  background-color: #eee;
+}
+
+.bg-f9 {
+  background-color: #f9f9f9;
+}
+
+.fff {
+  color: #fff;
+}
+
+.ls {
+  letter-spacing: .5em
+}
+
+//文字排版
+.fs12 {
+  font-size: 12px;
+}
+
+.fs14 {
+  font-size: 14px;
+}
+
+.fs16 {
+  font-size: 16px;
+}
+
+.fs18 {
+  font-size: 18px;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.fw {
+  font-weight: bold
+}
+
+.t2 {
+  text-indent: 2em;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tc {
+  text-align: center;
+}
+
+.tr {
+  text-align: right;
+}
+
+.pr {
+  position: relative;
+}
+
+.pa {
+  position: absolute;
+}
+
+.px {
+  position: fixed;
+}
+
+.bd {
+  border: 1px solid red;
+}
+
+.br10 {
+  border-radius 10px !important;
+}
+
+.br5 {
+  border-radius 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.small {
+  font-size: .625em;
+}
+
+.db {
+  display: inline-block !important;
+}
+
+.of {
+  overflow hidden;
+}
