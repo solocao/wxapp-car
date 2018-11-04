@@ -5,13 +5,17 @@
       <div class="a-title">
         发烧发烧发烧
       </div>
-      <div class="a-info">
+      <div class="a-profit">
+        <div>
+          预计收益
+          <span>***（身份认证后可查看收益）</span>
+        </div>
         <span>
-          asfsf
+          已结束
         </span>
-        <span>
-          23评
-        </span>
+      </div>
+      <div class="a-date">
+        投放时间 <span>08月12日 ～ 09月11日</span>
       </div>
     </div>
   </div>
@@ -28,16 +32,17 @@ export default {
   },
 };
 </script>
-
 <style lang="less" scoped>
 .active-row {
-  height: 90px;
+  height: 80px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
+  margin-right: 10px;
+  margin-left: 10px;
   .a-img {
-    width: 100px;
-    height: 75px;
+    width: 68px;
+    height: 68px;
     margin-right: 10px;
   }
   .a-text {
@@ -50,11 +55,15 @@ export default {
   .a-text {
     font-size: 15px;
   }
-  .a-info {
+  .a-profit {
     color: #aaa;
     font-size: 12px;
     display: flex;
     justify-content: space-between;
+  }
+  .a-date {
+    color: #aaa;
+    font-size: 12px;
   }
 }
 </style>

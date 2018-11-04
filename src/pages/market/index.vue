@@ -52,7 +52,5 @@ export default {
 <style style="less" scoped>
 .active-container {
   width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
 }
 </style>
