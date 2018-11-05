@@ -7397,6 +7397,11 @@ ws@^4.0.0:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
 
+wux-weapp@^3.2.0:
+  version "3.2.0"
+  resolved "http://registry.npm.taobao.org/wux-weapp/download/wux-weapp-3.2.0.tgz#27a6b0d4da28294b08be9c12bf3ec59355a22996"
+  integrity sha1-J6aw1NooKUsIvpwSvz7Fk1WiKZY=
+
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"
   resolved "http://registry.npm.taobao.org/xtend/download/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
