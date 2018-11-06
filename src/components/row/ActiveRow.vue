@@ -3,7 +3,7 @@
     <img class="a-img" src="https://ss2.bdstatic.com/8_V1bjqh_Q23odCf/pacific/1664757423.jpg" alt="">
     <div class="a-text">
       <div class="a-title">
-        发烧发烧发烧
+        活动计划标题
       </div>
       <div class="a-profit">
         <div>

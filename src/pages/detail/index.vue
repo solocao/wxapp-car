@@ -37,18 +37,6 @@
           <span>黑色、粉色、银色、蓝色、紫色</span>
         </div>
       </wux-cell>
-      <wux-cell hover-class="none">
-        <wux-input label="WeChat" />
-      </wux-cell>
-      <wux-cell hover-class="none">
-        <div class="flex-space-between">
-          <span>sf</span>
-          <span>dsf</span>
-        </div>
-      </wux-cell>
-      <wux-cell hover-class="none">
-        <wux-input label="Password" placeholder="Input your password" password type="number" />
-      </wux-cell>
     </wux-cell-group>
   </div>
 </template>

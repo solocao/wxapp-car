@@ -2,10 +2,10 @@
   <section class="aui-flexView">
     <section class="aui-scrollView">
       <div class="aui-flex-header">
-        <div class="aui-flex-text">
-          <h1>活动优惠</h1>
-          <h2></h2>
-          <h3>参与即可享受更多权利</h3>
+        <div class="aui-flex-text" style="paddingTop:10px;height:80px">
+          <span>
+            <!-- 更多活动优惠 -->
+          </span>
         </div>
       </div>
       <div style="padding:10px">

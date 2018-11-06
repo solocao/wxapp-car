@@ -3,30 +3,28 @@
     <div class="aui-activity-item">
       <div class="aui-flex b-line">
         <div class="aui-flex-hos">
-          <img src="../../static/images/task/hos-001.jpg" alt="">
+          <img src="http://www.benpaobao.com/img/case3_1.jpg" alt="">
         </div>
         <div class="aui-flex-box">
-          <h2>灌云鼎大厦</h2>
+          <h2>XXXX</h2>
           <div class="aui-flex-address aui-flex">
-            <span class="aui-flex-box">密云-密云</span>
-            <span class="aui-flex-price">31000 <span>元/㎡起</span></span>
+            <span class="aui-flex-box">预计收入</span>
+            <span class="aui-flex-price">120 <span>元</span></span>
           </div>
-          <p>建筑面积139-800㎡</p>
+          <p>里程8.3km</p>
           <div class="aui-pattern">
-            <span class="aui-pattern-one">在售</span>
-            <span class="aui-pattern-two">别墅</span>
-            <span>山景</span>
-            <span>投资</span>
+            <span class="aui-pattern-one">在途</span>
+            <span class="aui-pattern-two">已出账</span>
           </div>
         </div>
       </div>
       <div class="aui-flex">
         <div class="aui-flex-box">
-          <h4> 总价499万/套起</h4>
-          <h5><span>2434</span>人已经报名</h5>
+          <h4> 奖金池 20万元</h4>
+          <h5><span>2434</span>人已经参与</h5>
         </div>
         <div class="aui-flex-button">
-          <button>获取优惠</button>
+          <button>查看详情</button>
         </div>
       </div>
     </div>
@@ -148,12 +146,16 @@
     background: #dcecfb;
     color: #678eb0;
     font-size: 12px;
+    padding: 2px 3px;
+    margin-right: 3px;
   }
   .aui-pattern-two {
     border: 1px solid #ecf5e2;
     background: #ecf5e2;
     color: #698e60;
     font-size: 12px;
+    padding: 2px 3px;
+    margin-right: 3px;
   }
 }
 

@@ -11,9 +11,9 @@
                 <img src="../../../static/img/my/user-003.png" alt="">
               </div>
               <div class="aui-flex-box">
-                <h3>李嘉桦同学</h3>
+                <h3>李嘉桦</h3>
                 <div class="aui-flex-org">
-                  <i class="icon icon-vip"></i>普通会员
+                  <i class="icon icon-vip"></i>认证会员
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
                   <img src="../../../static/img/my/icon-head-001.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>待支付</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -69,7 +69,7 @@
                   <img src="../../../static/img/my/icon-head-002.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>待出行</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -77,7 +77,7 @@
                   <img src="../../../static/img/my/icon-head-003.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>待点评</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -85,7 +85,7 @@
                   <img src="../../../static/img/my/icon-head-004.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>全部订单</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
             </div>
@@ -99,7 +99,7 @@
                   <img src="../../../static/img/my/icon-head-005.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>同灵宝</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -107,7 +107,7 @@
                   <img src="../../../static/img/my/icon-head-006.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>爱白条</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -115,7 +115,7 @@
                   <img src="../../../static/img/my/icon-head-007.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>借钱花</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -123,7 +123,7 @@
                   <img src="../../../static/img/my/icon-head-008.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>全部钱包</h2>
+                  <h2>XXX</h2>
                 </div>
               </a>
             </div>
@@ -135,11 +135,11 @@
               <a href="javascript:;" class="aui-flex b-line">
                 <div class="aui-flex-box-head">常用信息</div>
                 <div class="aui-flex-box aui-flex-box-right">
-                  旅客、地址、银行卡
+                  帮助
                 </div>
               </a>
               <a href="javascript:;" class="aui-flex b-line">
-                <div class="aui-flex-box-head">我的点评</div>
+                <div class="aui-flex-box-head">我的任务</div>
                 <div class="aui-flex-box aui-flex-box-right">
                   图片、文字
                 </div>

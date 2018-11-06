@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/detail/main",
-    "pages/task/main",
     "pages/market/main",
+    "pages/task/main",
     "pages/index/main",
     "pages/logs/main",
     "pages/counter/main",
@@ -10,12 +9,12 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#58A94E",
-    "navigationBarTitleText": "绿帽子",
+    "navigationBarBackgroundColor": "#2D8FF7",
+    "navigationBarTitleText": "汽车营销",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "selectedColor": "#58A94E",
+    "selectedColor": "#2D8FF7",
     "list": [
       {
         "pagePath": "pages/market/main",
