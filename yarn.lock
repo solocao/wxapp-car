@@ -4579,6 +4579,13 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
+mpvue-entry@^1.5.8:
+  version "1.5.8"
+  resolved "http://registry.npm.taobao.org/mpvue-entry/download/mpvue-entry-1.5.8.tgz#15c462ee8094ea7300d76885511e25c79e57ea25"
+  integrity sha1-FcRi7oCU6nMA12iFUR4lx55X6iU=
+  dependencies:
+    mkdirp "^0.5.1"
+
 mpvue-loader@^1.1.2:
   version "1.1.4"
   resolved "http://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-1.1.4.tgz#3eee4b8473673c15c0ea5dca6c3cbfaac03699e4"

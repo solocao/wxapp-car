@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/market/main",
-    "pages/task/main",
-    "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main",
-    "pages/my/main"
+    "pages/market",
+    "pages/task",
+    "pages/index",
+    "pages/logs",
+    "pages/counter",
+    "pages/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,19 +17,19 @@
     "selectedColor": "#2D8FF7",
     "list": [
       {
-        "pagePath": "pages/market/main",
+        "pagePath": "pages/market",
         "text": "广告市场",
         "iconPath": "static/img/tab/market.png",
         "selectedIconPath": "static/img/tab/market-selected.png"
       },
       {
-        "pagePath": "pages/task/main",
+        "pagePath": "pages/task",
         "text": "我的任务",
         "iconPath": "static/img/tab/task.png",
         "selectedIconPath": "static/img/tab/task-selected.png"
       },
       {
-        "pagePath": "pages/my/main",
+        "pagePath": "pages/my",
         "text": "个人中心",
         "iconPath": "static/img/tab/my.png",
         "selectedIconPath": "static/img/tab/my-selected.png"
