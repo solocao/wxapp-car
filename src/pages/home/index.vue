@@ -1,6 +1,17 @@
 <template>
-  <div class="detail">
+  <div>
     <button @click="go">跳转</button>
+    <wux-grids>
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+      <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
+    </wux-grids>
     <wux-cell-group>
       <wux-cell hover-class="none">
         <div class="flex-space-between">
@@ -41,26 +52,17 @@
     </wux-cell-group>
   </div>
 </template>
+
 <script>
 export default {
   methods: {
     go() {
       console.log(this.$router.currentRoute);
-      this.$router.push('/pages/task');
+      // wx.switchTab({ url: '/pages/my' });
+
+
+      this.$router.push({ path: '/pages/my', switchTab: true });
     },
   },
 };
 </script>
-
-<style lang="less" scoped>
-.detail {
-  font-size: 14px;
-  color: #656665;
-}
-
-.flex-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-</style>
-

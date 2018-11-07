@@ -4611,6 +4611,11 @@ mpvue-loader@^1.1.2:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.5.3"
 
+mpvue-router-patch@^0.2.1:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/mpvue-router-patch/download/mpvue-router-patch-0.2.1.tgz#a401ca0a2c29d2203eecd2f68064cbbcd32fb796"
+  integrity sha1-pAHKCiwp0iA+7NL2gGTLvNMvt5Y=
+
 mpvue-template-compiler@^1.0.11:
   version "1.0.13"
   resolved "http://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-1.0.13.tgz#1e3e809a71dcf0d18e77bc3a370a4423510cfd24"

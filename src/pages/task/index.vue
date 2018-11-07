@@ -1,5 +1,6 @@
 <template>
   <section class="aui-flexView">
+    <button @click="go">跳转</button>
     <section class="aui-scrollView">
       <div class="aui-flex-header">
         <div class="aui-flex-text" style="paddingTop:10px;height:80px">
@@ -24,6 +25,12 @@ export default {
     return {
 
     };
+  },
+  methods: {
+    go() {
+      console.log(this.$router.currentRoute);
+      this.$router.push('/pages/task');
+    },
   },
 };
 </script>

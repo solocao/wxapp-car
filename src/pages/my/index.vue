@@ -11,7 +11,8 @@
                 <img src="../../../static/img/my/user-003.png" alt="">
               </div>
               <div class="aui-flex-box">
-                <h3>李嘉桦</h3>
+                <h3>李嘉桦1</h3>
+                <button @click="go">跳转</button>
                 <div class="aui-flex-org">
                   <i class="icon icon-vip"></i>认证会员
                 </div>
@@ -167,6 +168,17 @@
     </section>
   </section>
 </template>
+<script>
+export default {
+  methods: {
+    go() {
+      console.log(this.$router.currentRoute);
+      this.$router.push('/pages/task');
+    },
+  },
+};
+</script>
+
 <style lang="stylus" scoped>
 /* 必要布局样式css */
 .aui-flexView {

@@ -2,6 +2,7 @@
   <div class="market">
     <Swiper :images="images" />
     <market-tip></market-tip>
+    <button @click="go">跳转</button>
     <!-- <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo">获取用户信息</button> -->
     <div class="active-container">
       <active-row v-for="i in 8" :key="i"></active-row>
@@ -34,6 +35,13 @@ export default {
     };
   },
   methods: {
+    go() {
+      console.log(this.$router.currentRoute);
+      // wx.switchTab({ url: '/pages/my' });
+
+
+      this.$router.push({ path: '/pages/my', switchTab: true });
+    },
     bindGetUserInfo(e) {
       console.log(e.mp);
     },

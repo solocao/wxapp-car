@@ -1,12 +1,5 @@
 {
-  "pages": [
-    "pages/market",
-    "pages/task",
-    "pages/index",
-    "pages/logs",
-    "pages/counter",
-    "pages/my"
-  ],
+  "pages": [],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2D8FF7",
@@ -17,7 +10,7 @@
     "selectedColor": "#2D8FF7",
     "list": [
       {
-        "pagePath": "pages/market",
+        "pagePath": "pages/home",
         "text": "广告市场",
         "iconPath": "static/img/tab/market.png",
         "selectedIconPath": "static/img/tab/market-selected.png"

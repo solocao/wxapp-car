@@ -16,6 +16,7 @@
     "less-loader": "^4.1.0",
     "mpvue": "^1.0.11",
     "mpvue-entry": "^1.5.8",
+    "mpvue-router-patch": "^0.2.1",
     "node-sass": "^4.10.0",
     "qs": "^6.5.2",
     "sass": "^1.14.3",

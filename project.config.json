@@ -11,7 +11,7 @@
 	"compileType": "miniprogram",
 	"appid": "wx212ce8e249e36ef4",
 	"projectname": "wxapp-car",
-	"libVersion": "2.3.2",
+	"libVersion": "2.4.0",
 	"condition": {
 		"search": {
 			"current": -1,
