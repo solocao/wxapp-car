@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="home">
+    <Swiper :images="images" />
+    <tip-home></tip-home>
     <button @click="go">跳转</button>
     <wux-grids>
       <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
@@ -54,7 +56,19 @@
 </template>
 
 <script>
+import Swiper from '@/components/swiper';
+import TipHome from '@/components/TipHome';
+
 export default {
+  data() {
+    return {
+      images: [
+        { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
+        { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
+      ],
+    };
+  },
+
   methods: {
     go() {
       console.log(this.$router.currentRoute);
@@ -64,5 +78,12 @@ export default {
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
   },
+  components: { Swiper, TipHome },
 };
 </script>
+<style lang="less" scoped>
+.home {
+  padding: 10px;
+}
+</style>
+
