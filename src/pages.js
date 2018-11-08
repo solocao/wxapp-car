@@ -1,5 +1,19 @@
 module.exports = [
   {
+    path: 'pages/user/verify', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
+    config: {
+      navigationBarTitleText: '用户实名',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+      },
+    },
+  },
+  {
+    path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
+  },
+
+  {
     path: 'pages/home', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
     config: {
       usingComponents: {
@@ -20,9 +34,6 @@ module.exports = [
       navigationBarBackgroundColor: '#2D8FF7',
       navigationBarTextStyle: 'white',
     },
-  },
-  {
-    path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
   {
     path: 'pages/market', // 页面路径，同时是 vue 文件相对于 src 的路径，必填

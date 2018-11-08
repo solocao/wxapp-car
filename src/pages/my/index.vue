@@ -11,7 +11,7 @@
               </div>
               <div class="aui-flex-box">
                 <h3>李嘉桦1</h3>
-                <div class="aui-flex-org">
+                <div class="aui-flex-org" style="background:red" @click="go">
                   <i class="icon icon-vip"></i>认证会员
                 </div>
               </div>
@@ -19,10 +19,10 @@
             <div class="aui-palace aui-palace-one b-line">
               <a href="javascript:;" class="aui-palace-grid">
                 <div class="aui-palace-grid-icon">
-                  <span>23</span>
+                  <span>23元</span>
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>浏览历史</h2>
+                  <h2>余额</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -30,7 +30,7 @@
                   <span>123</span>
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>收藏</h2>
+                  <h2>待收收益</h2>
                 </div>
               </a>
               <a href="javascript:;" class="aui-palace-grid">
@@ -38,7 +38,7 @@
                   <span>9</span>
                 </div>
                 <div class="aui-palace-grid-text">
-                  <h2>红包优惠券</h2>
+                  <h2>累计收益</h2>
                 </div>
               </a>
             </div>
@@ -171,8 +171,10 @@ export default {
   methods: {
     go() {
       console.log(this.$router.currentRoute);
-      this.$router.push('/pages/task');
+      // this.$router.push('pages/task');
+      wx.redirectTo({ url: '/pages/user/verify' });
     },
+
   },
 };
 </script>
@@ -197,40 +199,6 @@ export default {
 
   img {
     border: 0;
-  }
-
-  button, input, optgroup, select, textarea {
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    outline: none;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  a {
-    color: #666;
-  }
-
-  .clearfix::after {
-    clear: both;
-    content: '.';
-    display: block;
-    height: 0;
-    visibility: hidden;
-  }
-
-  .clearfix {
-  }
-
-  .divHeight {
-    width: 100%;
-    height: 10px;
-    background: #f5f5f5;
-    position: relative;
-    overflow: hidden;
   }
 
   .r-line {
@@ -395,8 +363,8 @@ export default {
   .aui-tour-content {
     width: 100%;
     height: 200px;
-    background-image: linear-gradient(top bottom, #2FAB3F, #00c3ad);
-    background-color: #2FAB3F;
+    background-image: linear-gradient(top bottom, #048FFF, #048FFF);
+    background-color: #048FFF;
     border-radius: 0 0 50% 50%;
   }
 
