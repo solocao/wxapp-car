@@ -2,6 +2,25 @@
   <div class="home">
     <Swiper :images="images" />
     <tip-home></tip-home>
+    <wux-row>
+      <wux-col span="4" class="grids-icon">
+        <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-1.png" alt=""></div>
+        <p class="grids-grid-label">违章查询</p>
+        <p class="grids-grid-num">6次</p>
+      </wux-col>
+      <wux-col span="4" class="grids-icon">
+        <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-2.png" alt=""></div>
+        <p class="grids-grid-label">保险到期</p>
+        <p class="grids-grid-num">299天</p>
+      </wux-col>
+      <wux-col span="4" class="grids-icon">
+        <div class="grids-grid3-cont">
+          <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-3.png" alt=""></div>
+          <p class="grids-grid-label">保养到期</p>
+          <p class="grids-grid-num">188天</p>
+        </div>
+      </wux-col>
+    </wux-row>
     <button @click="go">跳转</button>
     <wux-grids>
       <wux-grid thumb="http://pbqg2m54r.bkt.clouddn.com/logo.png" label="Wux Weapp" />
@@ -84,6 +103,31 @@ export default {
 <style lang="less" scoped>
 .home {
   padding: 10px;
+
+  .grids-icon {
+    padding: 10px 0;
+    .grids-grid-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .grids-grid-label {
+      display: block;
+      text-align: center;
+      color: #000;
+      font-size: 12px;
+    }
+    .grids-grid-num {
+      display: block;
+      text-align: center;
+      color: #3598dc;
+      font-size: 16px;
+    }
+  }
 }
 </style>
 

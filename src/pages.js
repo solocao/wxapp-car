@@ -9,6 +9,8 @@ module.exports = [
         'wux-cell': '../static/wux/cell/index',
         'wux-cell-group': '../static/wux/cell-group/index',
         'wux-input': '../static/wux/input/index',
+        'wux-row': '../static/wux/row/index',
+        'wux-col': '../static/wux/col/index',
       },
     },
   },
