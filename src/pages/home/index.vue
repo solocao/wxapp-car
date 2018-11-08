@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    {{userinfo.phone}}
+    <wux-button block type="positive">positive</wux-button>
     <Swiper :images="images" />
     <tip-home></tip-home>
     <wux-row>
@@ -35,6 +35,7 @@ import TipHome from '@/components/TipHome';
 import IncomeRank from '@/components/list/IncomeRank';
 
 export default {
+  components: { Swiper, TipHome, IncomeRank },
   data() {
     return {
       images: [
@@ -56,7 +57,10 @@ export default {
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
   },
-  components: { Swiper, TipHome, IncomeRank },
+  mounted() {
+
+  },
+
 };
 </script>
 <style lang="less" scoped>
