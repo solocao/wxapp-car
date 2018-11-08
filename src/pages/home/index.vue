@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    {{userinfo.phone}}
     <Swiper :images="images" />
     <tip-home></tip-home>
     <wux-row>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Swiper from '@/components/swiper';
 import TipHome from '@/components/TipHome';
 import IncomeRank from '@/components/list/IncomeRank';
@@ -40,6 +42,9 @@ export default {
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
     };
+  },
+  computed: {
+    ...mapState(['userinfo']),
   },
 
   methods: {

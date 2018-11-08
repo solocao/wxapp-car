@@ -2102,6 +2102,11 @@ deep-is@~0.1.3:
   resolved "http://registry.npm.taobao.org/deep-is/download/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
 
+deepmerge@^2.1.0:
+  version "2.2.1"
+  resolved "http://registry.npm.taobao.org/deepmerge/download/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha1-XT/yKgHAD2RUBaL7wX0HeKGAEXA=
+
 defaults@^1.0.3:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/defaults/download/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
@@ -6374,6 +6379,11 @@ shelljs@^0.8.1:
     interpret "^1.0.0"
     rechoir "^0.6.2"
 
+shvl@^1.3.0:
+  version "1.3.1"
+  resolved "http://registry.npm.taobao.org/shvl/download/shvl-1.3.1.tgz#6c20a17b4a20b08e9f8cab60c50a92229fcc176e"
+  integrity sha1-bCChe0ogsI6fjKtgxQqSIp/MF24=
+
 sigmund@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/sigmund/download/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
@@ -7224,6 +7234,14 @@ vue-template-es2015-compiler@^1.5.3, vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
   integrity sha1-3EJpcTMwLOMBdSQ1amxht7abShg=
+
+vuex-persistedstate@^2.5.4:
+  version "2.5.4"
+  resolved "http://registry.npm.taobao.org/vuex-persistedstate/download/vuex-persistedstate-2.5.4.tgz#a19710ad7f9a08cea4e65fc585924d9fdac7384a"
+  integrity sha1-oZcQrX+aCM6k5l/FhZJNn9rHOEo=
+  dependencies:
+    deepmerge "^2.1.0"
+    shvl "^1.3.0"
 
 vuex@^3.0.1:
   version "3.0.1"

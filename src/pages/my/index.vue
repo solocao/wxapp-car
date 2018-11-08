@@ -1,6 +1,5 @@
 <template>
   <section class="aui-flexView">
-
     <section class="aui-scrollView">
       <div class="aui-tour-content"></div>
       <div class="aui-tour-box">
@@ -12,7 +11,6 @@
               </div>
               <div class="aui-flex-box">
                 <h3>李嘉桦1</h3>
-                <button @click="go">跳转</button>
                 <div class="aui-flex-org">
                   <i class="icon icon-vip"></i>认证会员
                 </div>
