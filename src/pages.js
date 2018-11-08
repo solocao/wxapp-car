@@ -6,6 +6,8 @@ module.exports = [
         'wux-row': '../static/wux/row/index',
         'wux-col': '../static/wux/col/index',
         'wux-button': '../static/wux/button/index',
+        'wux-dialog': '../static/wux/dialog/index',
+
       },
     },
   },

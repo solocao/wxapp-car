@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <wux-button block type="positive">positive</wux-button>
     <Swiper :images="images" />
     <tip-home></tip-home>
     <wux-row>
@@ -25,6 +24,7 @@
     <div>
       <income-rank></income-rank>
     </div>
+    <wux-dialog id="wux-dialog" />
   </div>
 </template>
 
@@ -33,6 +33,7 @@ import { mapState } from 'vuex';
 import Swiper from '@/components/swiper';
 import TipHome from '@/components/TipHome';
 import IncomeRank from '@/components/list/IncomeRank';
+import { $wuxDialog } from '../../../static/wux/index';
 
 export default {
   components: { Swiper, TipHome, IncomeRank },
@@ -52,13 +53,29 @@ export default {
     go() {
       console.log(this.$router.currentRoute);
       // wx.switchTab({ url: '/pages/my' });
-
-
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
   },
   mounted() {
-
+    $wuxDialog().open({
+      resetOnClose: true,
+      title: '车主身份认证',
+      content: '为了提高更好的服务，需要进行车主身份认证',
+      buttons: [{
+        text: '退出',
+        onTap(e) {
+          console.log(e);
+        },
+      },
+      {
+        text: '认证',
+        type: 'primary',
+        onTap(e) {
+          console.log(e);
+        },
+      },
+      ],
+    });
   },
 
 };
