@@ -1,122 +1,75 @@
 <template>
   <div class="verify">
-
-    <wux-cell-group>
-
+    <wux-cell-group title="请输入认证信息">
       <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>预计收益</span>
-
-          <span>***(身份认证后查看收益)</span>
-
-        </div>
-
+        <wux-input :value="text" :controlled="true" label="车主姓名" placeholder="请填写本人姓名" @change="(e)=>{this.text=e.mp.detail.value }" />
       </wux-cell>
-
+      <wux-cell hover-class=" none">
+        <wux-input label="车牌号" placeholder="请输入车牌号" password type="number" />
+      </wux-cell>
       <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>广告类型</span>
-
-          <span>车内+车外</span>
-
-        </div>
-
+        <span class="z-cell-label">车辆类型</span>
+        <wux-selectable color="positive" value="1" defaultChecked />网约车
+        <wux-selectable color="positive" value="2" />私家车
       </wux-cell>
-
-      <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>收益时间</span>
-
-          <span>08月12日 ～ 09月11日</span>
-
-        </div>
-
-      </wux-cell>
-
-      <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>安装时间</span>
-
-          <span>08月12日 ～ 09月11日</span>
-
-        </div>
-
-      </wux-cell>
-
-      <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>车辆要求</span>
-
-          <span>南京市车辆</span>
-
-        </div>
-
-      </wux-cell>
-
-      <wux-cell hover-class="none">
-
-        <div class="flex-space-between">
-
-          <span>车辆颜色</span>
-
-          <span>黑色、粉色、银色、蓝色、紫色</span>
-
-        </div>
-
-      </wux-cell>
-
+      <wux-cell hover-class="none" title="车辆颜色" extra="请选择" @click="onClick1"></wux-cell>
     </wux-cell-group>
-
+    <wux-select id="wux-select" />
   </div>
-
 </template>
 
 <script>
-
-import Swiper from '@/components/swiper';
-
-import TipHome from '@/components/TipHome';
+import { $wuxSelect } from '../../../static/wux/index';
 
 export default {
-
   data() {
     return {
-
+      value1: '',
+      text: null,
       images: [
-
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
-
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
-
       ],
-
     };
   },
 
   methods: {
-
     go() {
       console.log(this.$router.currentRoute);
-
       // wx.switchTab({ url: '/pages/my' });
-
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
+    afa() {
+      JSON.stringify();
+    },
+    onClick1() {
+      $wuxSelect('#wux-select').open({
+        value: this.value1,
+        options: [
+          '法官',
+          '医生',
+          '猎人',
+          '学生',
+          '记者',
+          '其他',
+          '医生',
+          '猎人',
+          '学生',
+          '记者',
+          '其他',
+          '医生',
+          '猎人',
+          '学生',
+          '记者',
+          '其他',
+        ],
+        onConfirm: (value, index, options) => {
 
+
+        },
+      });
+    },
   },
-
-  components: { Swiper, TipHome },
-
 };
 
 </script>
@@ -167,6 +120,14 @@ export default {
   .flex-space-between {
     display: flex;
     justify-content: space-between;
+  }
+  .z-cell-label {
+    margin-left: 0;
+    margin-right: 10rpx;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 210rpx;
   }
 }
 </style>

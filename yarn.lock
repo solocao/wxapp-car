@@ -4634,6 +4634,13 @@ mpvue-webpack-target@^1.0.0:
   resolved "http://registry.npm.taobao.org/mpvue-webpack-target/download/mpvue-webpack-target-1.0.1.tgz#203995b7ab63f1c80fb72acf870962c549fc43c7"
   integrity sha1-IDmVt6tj8cgPtyrPhwlixUn8Q8c=
 
+mpvue-weui@^1.0.3:
+  version "1.0.3"
+  resolved "http://registry.npm.taobao.org/mpvue-weui/download/mpvue-weui-1.0.3.tgz#4e9eed18f4ea7e2c804e65a5650934cf5f3c71eb"
+  integrity sha1-Tp7tGPTqfiyATmWlZQk0z188ces=
+  dependencies:
+    mpvue "^1.0.11"
+
 mpvue@^1.0.11:
   version "1.0.13"
   resolved "http://registry.npm.taobao.org/mpvue/download/mpvue-1.0.13.tgz#9d128d91f2a89bdd7507493fbeef409fe302fbd7"
@@ -7427,10 +7434,10 @@ ws@^4.0.0:
     async-limiter "~1.0.0"
     safe-buffer "~5.1.0"
 
-wux-weapp@^3.2.0:
-  version "3.2.0"
-  resolved "http://registry.npm.taobao.org/wux-weapp/download/wux-weapp-3.2.0.tgz#27a6b0d4da28294b08be9c12bf3ec59355a22996"
-  integrity sha1-J6aw1NooKUsIvpwSvz7Fk1WiKZY=
+wux-weapp@3.3.0:
+  version "3.3.0"
+  resolved "http://registry.npm.taobao.org/wux-weapp/download/wux-weapp-3.3.0.tgz#ce3354aa4ebd347ac818e41b7d2f9fa4aec5cb38"
+  integrity sha1-zjNUqk69NHrIGOQbfS+fpK7Fyzg=
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"

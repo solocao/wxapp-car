@@ -2,10 +2,15 @@ module.exports = [
   {
     path: 'pages/user/verify', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
     config: {
-      navigationBarTitleText: '用户实名',
+      navigationBarTitleText: '车主认证',
       usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
         'wux-cell-group': '../../static/wux/cell-group/index',
         'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
       },
     },
   },

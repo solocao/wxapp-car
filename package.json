@@ -17,6 +17,7 @@
     "mpvue": "^1.0.11",
     "mpvue-entry": "^1.5.8",
     "mpvue-router-patch": "^0.2.1",
+    "mpvue-weui": "^1.0.3",
     "node-sass": "^4.10.0",
     "qs": "^6.5.2",
     "sass": "^1.14.3",
@@ -25,7 +26,7 @@
     "stylus-loader": "^3.0.2",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4",
-    "wux-weapp": "^3.2.0"
+    "wux-weapp": "3.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
