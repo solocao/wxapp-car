@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="money">
     <money-income></money-income>
   </div>
 </template>
@@ -13,3 +13,9 @@ export default {
 
 };
 </script>
+<style lang="less" scoped>
+.money {
+  padding: 10px;
+}
+</style>
+
