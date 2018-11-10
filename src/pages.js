@@ -1,5 +1,8 @@
 module.exports = [
   {
+    path: 'pages/car/detail',
+  },
+  {
     path: 'pages/car/category', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
   {
