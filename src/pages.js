@@ -1,6 +1,14 @@
 module.exports = [
   {
     path: 'pages/car/detail',
+    config: {
+      navigationBarTitleText: '车辆选择',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
   },
   {
     path: 'pages/car/category', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
