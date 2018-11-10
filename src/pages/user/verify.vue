@@ -14,7 +14,16 @@
       </wux-cell>
       <wux-cell hover-class="none" title="车辆颜色" extra="请选择" @click="onClick1"></wux-cell>
     </wux-cell-group>
+    <div>
+      车辆照片(实际场景)
+      <img src="../../../static/img/verify/1.png" alt="">
+    </div>
+    <div>
+      行驶证照片
+      <img src="../../../static/img/verify/2.png" alt="">
+    </div>
     <wux-select id="wux-select" />
+    <wux-button block type="positive">确认提交</wux-button>
   </div>
 </template>
 
