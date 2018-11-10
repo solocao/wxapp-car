@@ -1,5 +1,11 @@
 module.exports = [
   {
+    path: 'pages/money',
+    config: {
+      navigationBarTitleText: '记录',
+    },
+  },
+  {
     path: 'pages/market/active',
     config: {
       navigationBarTitleText: '热门活动',

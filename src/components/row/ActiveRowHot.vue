@@ -75,7 +75,6 @@ export default {
       }
     }
   }
-
   .a-detail {
     flex: 1;
     color: #333;
