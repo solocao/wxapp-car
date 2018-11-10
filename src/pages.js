@@ -1,5 +1,16 @@
 module.exports = [
   {
+    path: 'pages/market/active',
+    config: {
+      navigationBarTitleText: '热门活动',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
+  },
+  {
     path: 'pages/car/detail',
     config: {
       navigationBarTitleText: '车辆选择',
