@@ -1,8 +1,10 @@
 import Fly from 'flyio/dist/npm/wx';
 import qs from 'qs';
+import config from '../config';
 
 const fly = new Fly();
-const host = 'https://www.easy-mock.com/mock/5af9506f55139c3813192aa2/example';
+
+const host = config.api.host;
 
 // 添加请求request拦截器
 fly.interceptors.request.use((request) => {
@@ -36,7 +38,9 @@ fly.interceptors.request.use((request) => {
     });
   }
 
-  request.body = Object.assign({}, request.body, authParams);
+  // request.body = Object.assign({}, request.body, authParams);
+
+  // console.log(request)
   return request;
 });
 
@@ -62,10 +66,10 @@ export default fly;
 
 // 通用的get请求
 export const get = (params) => {
-  fly.get(`${host}${params.url}`, qs.stringify(params.payload));
+  return fly.get(`${host}${params.url}`, qs.stringify(params.payload));
 };
 
 // 通用的post请求
 export const post = (params) => {
-  fly.post(`${host}${params.url}`, qs.stringify(params.payload));
+  return fly.post(`${host}${params.url}`, qs.stringify(params.payload));
 };

@@ -16,6 +16,13 @@ module.exports = {
   plugins: [
     'html'
   ],
+
+  "ecmaFeatures": {
+    // lambda表达式  
+    "arrowFunctions": true,
+    // 解构赋值  
+    "destructuring": false,
+  }
   // check if imports actually resolve
   'settings': {
     'import/resolver': {

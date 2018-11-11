@@ -25,6 +25,9 @@
       <income-rank></income-rank>
     </div>
     <wux-dialog id="wux-dialog" />
+    <div class="button-box">
+      <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">同步微信头像</button>
+    </div>
   </div>
 </template>
 
@@ -50,32 +53,63 @@ export default {
   },
 
   methods: {
+    getUserInfo(e) {
+      console.log(e.target.rawData);
+    },
     go() {
       console.log(this.$router.currentRoute);
       // wx.switchTab({ url: '/pages/my' });
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
+    async login(code) {
+      const params = {
+        url: `mini-program/user/${code}`,
+        payload: {}
+      }
+      const result = await this.get(params);
+      console.log('看看结果');
+      console.log(result);
+    },
   },
   mounted() {
-    $wuxDialog().open({
-      resetOnClose: true,
-      title: '车主身份认证',
-      content: '为了提高更好的服务，需要进行车主身份认证',
-      buttons: [{
-        text: '退出',
-        onTap(e) {
-          console.log(e);
-        },
+    const self = this;
+    wx.login({
+      success(res) {
+        self.login(res.code)
       },
-      {
-        text: '认证',
-        type: 'primary',
-        onTap(e) {
-          console.log(e);
-        },
-      },
-      ],
     });
+
+    // console.log(this.$refs.userbtn);
+    // $wuxDialog().open({
+    //   resetOnClose: true,
+    //   title: '车主身份认证',
+    //   content: '为了提高更好的服务，需要进行车主身份认证',
+    //   buttons: [{
+    //     text: '退出',
+    //     onTap(e) {
+    //       console.log(e);
+    //     },
+    //   },
+    //   {
+    //     text: '认证',
+    //     type: 'primary',
+    //     onTap(e) {
+    //       console.log('我要去认证啦');
+    //       console.log(e);
+    //       wx.login({
+    //         success(res) {
+    //           console.log(res.code);
+    //           wx.getUserInfo({
+    //             success: (res1) => {
+    //               this.userInfo = res1.userInfo;
+    //             },
+    //           });
+    //         },
+    //       });
+    //     },
+    //   },
+    //   ],
+    // });
   },
 
 };

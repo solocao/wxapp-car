@@ -10,22 +10,28 @@
     "selectedColor": "#2D8FF7",
     "list": [
       {
-        "pagePath": "pages/my",
-        "text": "我的",
-        "iconPath": "static/img/tab/my.png",
-        "selectedIconPath": "static/img/tab/my-selected.png"
-      },
-      {
         "pagePath": "pages/home",
         "text": "首页",
         "iconPath": "static/img/tab/home.png",
         "selectedIconPath": "static/img/tab/home-selected.png"
       },
       {
+        "pagePath": "pages/home",
+        "text": "广告",
+        "iconPath": "static/img/tab/market.png",
+        "selectedIconPath": "static/img/tab/market-selected.png"
+      },
+      {
         "pagePath": "pages/task",
         "text": "任务",
         "iconPath": "static/img/tab/task.png",
         "selectedIconPath": "static/img/tab/task-selected.png"
+      },
+      {
+        "pagePath": "pages/my",
+        "text": "我的",
+        "iconPath": "static/img/tab/my.png",
+        "selectedIconPath": "static/img/tab/my-selected.png"
       }
     ]
   }
