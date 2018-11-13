@@ -71,5 +71,5 @@ export const get = (params) => {
 
 // 通用的post请求
 export const post = (params) => {
-  return fly.post(`${host}${params.url}`, qs.stringify(params.payload));
+  return fly.post(`${host}${params.url}`, params.payload);
 };

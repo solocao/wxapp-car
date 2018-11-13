@@ -28,6 +28,13 @@
     <div class="button-box">
       <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">同步微信头像</button>
     </div>
+    <div class="c-modal">
+      <div class="c-mask"></div>
+      <div class="c-card">
+        <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">退出</button>
+        <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">注册</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,6 +53,7 @@ export default {
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
+      openid: null
     };
   },
   computed: {
@@ -53,8 +61,22 @@ export default {
   },
 
   methods: {
-    getUserInfo(e) {
+    async   getUserInfo(e) {
+      console.log(e.target)
       console.log(e.target.rawData);
+
+      const params = {
+        url: 'mini-program/user/register',
+        payload: {
+          openid: this.openid,
+          // user_info: e.target.rawData
+        }
+      }
+
+      const result = await this.post(params)
+      console.log(result)
+
+
     },
     go() {
       console.log(this.$router.currentRoute);
@@ -67,8 +89,13 @@ export default {
         payload: {}
       }
       const result = await this.get(params);
-      console.log('看看结果');
-      console.log(result);
+      if (result.code === 1) {
+        console.log('登录成功')
+      } else {
+        console.log('看看登录的回调信息')
+        console.log(result.data.openid)
+        this.openid = result.data.openid
+      }
     },
   },
   mounted() {
@@ -141,6 +168,32 @@ export default {
       color: #3598dc;
       font-size: 16px;
     }
+  }
+}
+
+.c-modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .c-mask {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .c-card {
+    width: 400rpx;
+    height: 400rpx;
+    background: red;
   }
 }
 </style>
