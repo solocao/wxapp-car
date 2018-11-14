@@ -7,6 +7,15 @@
       <wux-cell hover-class=" none">
         <wux-input label="车牌号" placeholder="请输入车牌号" password type="number" />
       </wux-cell>
+      <wux-cell hover-class=" none">
+        <span class="z-cell-label">车辆颜色</span>
+        <picker @change="bindPickerChange" :value="index" :range="array" placeholder="请输入车牌号">
+          <view class="picker">
+            <span v-if="index==null">请选择车身颜色</span>
+            <span v-else> {{array[index]}}</span>
+          </view>
+        </picker>
+      </wux-cell>
       <wux-cell hover-class="none">
         <span class="z-cell-label">车辆类型</span>
         <div style="float:left">
@@ -14,37 +23,59 @@
           <wux-selectable color="positive" value="2" />私家车
         </div>
       </wux-cell>
-      <wux-cell hover-class="none" title="车辆颜色" extra="请选择" @click="onClick1"></wux-cell>
     </wux-cell-group>
-    <div>
-      车辆照片(实际场景)
-      <img src="../../../static/img/verify/1.png" alt="">
-    </div>
-    <div>
-      行驶证照片
-      <img src="../../../static/img/verify/2.png" alt="">
+    <div class="v-upload-wraper">
+      <div class="z-title">请上传认证资料</div>
+      <div class="v-upload-list">
+        <upload-img></upload-img>
+        <upload-img></upload-img>
+        <upload-img></upload-img>
+        <upload-img></upload-img>
+      </div>
     </div>
     <wux-select id="wux-select" />
-    <wux-button block type="positive">确认提交</wux-button>
+    <div>
+      <wux-button block type="positive">确认提交</wux-button>
+    </div>
   </div>
 </template>
 
 <script>
 import { $wuxSelect } from '../../../static/wux/index';
+import UploadImg from '@/components/upload/UploadImg';
+
 
 export default {
+  components: {
+    UploadImg
+  },
   data() {
     return {
+      index: null,
       value1: '',
+      array: ['白色', '黑色', '银色', '红色', '金色', '蓝色', '棕色', '紫色', '绿色', '粉色', '黄色'],
       text: null,
       images: [
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
+      afaa: '',
     };
   },
 
   methods: {
+    onChange(e) {
+      console.log(e)
+      console.log('onchange')
+    },
+    onFail(e) {
+      console.log('上传失败')
+    },
+    onComplete(e) {
+      const result = JSON.parse(e.target.data);
+      console.log('上传成功');
+      this.afaa = result.data.url;
+    },
     go() {
       console.log(this.$router.currentRoute);
       // wx.switchTab({ url: '/pages/my' });
@@ -52,6 +83,9 @@ export default {
     },
     afa() {
       JSON.stringify();
+    },
+    bindPickerChange(e) {
+      this.index = parseInt(e.target.value);
     },
     onClick1() {
       $wuxSelect('#wux-select').open({
@@ -134,12 +168,26 @@ export default {
   }
   .z-cell-label {
     margin-left: 0;
-    margin-right: 10rpx;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    width: 200rpx;
+    width: 220rpx;
     float: left;
+  }
+}
+
+.v-upload-wraper {
+  .z-title {
+    padding: 30rpx 30rpx 18rpx;
+    font-size: 28rpx;
+    color: #888;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .v-upload-list {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 </style>

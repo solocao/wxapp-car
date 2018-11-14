@@ -13,6 +13,7 @@ module.exports = [
         'wux-cell': '../../static/wux/cell/index',
         'wux-input': '../../static/wux/input/index',
         'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index"
       },
     },
   },
@@ -25,7 +26,6 @@ module.exports = [
         'wux-col': '../static/wux/col/index',
         'wux-button': '../static/wux/button/index',
         'wux-dialog': '../static/wux/dialog/index',
-
       },
     },
   },
