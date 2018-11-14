@@ -16,7 +16,7 @@
         "selectedIconPath": "static/img/tab/home-selected.png"
       },
       {
-        "pagePath": "pages/home",
+        "pagePath": "pages/market/active",
         "text": "广告",
         "iconPath": "static/img/tab/market.png",
         "selectedIconPath": "static/img/tab/market-selected.png"

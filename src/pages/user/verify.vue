@@ -9,8 +9,10 @@
       </wux-cell>
       <wux-cell hover-class="none">
         <span class="z-cell-label">车辆类型</span>
-        <wux-selectable color="positive" value="1" defaultChecked />网约车
-        <wux-selectable color="positive" value="2" />私家车
+        <div style="float:left">
+          <wux-selectable color="positive" value="1" defaultChecked />网约车
+          <wux-selectable color="positive" value="2" />私家车
+        </div>
       </wux-cell>
       <wux-cell hover-class="none" title="车辆颜色" extra="请选择" @click="onClick1"></wux-cell>
     </wux-cell-group>
@@ -136,7 +138,8 @@ export default {
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    width: 210rpx;
+    width: 200rpx;
+    float: left;
   }
 }
 </style>

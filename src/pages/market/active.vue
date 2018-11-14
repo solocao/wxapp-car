@@ -1,11 +1,10 @@
 <template>
   <div class="m-active">
     <div class="hot-head">
-      <p>今日飙升榜top100</p>
+      <p>参加活动,赢取现金大奖</p>
     </div>
     <div class="m-active-list">
-      <active-row-hot></active-row-hot>
-
+      <active-row-hot v-for="i in 8" :key="i"></active-row-hot>
     </div>
   </div>
 </template>
@@ -23,6 +22,7 @@ export default {
 <style lang="less" scoped>
 .m-active {
   position: relative;
+  margin-bottom: 20px;
   .hot-head {
     width: 100%;
     height: 120px;
@@ -30,6 +30,11 @@ export default {
     text-align: center;
     background-image: url(http://www.17sucai.com/preview/1268063/2018-10-09/Hot/images/head-bg.jpg);
     background-size: 100%;
+    padding-top: 15px;
+    p {
+      font-size: 14px;
+      font-weight: bold;
+    }
   }
   .m-active-list {
     position: absolute;

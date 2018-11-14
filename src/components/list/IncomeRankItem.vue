@@ -4,11 +4,11 @@
       <img src="http://www.17sucai.com/preview/1268063/2018-11-05/Skill/images/pro-img-009.png" alt="">
     </div>
     <div class="aui-flex-box">
-      <h3>陈新安 <span> <i class="icon icon-vip"></i> 金牌技师</span></h3>
-      <p>￥5元起 | 309人咨询</p>
+      <h3>张紫乘 <span> <i class="icon icon-vip"></i> 金牌</span></h3>
+      <p>￥收益 5000元 | 210单</p>
     </div>
     <div class="aui-skill-button">
-      <span>咨询</span>
+      <span>查看</span>
     </div>
   </div>
 </template>

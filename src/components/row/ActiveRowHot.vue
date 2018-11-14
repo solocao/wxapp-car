@@ -7,11 +7,11 @@
       </span>
     </div>
     <div class="a-detail">
-      <div class="a-head">经典原色 修身直筒</div>
-      <div class="a-desc">全球购 lee/李牛仔裤男直筒 经典百搭牛仔裤百搭牛仔裤</div>
+      <div class="a-head">苏宁易购 车身广告 新街口环绕行</div>
+      <div class="a-desc">可移动的户外广告媒体,全方位曝光;指定广告投放线路,广告画面立体,效果生动;</div>
       <div class="a-tag">
         <!-- <span class="a-hot-tag"><i class="aui-hot-tag"></i>热度100℃</span> -->
-        <span class="red-tag">6.2折 | 劵</span>
+        <span class="red-tag">6.2元 | 公里</span>
       </div>
     </div>
   </div>
@@ -37,6 +37,7 @@ export default {
 
   .a-desc {
     font-size: 10px;
+    color: grey;
   }
 
   .aui-goods-img {
@@ -141,7 +142,7 @@ export default {
     background: #fff;
     color: #ff1e32;
     border: 1px solid #ff1e32;
-    padding: 3px;
+    padding: 1px 5px;
     font-style: normal;
   }
 }

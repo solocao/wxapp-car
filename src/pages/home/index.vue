@@ -31,8 +31,17 @@
     <div class="c-modal">
       <div class="c-mask"></div>
       <div class="c-card">
-        <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">退出</button>
-        <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">注册</button>
+        <div class="c-head">
+          用户认证
+        </div>
+        <div class="c-content">
+          <p>欢迎使用飞鱼汽车营销平台。</p>
+          <p>为了享受全部功能服务，请进行用户认证，完善信息。</p>
+        </div>
+        <div class="c-bottom">
+          <button class="c-btn" ref="userbtn" open-type="getUserInfo" @getuserinfo="getUserInfo">退出</button>
+          <button class="c-btn" ref="userbtn" open-type="getUserInfo" @getuserinfo="getUserInfo">认证</button>
+        </div>
       </div>
     </div>
   </div>
@@ -44,6 +53,7 @@ import Swiper from '@/components/swiper';
 import TipHome from '@/components/TipHome';
 import IncomeRank from '@/components/list/IncomeRank';
 import { $wuxDialog } from '../../../static/wux/index';
+import { rejects } from 'assert';
 
 export default {
   components: { Swiper, TipHome, IncomeRank },
@@ -53,7 +63,8 @@ export default {
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
-      openid: null
+      user: null,
+      openid: null,
     };
   },
   computed: {
@@ -61,22 +72,31 @@ export default {
   },
 
   methods: {
-    async   getUserInfo(e) {
-      console.log(e.target)
+    async getUserInfo(e) {
       console.log(e.target.rawData);
+      console.log(this.user);
+
+      if (this.user !== null) {
+        wx.navigateTo({
+          url: '/pages/user/verify'
+        })
+        return '';
+      }
 
       const params = {
         url: 'mini-program/user/register',
         payload: {
           openid: this.openid,
-          // user_info: e.target.rawData
+          user_info: e.target.rawData
         }
       }
 
-      const result = await this.post(params)
-      console.log(result)
-
-
+      const result = await this.post(params);
+      if (result.code === 1) {
+        wx.redirectTo({
+          url: 'test?id=1'
+        })
+      }
     },
     go() {
       console.log(this.$router.currentRoute);
@@ -90,11 +110,9 @@ export default {
       }
       const result = await this.get(params);
       if (result.code === 1) {
-        console.log('登录成功')
+        this.user = result.data;
       } else {
-        console.log('看看登录的回调信息')
-        console.log(result.data.openid)
-        this.openid = result.data.openid
+        this.openid = result.data.openid;
       }
     },
   },
@@ -188,12 +206,47 @@ export default {
     width: 100%;
     height: 100%;
     opacity: 0.4;
+    background: #000;
   }
 
   .c-card {
-    width: 400rpx;
-    height: 400rpx;
-    background: red;
+    width: 500rpx;
+    height: 380rpx;
+    background: white;
+    position: relative;
+    border-radius: 5px;
+    .c-head {
+      font-size: 16px;
+      font-weight: bold;
+      color: #363636;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80rpx;
+      color: #048fff;
+      border-bottom: 2px solid #048fff;
+    }
+    .c-content {
+      font-size: 14px;
+      color: #363636;
+      padding: 40rpx;
+    }
+
+    .c-bottom {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      .c-btn {
+        width: 40%;
+        font-size: 14px;
+        background-color: #048fff;
+        border: none;
+        border-radius: 2px;
+        color: white;
+      }
+    }
   }
 }
 </style>

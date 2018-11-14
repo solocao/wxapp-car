@@ -58,8 +58,7 @@
 }
 
 .aui-flex-button button {
-  background-image: linear-gradient(to right, #02a457, #5bc547);
-  background-color: #02a457;
+  background-image: linear-gradient(to right, #048fff, #3781e8);
   color: #fff;
   border-radius: 20px;
   border: none;

@@ -1,5 +1,23 @@
 module.exports = [
   {
+    // 用户认证页面
+    path: 'pages/user/verify',
+    config: {
+      navigationBarTitleText: '车主认证',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        'wux-button': '../../static/wux/button/index',
+      },
+    },
+  },
+
+  {
     path: 'pages/home', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
     config: {
       usingComponents: {
@@ -9,12 +27,6 @@ module.exports = [
         'wux-dialog': '../static/wux/dialog/index',
 
       },
-    },
-  },
-  {
-    path: 'pages/money',
-    config: {
-      navigationBarTitleText: '记录',
     },
   },
   {
@@ -29,6 +41,16 @@ module.exports = [
     },
   },
   {
+    path: 'pages/money',
+    config: {
+      navigationBarTitleText: '记录',
+    },
+  },
+  // 汽车分类
+  {
+    path: 'pages/car/category',
+  },
+  {
     path: 'pages/car/detail',
     config: {
       navigationBarTitleText: '车辆选择',
@@ -36,25 +58,6 @@ module.exports = [
         'wux-select': '../../static/wux/select/index',
         'wux-button': '../../static/wux/button/index',
         'wux-popup': '../../static/wux/popup/index',
-      },
-    },
-  },
-  {
-    path: 'pages/car/category', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-  },
-  {
-    path: 'pages/user/verify', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-    config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
       },
     },
   },

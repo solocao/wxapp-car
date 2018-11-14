@@ -1,5 +1,16 @@
 module.exports = [
   {
+    path: 'pages/market/active',
+    config: {
+      navigationBarTitleText: '热门活动',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
+  },
+  {
     path: 'pages/home', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
     config: {
       usingComponents: {
@@ -8,17 +19,6 @@ module.exports = [
         'wux-button': '../static/wux/button/index',
         'wux-dialog': '../static/wux/dialog/index',
 
-      },
-    },
-  },
-  {
-    path: 'pages/market/active',
-    config: {
-      navigationBarTitleText: '热门活动',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
       },
     },
   },
