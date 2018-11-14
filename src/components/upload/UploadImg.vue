@@ -10,6 +10,28 @@
     </wux-upload>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    onChange(e) {
+      console.log(e)
+      console.log('onchange')
+    },
+    onFail(e) {
+      console.log('上传失败')
+    },
+    onComplete(e) {
+      const result = JSON.parse(e.target.data);
+      console.log('上传成功');
+      this.afaa = result.data.url;
+    },
+  }
+}
+</script>
+
 <style lang="less" scoped>
 .v-upload-item {
   float: left;

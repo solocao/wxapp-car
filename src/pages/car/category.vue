@@ -37,6 +37,11 @@ export default {
     this.currView = '';
   },
   methods: {
+    goDetail() {
+      wx.navigateTo({
+        url: '/pages/car/detail'
+      })
+    },
     touchmove(e) {
       const x = e.touches[0].clientX;
       const y = e.touches[0].clientY;
@@ -51,6 +56,7 @@ export default {
     },
     clickCity(city) {
       this.$emit('cityService', city.name);
+      this.goDetail();
     },
   },
 };

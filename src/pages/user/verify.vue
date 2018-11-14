@@ -8,6 +8,10 @@
         <wux-input label="车牌号" placeholder="请输入车牌号" password type="number" />
       </wux-cell>
       <wux-cell hover-class=" none">
+        <span class="z-cell-label">选择车型</span>
+        <span @click.stop="goSelectCar">请选择车辆品牌/车型</span>
+      </wux-cell>
+      <wux-cell hover-class=" none">
         <span class="z-cell-label">车辆颜色</span>
         <picker @change="bindPickerChange" :value="index" :range="array" placeholder="请输入车牌号">
           <view class="picker">
@@ -64,17 +68,10 @@ export default {
   },
 
   methods: {
-    onChange(e) {
-      console.log(e)
-      console.log('onchange')
-    },
-    onFail(e) {
-      console.log('上传失败')
-    },
-    onComplete(e) {
-      const result = JSON.parse(e.target.data);
-      console.log('上传成功');
-      this.afaa = result.data.url;
+    goSelectCar() {
+      wx.navigateTo({
+        url: '/pages/car/category'
+      })
     },
     go() {
       console.log(this.$router.currentRoute);
