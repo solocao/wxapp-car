@@ -1,11 +1,17 @@
 <template>
   <div class="verify">
+    <div>
+      {{form.name}}
+    </div>
+    <div>
+      {{form.car_number}}
+    </div>
     <wux-cell-group title="请输入认证信息">
       <wux-cell hover-class="none">
-        <wux-input :value="text" :controlled="true" label="车主姓名" placeholder="请填写本人姓名" @change="(e)=>{this.text=e.mp.detail.value }" />
+        <wux-input :value="form.name" :controlled="true" label="车主姓名" placeholder="请填写本人姓名" @change="(e)=>{this.form.name=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input label="车牌号" placeholder="请输入车牌号" password type="number" />
+        <wux-input :value="form.car_number" label="车牌号" placeholder="请输入车牌号" @change="(e)=>{this.form.car_number=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
         <span class="z-cell-label">选择车型</span>
@@ -13,18 +19,18 @@
       </wux-cell>
       <wux-cell hover-class=" none">
         <span class="z-cell-label">车辆颜色</span>
-        <picker @change="bindPickerChange" :value="index" :range="array" placeholder="请输入车牌号">
+        <picker @change="pickerColor" :value="colorIndex" :range="colorArray">
           <view class="picker">
-            <span v-if="index==null">请选择车身颜色</span>
-            <span v-else> {{array[index]}}</span>
+            <span v-if="colorIndex==null">请选择车身颜色</span>
+            <span v-else> {{form.car_color}}</span>
           </view>
         </picker>
       </wux-cell>
       <wux-cell hover-class="none">
         <span class="z-cell-label">车辆类型</span>
         <div style="float:left">
-          <wux-selectable color="positive" value="1" defaultChecked />网约车
-          <wux-selectable color="positive" value="2" />私家车
+          <wux-selectable color="positive" value="1" :controlled="true" :checked="form.car_type==0" @change="()=>{this.form.car_type =0}" />网约车
+          <wux-selectable color="positive" value="2" :controlled="true" :checked="form.car_type==1" @change="()=>{this.form.car_type =1}" />私家车
         </div>
       </wux-cell>
     </wux-cell-group>
@@ -55,10 +61,18 @@ export default {
   },
   data() {
     return {
-      index: null,
+
       value1: '',
-      array: ['白色', '黑色', '银色', '红色', '金色', '蓝色', '棕色', '紫色', '绿色', '粉色', '黄色'],
-      text: null,
+      colorArray: ['白色', '黑色', '银色', '红色', '金色', '蓝色', '棕色', '紫色', '绿色', '粉色', '黄色'],
+      colorIndex: null,
+      form: {
+        name: null,
+        car_number: null,
+        car_color: null,
+        car_type: 0
+
+      },
+
       images: [
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
@@ -73,6 +87,9 @@ export default {
         url: '/pages/car/category'
       })
     },
+    onChange(e) {
+      console.log(e);
+    },
     go() {
       console.log(this.$router.currentRoute);
       // wx.switchTab({ url: '/pages/my' });
@@ -81,8 +98,9 @@ export default {
     afa() {
       JSON.stringify();
     },
-    bindPickerChange(e) {
-      this.index = parseInt(e.target.value);
+    pickerColor(e) {
+      this.colorIndex = parseInt(e.target.value);
+      this.form.car_color = this.colorArray[this.colorIndex];
     },
     onClick1() {
       $wuxSelect('#wux-select').open({
