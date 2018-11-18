@@ -1,8 +1,8 @@
 
 const mutations = {
-  setUserInfor(state, userinfo) {
-    state.userinfo = userinfo;
-    wx.setStorageSync('userinfo', userinfo);
+  setUserInfor(state, user) {
+    state.user = user;
+    wx.setStorageSync('user', user);
   },
   SET_CONTACT(state, contact) {
     state.contact = contact;

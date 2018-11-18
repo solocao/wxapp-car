@@ -1,9 +1,10 @@
 const state = {
-  userinfo: {
+  // 用户信息
+  user: {
     avatarUrl: '',
     phone: '未绑定',
     name: '',
-  }, // 用户信息
+  },
   contact: {
     name: '请选择收货地址', phone: '', province: '', city: '', area: '', district: '', address: '', id: '',
   }, // 默认地址

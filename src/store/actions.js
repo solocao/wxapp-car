@@ -1,4 +1,4 @@
-export const userinfo = state => state.userinfo;
+export const user = state => state.user;
 
 export const contact = state => state.contact;
 

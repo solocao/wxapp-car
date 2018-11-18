@@ -6,6 +6,9 @@
     <div>
       {{form.car_number}}
     </div>
+    <div>
+      汽车首页封面 {{form.car_cover_img}}
+    </div>
     <wux-cell-group title="请输入认证信息">
       <wux-cell hover-class="none">
         <wux-input :value="form.name" :controlled="true" label="车主姓名" placeholder="请填写本人姓名" @change="(e)=>{this.form.name=e.mp.detail.value }" />
@@ -37,10 +40,10 @@
     <div class="v-upload-wraper">
       <div class="z-title">请上传认证资料</div>
       <div class="v-upload-list">
-        <upload-img></upload-img>
-        <upload-img></upload-img>
-        <upload-img></upload-img>
-        <upload-img></upload-img>
+        <upload-img :url.sync="form.car_cover_img" title="车辆封面" desc="45度角拍摄、必须拍到车牌"></upload-img>
+        <upload-img :url.sync="form.user_id_number_img" title="身份证正面"></upload-img>
+        <upload-img :url.sync="form.driver_licence_img" title="驾驶证照片"></upload-img>
+        <upload-img :url.sync="form.driving_licence_img" title="行驶证照片"></upload-img>
       </div>
     </div>
     <wux-select id="wux-select" />
@@ -53,7 +56,7 @@
 <script>
 import { $wuxSelect } from '../../../static/wux/index';
 import UploadImg from '@/components/upload/UploadImg';
-
+import { mapState } from 'vuex';
 
 export default {
   components: {
@@ -61,7 +64,6 @@ export default {
   },
   data() {
     return {
-
       value1: '',
       colorArray: ['白色', '黑色', '银色', '红色', '金色', '蓝色', '棕色', '紫色', '绿色', '粉色', '黄色'],
       colorIndex: null,
@@ -69,8 +71,15 @@ export default {
         name: null,
         car_number: null,
         car_color: null,
-        car_type: 0
-
+        car_type: 0,
+        // 汽车封面照
+        car_cover_img: null,
+        // 身份证正面
+        user_id_number_img: null,
+        // 驾驶证
+        driver_licence_img: null,
+        // 行驶证
+        driving_licence_img: null,
       },
 
       images: [
@@ -80,7 +89,9 @@ export default {
       afaa: '',
     };
   },
-
+  computed: {
+    ...mapState(['user']),
+  },
   methods: {
     goSelectCar() {
       wx.navigateTo({

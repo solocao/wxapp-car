@@ -2,18 +2,38 @@
   <div class="upload-img">
     <wux-upload url="http://api.caowei.wang/ali-oss/upload/img" @change="onChange" @fail="onFail" @complete="onComplete">
       <div class="v-upload-item">
-        <div class="v-desc">
-          车辆照片(实际场景)
+        <div class="v-title">
+          {{title}}
         </div>
-        <img src="../../../static/img/verify/1.png" alt="">
+        <div class="v-desc">
+          {{desc}}
+        </div>
+        <img :src="url" alt="">
       </div>
     </wux-upload>
   </div>
 </template>
 <script>
 export default {
+  props: {
+    url: {
+      type: String,
+      default: '../../../../../static/img/verify/1.png'
+    },
+    title: {
+      type: String,
+      default: '输入标题'
+    },
+    desc: {
+      type: String
+    }
+  },
   data() {
-    return {}
+    return {
+      path: {
+
+      }
+    }
   },
   methods: {
     onChange(e) {
@@ -25,8 +45,7 @@ export default {
     },
     onComplete(e) {
       const result = JSON.parse(e.target.data);
-      console.log('上传成功');
-      this.afaa = result.data.url;
+      this.$emit('update:url', result.data.url)
     },
   }
 }
@@ -42,13 +61,27 @@ export default {
   margin-left: 25rpx;
   width: 320rpx;
   height: 220rpx;
+  border-radius: 30rpx;
+  border: 1rpx solid #f2f8f8;
+  box-shadow: 0rpx 0rpx 4rpx #e2e2e2;
 
-  .v-desc {
+  .v-title {
     position: absolute;
-    bottom: 20rpx;
+    top: 20rpx;
     font-size: 16px;
     font-weight: bold;
     color: white;
+    text-shadow: #000 0rpx 0rpx 12rpx;
+  }
+  .v-desc {
+    position: absolute;
+    bottom: 20rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    text-shadow: #000 0rpx 0rpx 4rpx;
   }
   img {
     width: 100%;
