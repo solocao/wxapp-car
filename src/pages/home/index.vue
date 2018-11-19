@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import Swiper from '@/components/swiper';
 import TipHome from '@/components/TipHome';
 import IncomeRank from '@/components/list/IncomeRank';
@@ -63,26 +63,28 @@ export default {
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
-      user: null,
       openid: null,
     };
   },
   computed: {
-    ...mapState(['user']),
+    ...mapState(['user', 'login']),
   },
 
   methods: {
+    ...mapMutations([
+      'set'
+    ]),
     async getUserInfo(e) {
-      console.log(e.target.rawData);
-      console.log(this.user);
-
-      if (this.user !== null) {
+      // console.log(e.target.rawData);
+      // 已经注册登录、则直接去认证
+      if (this.login) {
         wx.navigateTo({
           url: '/pages/user/verify'
         })
         return '';
       }
 
+      // 没有注册、则先注册后登录
       const params = {
         url: 'mini-program/user/register',
         payload: {
@@ -93,8 +95,9 @@ export default {
 
       const result = await this.post(params);
       if (result.code === 1) {
-        wx.redirectTo({
-          url: 'test?id=1'
+        this.set({ user: result.data, login: true })
+        wx.navigateTo({
+          url: '/pages/user/verify'
         })
       }
     },
@@ -103,14 +106,17 @@ export default {
       // wx.switchTab({ url: '/pages/my' });
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
-    async login(code) {
+    // 用户登录
+    async userLogin(code) {
       const params = {
         url: `mini-program/user/${code}`,
         payload: {}
       }
       const result = await this.get(params);
       if (result.code === 1) {
-        this.user = result.data;
+        this.set({ user: result.data, login: true })
+        console.log('看看用户数据')
+        console.log(this.user)
       } else {
         this.openid = result.data.openid;
       }
@@ -120,7 +126,7 @@ export default {
     const self = this;
     wx.login({
       success(res) {
-        self.login(res.code)
+        self.userLogin(res.code)
       },
     });
 

@@ -2,6 +2,7 @@
   <div class="verify">
     <div>
       {{form.name}}
+      {{user.nickname}}
     </div>
     <div>
       {{form.car_number}}
@@ -40,21 +41,23 @@
     <div class="v-upload-wraper">
       <div class="z-title">请上传认证资料</div>
       <div class="v-upload-list">
-        <upload-img :url.sync="form.car_cover_img" title="车辆封面" desc="45度角拍摄、必须拍到车牌"></upload-img>
-        <upload-img :url.sync="form.user_id_number_img" title="身份证正面"></upload-img>
-        <upload-img :url.sync="form.driver_licence_img" title="驾驶证照片"></upload-img>
-        <upload-img :url.sync="form.driving_licence_img" title="行驶证照片"></upload-img>
+        <upload-img :path="path" :url.sync="form.car_cover_img" title="车辆封面" desc="45度角拍摄、必须拍到车牌"></upload-img>
+        <upload-img :path="path" :url.sync="form.user_id_number_img" title="身份证正面"></upload-img>
+        <upload-img :path="path" :url.sync="form.driver_licence_img" title="驾驶证照片"></upload-img>
+        <upload-img :path="path" :url.sync="form.driving_licence_img" title="行驶证照片"></upload-img>
       </div>
     </div>
     <wux-select id="wux-select" />
     <div>
-      <wux-button block type="positive">确认提交</wux-button>
+      <wux-button block type="positive" @click="submit">确认提交</wux-button>
     </div>
+    <wux-toast id="wux-toast" />
   </div>
 </template>
 
 <script>
-import { $wuxSelect } from '../../../static/wux/index';
+import { $wuxSelect, $wuxToast } from '../../../static/wux/index';
+
 import UploadImg from '@/components/upload/UploadImg';
 import { mapState } from 'vuex';
 
@@ -81,7 +84,21 @@ export default {
         // 行驶证
         driving_licence_img: null,
       },
+      validText: {
+        name: '请输入车主姓名',
+        car_number: '请输入车牌号',
+        car_color: '请选择车辆颜色',
+        car_type: '请选择车型',
+        // 汽车封面照
+        car_cover_img: '请上传汽车封面照',
+        // 身份证正面
+        user_id_number_img: '请上传身份证正面照',
+        // 驾驶证
+        driver_licence_img: '请上传驾驶证照片',
+        // 行驶证
+        driving_licence_img: '请上行驶证证照片',
 
+      },
       images: [
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
@@ -89,10 +106,33 @@ export default {
       afaa: '',
     };
   },
+
   computed: {
     ...mapState(['user']),
+    // 文件上传路径
+    path() {
+      return {
+        path: `verify/${this.user.openid}`
+      };
+    }
   },
   methods: {
+    // 进行提交前的验证
+    valid() {
+      for (const key in this.form) {
+        if (this.form[key] == null || this.form[key] == undefined) {
+          $wuxToast().show({
+            type: 'text',
+            duration: 1000,
+            color: '#fff',
+            text: this.validText[key],
+            success: () => console.log('已完成')
+          })
+          return false
+        }
+      }
+      return true
+    },
     goSelectCar() {
       wx.navigateTo({
         url: '/pages/car/category'
@@ -140,7 +180,17 @@ export default {
         },
       });
     },
+    async submit() {
+      console.log('提交了')
+      if (this.valid()) {
+
+      }
+
+    }
   },
+  mounted() {
+    console.log(this.user)
+  }
 };
 
 </script>

@@ -1,4 +1,6 @@
 const state = {
+  // 是否登录
+  login: false,
   // 用户信息
   user: {
     avatarUrl: '',

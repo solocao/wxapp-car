@@ -1,6 +1,6 @@
 <template>
   <div class="upload-img">
-    <wux-upload url="http://api.caowei.wang/ali-oss/upload/img" @change="onChange" @fail="onFail" @complete="onComplete">
+    <wux-upload :formData="path" url="http://api.caowei.wang/ali-oss/upload/img" @change="onChange" @fail="onFail" @complete="onComplete">
       <div class="v-upload-item">
         <div class="v-title">
           {{title}}
@@ -16,15 +16,22 @@
 <script>
 export default {
   props: {
+    // 图片url
     url: {
       type: String,
       default: '../../../../../static/img/verify/1.png'
     },
+    // 文字标题
     title: {
       type: String,
       default: '输入标题'
     },
+    // 描述
     desc: {
+      type: String
+    },
+    // 路径
+    path: {
       type: String
     }
   },
