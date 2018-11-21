@@ -19,6 +19,7 @@ module.exports = [
       },
     },
   },
+
   // 首页
   {
     path: 'pages/home',

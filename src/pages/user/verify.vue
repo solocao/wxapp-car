@@ -60,6 +60,7 @@ import { $wuxSelect, $wuxToast } from '../../../static/wux/index';
 
 import UploadImg from '@/components/upload/UploadImg';
 import { mapState } from 'vuex';
+import { minor } from 'semver';
 
 export default {
   components: {
@@ -74,6 +75,9 @@ export default {
         name: null,
         car_number: null,
         car_color: null,
+        // 车辆型号
+        car_model: null,
+        // 车辆类型  0 网约车 1 私家车
         car_type: 0,
         // 汽车封面照
         car_cover_img: null,
@@ -84,11 +88,27 @@ export default {
         // 行驶证
         driving_licence_img: null,
       },
+      formTest: {
+        name: '曹天骄',
+        car_number: '粤K000F0',
+        car_color: '白色',
+        car_model: '奔驰 2019款 A 180 L',
+        car_type: 0,
+        // 汽车封面照
+        car_cover_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.ZI8sdm1KH0vvfbc346b1ba5f83d19781148988cb9fac.png?x-oss-process=image/resize,l_200',
+        // 身份证正面
+        user_id_number_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.kykjWknJ8GcC1f32b501aab6e3631aadb1f29a93e5ef.png?x-oss-process=image/resize,l_200',
+        // 驾驶证
+        driver_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.cvGYNFaA6rxAe66062e18a86a5e8f762d9f1e3f80260.png?x-oss-process=image/resize,l_200',
+        // 行驶证
+        driving_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.KPYesrBXKA8Bec078c6502ee1591e28eb97eb6785982.png?x-oss-process=image/resize,l_20',
+      },
       validText: {
         name: '请输入车主姓名',
         car_number: '请输入车牌号',
         car_color: '请选择车辆颜色',
-        car_type: '请选择车型',
+        car_model: '奔驰 S300 2018年款',
+        car_type: 0,
         // 汽车封面照
         car_cover_img: '请上传汽车封面照',
         // 身份证正面
@@ -181,12 +201,22 @@ export default {
       });
     },
     async submit() {
-      console.log('提交了')
+      console.log(this.user)
       if (this.valid()) {
-
+        console.log('验证通过')
+        const params = {
+          url: 'verify',
+          payload: this.form,
+          auth: true
+        }
+        const result = await this.post(params)
+        console.log(result)
       }
 
     }
+  },
+  created() {
+    this.form = this.formTest
   },
   mounted() {
     console.log(this.user)

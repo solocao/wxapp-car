@@ -1,6 +1,9 @@
 import Fly from 'flyio/dist/npm/wx';
 import qs from 'qs';
 import config from '../config';
+import store from '../store'
+
+
 
 const fly = new Fly();
 
@@ -8,15 +11,11 @@ const host = config.api.host;
 
 // 添加请求request拦截器
 fly.interceptors.request.use((request) => {
+
   wx.showLoading({
     title: '加载中',
     mask: true,
   });
-
-  request.headers = {
-    'X-Tag': 'flyio',
-    'content-type': 'application/json',
-  };
 
   const authParams = {
     // 公共参数
@@ -40,7 +39,6 @@ fly.interceptors.request.use((request) => {
 
   // request.body = Object.assign({}, request.body, authParams);
 
-  // console.log(request)
   return request;
 });
 
@@ -66,10 +64,18 @@ export default fly;
 
 // 通用的get请求
 export const get = (params) => {
-  return fly.get(`${host}${params.url}`, qs.stringify(params.payload));
+  const headers = {};
+  if (params.auth) {
+    headers.authorization = store.state.user.auth;
+  }
+  return fly.get(`${host}${params.url}`, qs.stringify(params.payload), { headers });
 };
 
 // 通用的post请求
 export const post = (params) => {
-  return fly.post(`${host}${params.url}`, params.payload);
+  const headers = {};
+  if (params.auth) {
+    headers.authorization = store.state.user.auth;
+  }
+  return fly.post(`${host}${params.url}`, params.payload, { headers });
 };
