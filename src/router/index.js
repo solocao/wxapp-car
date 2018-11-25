@@ -1,4 +1,16 @@
 module.exports = [
+  // 活动详情
+  {
+    path: 'pages/active/detail',
+    config: {
+      navigationBarTitleText: '广告任务',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
   {
     path: 'pages/market/active',
     config: {
@@ -10,7 +22,6 @@ module.exports = [
       },
     },
   },
-
   {
     path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
@@ -26,7 +37,6 @@ module.exports = [
       },
     },
   },
-
   {
     // 用户认证页面
     path: 'pages/user/verify',
@@ -81,8 +91,5 @@ module.exports = [
   {
     path: 'pages/market', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
-  // 活动详情
-  {
-    path: 'pages/active/detail',
-  },
+
 ];
