@@ -1,4 +1,8 @@
 module.exports = [
+  // 参加活动的人员列表
+  {
+    path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
+  },
   // 活动详情
   {
     path: 'pages/active/detail',
