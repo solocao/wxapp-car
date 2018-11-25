@@ -1,14 +1,14 @@
 <template>
-  <div class="active-row-hot">
+  <div class="active-row-hot" @click="goDetail">
     <div class="aui-goods-img">
-      <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3455249101,4063048586&fm=27&gp=0.jpg" alt="">
+      <img :src="data.cover_img" alt="">
       <span class="aui-goods-top aui-goods-top-img">
         <img src="http://www.17sucai.com/preview/1268063/2018-10-09/Hot/images/icon-top-001.png" alt="">
       </span>
     </div>
     <div class="a-detail">
-      <div class="a-head">苏宁易购 车身广告 新街口环绕行</div>
-      <div class="a-desc">可移动的户外广告媒体,全方位曝光;指定广告投放线路,广告画面立体,效果生动;</div>
+      <div class="a-head">{{data.title}}</div>
+      <div class="a-desc">{{data.brief}}</div>
       <div class="a-tag">
         <!-- <span class="a-hot-tag"><i class="aui-hot-tag"></i>热度100℃</span> -->
         <span class="red-tag">6.2元 | 公里</span>
@@ -18,8 +18,21 @@
 </template>
 
 <script>
-export default {
 
+export default {
+  props: {
+    data: {
+      type: Object
+    }
+  },
+  methods: {
+    goDetail() {
+      console.log('哈哈哈舒服')
+      wx.navigateTo({
+        url: '/pages/active/detail'
+      })
+    }
+  }
 };
 </script>
 

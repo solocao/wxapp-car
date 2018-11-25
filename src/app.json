@@ -17,7 +17,7 @@
       },
       {
         "pagePath": "pages/market/active",
-        "text": "广告",
+        "text": "广告任务",
         "iconPath": "static/img/tab/market.png",
         "selectedIconPath": "static/img/tab/market-selected.png"
       },

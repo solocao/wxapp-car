@@ -4,17 +4,45 @@
       <p>参加活动,赢取现金大奖</p>
     </div>
     <div class="m-active-list">
-      <active-row-hot v-for="i in 8" :key="i"></active-row-hot>
+      <active-row-hot :data="active" v-for="(active,index) in activeData" :key="index"></active-row-hot>
     </div>
   </div>
 </template>
 <script>
-import ActiveRowHot from '@/components/row/ActiveRowHot';
+import ActiveRowHot from '@components/row/ActiveRowHot';
 
 export default {
   components: {
     ActiveRowHot,
   },
+  data() {
+    return {
+      activeData: []
+
+    }
+  },
+  methods: {
+    // 活动列表
+    async activeList() {
+      const params = {
+        url: 'active/list',
+        payload: {
+          page: this.page,
+          size: 10
+        },
+        auth: true
+      }
+      const result = await this.post(params)
+      if (result.code === 1) {
+        this.activeData = result.data
+        console.log(this.activeData)
+      }
+    },
+
+  },
+  mounted() {
+    this.activeList()
+  }
 
 };
 </script>
