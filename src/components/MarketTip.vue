@@ -12,7 +12,7 @@
     </div>
   </div>
 </template>
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 .aui-flex {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -28,7 +28,7 @@
 
     p {
       display: block;
-      color: #393939;
+      color: #048fff;
       width: auto;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -39,7 +39,7 @@
       span {
         font-style: normal;
         font-weight: bold;
-        color: #2FAB3F;
+        color: #048fff;
       }
     }
   }
