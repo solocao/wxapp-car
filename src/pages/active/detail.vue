@@ -3,23 +3,56 @@
     <div class="cover-img">
       <img :src="data.cover_img" alt="">
     </div>
-    <div class="nc-cell">
-      <div>广告类型</div>
-      <div>车外</div>
+    <div class="active-content">
+      <div class="ac-title">
+        水镇美乐家度假别墅活动
+      </div>
+      <div class="ac-content">
+        asfasfasf
+      </div>
     </div>
-    <div class="nc-cell">
-      <div>实际收益</div>
-      <div>180元</div>
+    <div class="ac-date">
+      <div class="ac-item">
+        <span class="ac-t">开始日期</span>
+        <p class="ac-d">9月12日今天</p>
+      </div>
+      <div class="ac-item">
+        <span class="ac-long">共8天</span>
+      </div>
+      <div class="ac-item">
+        <span class="ac-t">结束日期</span>
+        <p class="ac-d">9月22日周末</p>
+      </div>
     </div>
-    <div class="nc-cell">
-      <div>投放车辆</div>
-      <div>100辆</div>
+    <div class="ac-detail">
+      <div class="nc-cell">
+        <div>广告类型</div>
+        <div>车外</div>
+      </div>
+      <div class="nc-cell">
+        <div>实际收益</div>
+        <div>180元</div>
+      </div>
+      <div class="nc-cell">
+        <div>投放车辆</div>
+        <div>100辆</div>
+      </div>
+      <div class="nc-cell">
+        <div>投放时间</div>
+        <div>180元</div>
+      </div>
+      <active-join></active-join>
     </div>
-    <div class="nc-cell">
-      <div>投放时间</div>
-      <div>180元</div>
-    </div>
-    <active-join></active-join>
+    <footer class="ac-footer">
+      <a href="javascript:;" class="aui-footer-btn aui-order-price">
+        <span class="aui-order-price-text">
+          <span>预计收益 ￥</span>
+          <span class="de-price">500.00</span>
+
+        </span>
+      </a>
+      <a href="javascript:;" class="aui-footer-btn">去赚钱</a>
+    </footer>
   </div>
 </template>
 <script>
@@ -50,9 +83,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .active-detail {
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-  padding-top: 20rpx;
+  background: #f4f4f4;
   // 需要封装成统一的
   .nc-cell {
     display: flex;
@@ -64,15 +95,112 @@ export default {
     border-bottom: 1px solid #f7f7f7;
   }
   .cover-img {
-    width: 100%;
     height: 400rpx;
-    border-radius: 6px;
-    box-shadow: 0px 0px 4px #ababab;
-    overflow: hidden;
+    position: relative;
 
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .active-content {
+    position: relative;
+    z-index: 999;
+    background: #4499ff;
+    border-radius: 10rpx;
+    font-size: 14px;
+    color: #fff;
+    padding: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    margin-top: -40rpx;
+    .ac-title {
+      font-size: 16px;
+      font-size: bold;
+      margin-bottom: 10rpx;
+    }
+
+    .active-content {
+    }
+  }
+
+  .ac-date {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 3px 10px #e2e2e2;
+    background: white;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+
+    .ac-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #979797;
+      .ac-t {
+        color: #979797;
+        font-size: 12px;
+        font-weight: normal;
+      }
+      .ac-d {
+        color: #333;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      .ac-long {
+        font-size: 14px;
+        color: #479bff;
+        border-bottom: 2px solid #479bff;
+      }
+    }
+  }
+
+  .ac-detail {
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    background: white;
+  }
+
+  // 底部按钮
+  .ac-footer {
+    width: 100%;
+    position: relative;
+    z-index: 102;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 -2px 15px #dedede;
+    height: 90rpx;
+
+    .aui-footer-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background: #4499ff;
+      height: 100%;
+      font-size: 14px;
+      font-weight: bold;
+      .de-price {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    .aui-order-price {
+      background: #fff;
+      color: #4499ff;
+      position: relative;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="active-join">
     <div class="a-total">
-      <p> 已参加</p>
+      <p> 已经参加</p>
       <p class="a-num"> 213人</p>
     </div>
     <div class="a-face">
@@ -28,10 +28,11 @@ export default {
   width: 100%;
   align-items: center;
   .a-total {
-    width: 110rpx;
+    width: 114rpx;
     text-align: center;
     .a-num {
       font-size: 12px;
+      color: #1c99ff;
     }
   }
   .a-face {

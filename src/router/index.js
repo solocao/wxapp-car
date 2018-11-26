@@ -1,4 +1,28 @@
 module.exports = [
+  // 活动列表
+  {
+    path: 'pages/active/list',
+    config: {
+      navigationBarTitleText: '活动列表',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
+  // 活动详情
+  {
+    path: 'pages/active/detail',
+    config: {
+      navigationBarTitleText: '活动详情',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
   // 首页
   {
     path: 'pages/home',
@@ -15,18 +39,7 @@ module.exports = [
   {
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
-  // 活动详情
-  {
-    path: 'pages/active/detail',
-    config: {
-      navigationBarTitleText: '广告任务',
-      usingComponents: {
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-      },
-    },
-  },
+
   {
     path: 'pages/market/active',
     config: {
