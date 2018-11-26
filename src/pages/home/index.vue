@@ -177,6 +177,7 @@ export default {
 <style lang="less" scoped>
 .home {
   padding: 10px;
+  background: #f4f4f4;
 
   .grids-icon {
     padding: 10px 0;
@@ -274,9 +275,9 @@ export default {
     height: 140rpx;
     width: 48%;
     border-radius: 4px;
-    box-shadow: 0px 0px 4px #d1d1d1;
     display: flex;
     color: grey;
+    background: white;
 
     .show-icon {
       height: 140rpx;
