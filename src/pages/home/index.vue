@@ -2,25 +2,28 @@
   <div class="home">
     <Swiper :images="images" />
     <tip-home></tip-home>
-    <wux-row>
-      <wux-col span="4" class="grids-icon">
-        <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-1.png" alt=""></div>
-        <p class="grids-grid-label">违章查询</p>
-        <p class="grids-grid-num">6次</p>
-      </wux-col>
-      <wux-col span="4" class="grids-icon">
-        <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-2.png" alt=""></div>
-        <p class="grids-grid-label">保险到期</p>
-        <p class="grids-grid-num">299天</p>
-      </wux-col>
-      <wux-col span="4" class="grids-icon">
-        <div class="grids-grid3-cont">
-          <div class="grids-grid-icon"><img src="http://a-ui.cn/dome/car/images/icon-png/icon-ax-3.png" alt=""></div>
-          <p class="grids-grid-label">保养到期</p>
-          <p class="grids-grid-num">188天</p>
+    <div class="show-pannel">
+      <div class="show-item">
+        <div class="show-icon">
+          <img :src="img.peccancy" alt="">
         </div>
-      </wux-col>
-    </wux-row>
+        <div class="show-title">
+          <span>违章次数</span>
+          <span class="orange-shadow show-num">120次</span>
+        </div>
+      </div>
+      <div class="show-item">
+        <div class="show-icon">
+          <img class="sign-img" :src="img.sign" alt="">
+        </div>
+        <div class="show-title">
+          <span>每日签到</span>
+          <span class="blue-shadow show-num">30天</span>
+        </div>
+      </div>
+
+    </div>
+
     <div>
       <income-rank></income-rank>
     </div>
@@ -28,7 +31,7 @@
     <div class="button-box">
       <button ref="userbtn" class="button" open-type="getUserInfo" @getuserinfo="getUserInfo">同步微信头像</button>
     </div>
-    <div class="c-modal">
+    <div v-if="modal" class="c-modal">
       <div class="c-mask"></div>
       <div class="c-card">
         <div class="c-head">
@@ -59,11 +62,17 @@ export default {
   components: { Swiper, TipHome, IncomeRank },
   data() {
     return {
+      img: {
+        sign: '../../../static/images/home/sign.png',
+        peccancy: '../../../static/images/home/peccancy.png'
+      },
       images: [
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
         { url: 'http://www.benpaobao.com/img/case4_1.jpg' },
       ],
       openid: null,
+      modal: false
+
     };
   },
   computed: {
@@ -124,11 +133,11 @@ export default {
   },
   mounted() {
     const self = this;
-    wx.login({
-      success(res) {
-        self.userLogin(res.code)
-      },
-    });
+    // wx.login({
+    //   success(res) {
+    //     self.userLogin(res.code)
+    //   },
+    // });
 
     // console.log(this.$refs.userbtn);
     // $wuxDialog().open({
@@ -171,6 +180,7 @@ export default {
 
   .grids-icon {
     padding: 10px 0;
+    box-shadow: 0rpx 0rpx 4rpx #7e7e7e;
     .grids-grid-icon {
       width: 50px;
       height: 50px;
@@ -254,6 +264,75 @@ export default {
       }
     }
   }
+}
+
+.show-pannel {
+  display: flex;
+  justify-content: space-around;
+
+  .show-item {
+    height: 140rpx;
+    width: 48%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px #d1d1d1;
+    display: flex;
+    color: grey;
+
+    .show-icon {
+      height: 140rpx;
+      width: 140rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 20rpx;
+
+      img {
+        width: 100rpx;
+        height: 100rpx;
+      }
+
+      .sign-img {
+        width: 80rpx;
+        height: 80rpx;
+      }
+    }
+    .show-title {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      margin-right: 40rpx;
+
+      .show-num {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+
+.creditGold {
+  font-weight: bold;
+  color: #fe2600;
+  letter-spacing: -3px;
+  text-shadow: 0 0 1rpx #fe2600;
+}
+
+.orange-shadow {
+  font-weight: bold;
+  color: #fe8300;
+  letter-spacing: -3px;
+  text-shadow: 0 0 1rpx #fe8300;
+}
+
+.blue-shadow {
+  font-weight: bold;
+  color: #3aadfe;
+  letter-spacing: -3px;
+  text-shadow: 0 0 1rpx #3aadfe;
 }
 </style>
 

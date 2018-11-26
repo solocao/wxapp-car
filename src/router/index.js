@@ -1,4 +1,16 @@
 module.exports = [
+  // 首页
+  {
+    path: 'pages/home',
+    config: {
+      usingComponents: {
+        'wux-row': '../static/wux/row/index',
+        'wux-col': '../static/wux/col/index',
+        'wux-button': '../static/wux/button/index',
+        'wux-dialog': '../static/wux/dialog/index',
+      },
+    },
+  },
   // 参加活动的人员列表
   {
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
@@ -28,18 +40,6 @@ module.exports = [
   },
   {
     path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-  },
-  // 首页
-  {
-    path: 'pages/home',
-    config: {
-      usingComponents: {
-        'wux-row': '../static/wux/row/index',
-        'wux-col': '../static/wux/col/index',
-        'wux-button': '../static/wux/button/index',
-        'wux-dialog': '../static/wux/dialog/index',
-      },
-    },
   },
   {
     // 用户认证页面

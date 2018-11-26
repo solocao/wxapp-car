@@ -1,6 +1,6 @@
 <template>
   <div class="join-user">
-    <div class="j-item" v-for="i in 20">
+    <div class="j-item" v-for="i in 20" :key="i">
       <div class="j-user">
         <img src="http://img1.imgtn.bdimg.com/it/u=2358895946,1305765833&fm=26&gp=0.jpg" alt="">
         <span>小鸟嘎嘎</span>
