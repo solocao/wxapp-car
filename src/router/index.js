@@ -1,4 +1,11 @@
 module.exports = [
+  // 地图
+  {
+    path: 'pages/map/index',
+    config: {
+      navigationBarTitleText: '地图'
+    },
+  },
   // 活动列表
   {
     path: 'pages/active/list',

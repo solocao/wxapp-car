@@ -27,6 +27,8 @@
       <p>预计收益</p>
       <p>已结束</p>
     </div>
+    <map id="map" scale="14" bindregionchange="regionchange" show-location style="width: 100%; height: 350px;">
+    </map>
 
   </div>
 </template>
