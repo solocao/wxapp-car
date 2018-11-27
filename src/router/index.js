@@ -1,6 +1,13 @@
 module.exports = [
   // 地图
   {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+  // 地图
+  {
     path: 'pages/map/index',
     config: {
       navigationBarTitleText: '地图'
