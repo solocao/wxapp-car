@@ -70,6 +70,7 @@ export default {
   width: 100%;
   height: 100vh;
   position: relative;
+
   #map {
     width: 100%;
     height: 100%;

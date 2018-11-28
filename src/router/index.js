@@ -1,28 +1,9 @@
 module.exports = [
-  // 地图
+  // 服务点
   {
-    path: 'pages/map/trip_clock',
+    path: 'pages/active/service_point',
     config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
-  // 地图
-  {
-    path: 'pages/map/index',
-    config: {
-      navigationBarTitleText: '地图'
-    },
-  },
-  // 活动列表
-  {
-    path: 'pages/active/list',
-    config: {
-      navigationBarTitleText: '活动列表',
-      usingComponents: {
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-      },
+      navigationBarTitleText: '粘贴广告'
     },
   },
   // 活动详情
@@ -49,6 +30,34 @@ module.exports = [
       },
     },
   },
+  // 地图
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+  // 地图
+  {
+    path: 'pages/map/index',
+    config: {
+      navigationBarTitleText: '地图'
+    },
+  },
+  // 活动列表
+  {
+    path: 'pages/active/list',
+    config: {
+      navigationBarTitleText: '活动列表',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
+
+
   // 参加活动的人员列表
   {
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填

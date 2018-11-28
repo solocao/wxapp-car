@@ -44,14 +44,14 @@
       <active-join></active-join>
     </div>
     <footer class="ac-footer">
-      <a href="javascript:;" class="aui-footer-btn aui-order-price">
+      <div class="aui-footer-btn aui-order-price">
         <span class="aui-order-price-text">
           <span>预计收益 ￥</span>
           <span class="de-price">500.00</span>
 
         </span>
-      </a>
-      <a href="javascript:;" class="aui-footer-btn">去赚钱</a>
+      </div>
+      <div class="aui-footer-btn" @click="goMoney">去赚钱</div>
     </footer>
   </div>
 </template>
@@ -74,6 +74,13 @@ export default {
       form: {
         name: 'saff'
       }
+    }
+  },
+  methods: {
+    goMoney() {
+      wx.redirectTo({
+        url: '/pages/map/index'
+      })
     }
   },
   components: {
