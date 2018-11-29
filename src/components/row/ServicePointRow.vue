@@ -40,6 +40,7 @@ export default {
 
 <style lang="less" scoped>
 .service-point-row {
+  margin-top: 20rpx;
   border-radius: 10rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;

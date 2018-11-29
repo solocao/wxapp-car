@@ -5,7 +5,12 @@
       <p class="a-num"> 213人</p>
     </div>
     <div class="a-face">
-      <img :src="img" alt="" v-for="i in 10">
+      <img
+        :src="img"
+        alt=""
+        v-for="i in 10"
+        :key="i"
+      >
     </div>
   </div>
 </template>

@@ -133,11 +133,11 @@ export default {
   },
   mounted() {
     const self = this;
-    // wx.login({
-    //   success(res) {
-    //     self.userLogin(res.code)
-    //   },
-    // });
+    wx.login({
+      success(res) {
+        self.userLogin(res.code)
+      },
+    });
 
     // console.log(this.$refs.userbtn);
     // $wuxDialog().open({

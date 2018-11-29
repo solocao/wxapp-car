@@ -1,4 +1,26 @@
 module.exports = [
+  {
+    path: 'pages/market/active',
+    config: {
+      navigationBarTitleText: '广告任务',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
+  },
+  {
+    path: 'pages/home',
+    config: {
+      usingComponents: {
+        'wux-row': '../static/wux/row/index',
+        'wux-col': '../static/wux/col/index',
+        'wux-button': '../static/wux/button/index',
+        'wux-dialog': '../static/wux/dialog/index',
+      },
+    },
+  },
   // 服务点
   {
     path: 'pages/active/service_point',
@@ -19,17 +41,7 @@ module.exports = [
     },
   },
   // 首页
-  {
-    path: 'pages/home',
-    config: {
-      usingComponents: {
-        'wux-row': '../static/wux/row/index',
-        'wux-col': '../static/wux/col/index',
-        'wux-button': '../static/wux/button/index',
-        'wux-dialog': '../static/wux/dialog/index',
-      },
-    },
-  },
+
   // 地图
   {
     path: 'pages/map/trip_clock',
@@ -44,36 +56,11 @@ module.exports = [
       navigationBarTitleText: '地图'
     },
   },
-  // 活动列表
-  {
-    path: 'pages/active/list',
-    config: {
-      navigationBarTitleText: '活动列表',
-      usingComponents: {
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-      },
-    },
-  },
-
-
   // 参加活动的人员列表
   {
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
 
-  {
-    path: 'pages/market/active',
-    config: {
-      navigationBarTitleText: '广告任务',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
-      },
-    },
-  },
   {
     path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
@@ -127,9 +114,6 @@ module.exports = [
       navigationBarBackgroundColor: '#2D8FF7',
       navigationBarTextStyle: 'white',
     },
-  },
-  {
-    path: 'pages/market', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
 
 ];

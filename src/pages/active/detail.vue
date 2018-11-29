@@ -1,7 +1,10 @@
 <template>
   <div class="active-detail">
     <div class="cover-img">
-      <img :src="data.cover_img" alt="">
+      <img
+        :src="data.cover_img"
+        alt=""
+      >
     </div>
     <div class="active-content">
       <div class="ac-title">
@@ -51,11 +54,15 @@
 
         </span>
       </div>
-      <div class="aui-footer-btn" @click="goMoney">去赚钱</div>
+      <div
+        class="aui-footer-btn"
+        @click="goMoney"
+      >去赚钱</div>
     </footer>
   </div>
 </template>
 <script>
+import { getQuery } from '@libs/utils'
 import ActiveJoin from '@components/join/ActiveJoin';
 export default {
   props: {
@@ -78,10 +85,25 @@ export default {
   },
   methods: {
     goMoney() {
-      wx.redirectTo({
-        url: '/pages/map/index'
+      wx.navigateTo({
+        url: '/pages/active/service_point'
       })
+    },
+    // 活动详情
+    async  activeDetail() {
+      const { active_id } = getQuery()
+      const params = {
+        url: 'active/detail',
+        payload: {
+          active_id: active_id,
+        },
+        auth: true
+      }
+      const result = await this.post(params);
     }
+  },
+  mounted() {
+    this.activeDetail()
   },
   components: {
     ActiveJoin
