@@ -1,4 +1,6 @@
 module.exports = [
+
+  // 广告任务列表
   {
     path: 'pages/market/active',
     config: {
@@ -10,6 +12,8 @@ module.exports = [
       },
     },
   },
+
+  // 首页
   {
     path: 'pages/home',
     config: {
@@ -21,6 +25,7 @@ module.exports = [
       },
     },
   },
+
   // 服务点
   {
     path: 'pages/active/service_point',

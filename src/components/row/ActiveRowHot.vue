@@ -41,7 +41,8 @@ export default {
         url: `/pages/active/detail?active_id=${this.data._id}`
       })
     }
-  }
+  },
+
 };
 </script>
 

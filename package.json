@@ -18,6 +18,7 @@
     "mpvue-entry": "^1.5.8",
     "mpvue-router-patch": "^0.2.1",
     "mpvue-weui": "^1.0.3",
+    "mpvue-wxparse": "^0.6.5",
     "node-sass": "^4.10.0",
     "qs": "^6.5.2",
     "sass": "^1.14.3",

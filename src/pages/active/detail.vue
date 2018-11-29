@@ -1,17 +1,14 @@
 <template>
   <div class="active-detail">
     <div class="cover-img">
-      <img
-        :src="data.cover_img"
-        alt=""
-      >
+      <img :src="data.cover_img">
     </div>
     <div class="active-content">
       <div class="ac-title">
-        水镇美乐家度假别墅活动
+        {{data.title}}
       </div>
       <div class="ac-content">
-        asfasfasf
+        <wxParse :content="data.content" />
       </div>
     </div>
     <div class="ac-date">
@@ -33,7 +30,7 @@
         <div>车外</div>
       </div>
       <div class="nc-cell">
-        <div>实际收益</div>
+        <div>预计收益</div>
         <div>180元</div>
       </div>
       <div class="nc-cell">
@@ -62,22 +59,22 @@
   </div>
 </template>
 <script>
-import { getQuery } from '@libs/utils'
+import { getQuery } from '@libs/utils';
 import ActiveJoin from '@components/join/ActiveJoin';
+import wxParse from 'mpvue-wxparse';
+
 export default {
-  props: {
-    data: {
-      type: Object,
-      default: {
-        state: 0,
-        show_img: ["http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png"],
-        "_id": "5bf90304fdfaf96f4558b615",
-        title: "a", brief: "dasf", cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png", "content": "<p>asfasf</p>", "start_at": "2018-11-24T07:40:14.600Z", "end_at": "2018-12-01T07:40:14.600Z", "create_user": "5bea8e7621a86d63ec7e8429", "create_at": "2018-11-24T07:51:32.439Z", "__v": 0
-      }
-    }
-  },
   data() {
     return {
+      data: {
+        type: Object,
+        default: {
+          state: 0,
+          show_img: ["http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png"],
+          "_id": "5bf90304fdfaf96f4558b615",
+          title: "a", brief: "dasf", cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png", "content": "<p>asfasf</p>", "start_at": "2018-11-24T07:40:14.600Z", "end_at": "2018-12-01T07:40:14.600Z", "create_user": "5bea8e7621a86d63ec7e8429", "create_at": "2018-11-24T07:51:32.439Z", "__v": 0
+        }
+      },
       form: {
         name: 'saff'
       }
@@ -100,14 +97,19 @@ export default {
         auth: true
       }
       const result = await this.post(params);
+      if (result.code === 1) {
+        this.data = result.data;
+      }
     }
   },
   mounted() {
     this.activeDetail()
   },
   components: {
-    ActiveJoin
+    ActiveJoin,
+    wxParse
   }
+
 }
 </script>
 <style lang="less" scoped>
