@@ -6,9 +6,8 @@ module.exports = [
     config: {
       navigationBarTitleText: '我的',
       // disableScroll: true,
-      // enablePullDownRefresh: false
+      enablePullDownRefresh: false
     }
-  },
   },
   // 2 广告任务
   {
