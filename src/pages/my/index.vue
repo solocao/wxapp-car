@@ -11,7 +11,7 @@
               </div>
               <div class="aui-flex-box">
                 <h3>李嘉桦1</h3>
-                <div class="aui-flex-org" style="background:red" @click="go">
+                <div class="aui-flex-org" @click="goVerify">
                   <i class="icon icon-vip"></i>认证会员
                 </div>
               </div>
@@ -169,7 +169,8 @@
 <script>
 export default {
   methods: {
-    go() {
+    // 
+    goVerify() {
       console.log(this.$router.currentRoute);
       // this.$router.push('pages/task');
       wx.redirectTo({ url: '/pages/user/verify' });

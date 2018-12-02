@@ -1,33 +1,38 @@
 <template>
   <div class="service-point" @click="goPoint">
-    <div class="se-list">
+    <scroll-view scroll-y class="se-list">
       <div class="se-accept">
         <div>
           任务领取成功，请去服务点粘贴车身广告
         </div>
       </div>
-      <service-point-row v-for="i in 8" :key="i"></service-point-row>
-
-    </div>
+      <service-point-row v-for="i in 3" :key="i"></service-point-row>
+    </scroll-view>
     <footer class="ac-footer">
       <div class="aui-footer-btn aui-order-price">
         <span class="aui-order-price-text">
           <span>广告粘贴完成</span>
         </span>
       </div>
-      <div class="aui-footer-btn" @click="goMoney">开始赚钱</div>
+      <div>
+        <upload-button>
+          asfasfssafasf
+        </upload-button>
+      </div>
+      <!-- <div class="aui-footer-btn" @click="goMoney">拍照确认&nbsp开始赚钱</div> -->
     </footer>
   </div>
 </template>
-
 <script>
 import ServicePointRow from '@components/row/ServicePointRow';
+import UploadButton from '@components/upload/UploadButton'
 export default {
   data() {
 
   },
   components: {
-    ServicePointRow
+    ServicePointRow,
+    UploadButton
   },
   methods: {
     goPoint() {
@@ -37,7 +42,8 @@ export default {
         name: "去的地方",
         scale: 15
       })
-    }
+    },
+
   }
 }
 </script>
@@ -50,7 +56,7 @@ export default {
   padding-top: 20rpx;
 
   .se-list {
-    height: calc(100vh - 90rpx);
+    height: calc(100vh - 110rpx);
     overflow: hidden;
     .se-accept {
       width: calc(100vw - 40rpx);

@@ -1,5 +1,14 @@
 module.exports = [
-
+  // 去服务点 粘贴广告
+  {
+    path: 'pages/active/service_point',
+    config: {
+      navigationBarTitleText: '粘贴广告',
+      usingComponents: {
+        "wux-upload": "../../static/wux/upload/index",
+      },
+    },
+  },
   // 广告任务列表
   {
     path: 'pages/market/active',
@@ -26,13 +35,7 @@ module.exports = [
     },
   },
 
-  // 服务点
-  {
-    path: 'pages/active/service_point',
-    config: {
-      navigationBarTitleText: '粘贴广告'
-    },
-  },
+
   // 活动详情
   {
     path: 'pages/active/detail',

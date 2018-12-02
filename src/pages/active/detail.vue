@@ -39,7 +39,7 @@
       </div>
       <div class="nc-cell">
         <div>投放时间</div>
-        <div>180元</div>
+        <div>2018年9月11日</div>
       </div>
       <active-join></active-join>
     </div>
@@ -48,13 +48,9 @@
         <span class="aui-order-price-text">
           <span>预计收益 ￥</span>
           <span class="de-price">500.00</span>
-
         </span>
       </div>
-      <div
-        class="aui-footer-btn"
-        @click="goMoney"
-      >去赚钱</div>
+      <div class="aui-footer-btn" @click="goMakeMoney">去赚钱</div>
     </footer>
   </div>
 </template>
@@ -62,29 +58,47 @@
 import { getQuery } from '@libs/utils';
 import ActiveJoin from '@components/join/ActiveJoin';
 import wxParse from 'mpvue-wxparse';
+import { mapState, } from 'vuex';
 
 export default {
   data() {
     return {
       data: {
-        type: Object,
-        default: {
-          state: 0,
-          show_img: ["http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png"],
-          "_id": "5bf90304fdfaf96f4558b615",
-          title: "a", brief: "dasf", cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png", "content": "<p>asfasf</p>", "start_at": "2018-11-24T07:40:14.600Z", "end_at": "2018-12-01T07:40:14.600Z", "create_user": "5bea8e7621a86d63ec7e8429", "create_at": "2018-11-24T07:51:32.439Z", "__v": 0
-        }
+        state: 0,
+        show_img: ["http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png"],
+        "_id": "5bf90304fdfaf96f4558b615",
+        title: "a", brief: "dasf", cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png", "content": "<p>asfasf</p>", "start_at": "2018-11-24T07:40:14.600Z", "end_at": "2018-12-01T07:40:14.600Z", "create_user": "5bea8e7621a86d63ec7e8429", "create_at": "2018-11-24T07:51:32.439Z", "__v": 0
       },
       form: {
         name: 'saff'
       }
     }
   },
+  computed: {
+    ...mapState(['user']),
+  },
   methods: {
-    goMoney() {
-      wx.navigateTo({
-        url: '/pages/active/service_point'
-      })
+    // 去赚钱按钮点击事件
+    async goMakeMoney() {
+      const params = {
+        url: "active/join",
+        payload: {
+          active_id: this.data._id
+        },
+        auth: true
+      }
+      const result = await this.post(params)
+      if (result.code === 1) {
+        // 跳转到服务点，进行广告粘贴
+        wx.navigateTo({
+          url: '/pages/active/service_point'
+        })
+      } else {
+        wx.navigateTo({
+          url: '/pages/active/service_point'
+        })
+
+      }
     },
     // 活动详情
     async  activeDetail() {
