@@ -63,8 +63,8 @@ export default {
   data() {
     return {
       img: {
-        sign: '../../../static/images/home/sign.png',
-        peccancy: '../../../static/images/home/peccancy.png'
+        sign: 'https://feiyuoss.oss-cn-hangzhou.aliyuncs.com/mini/img/home/sign.png',
+        peccancy: 'https://feiyuoss.oss-cn-hangzhou.aliyuncs.com/mini/img/home/peccancy.png'
       },
       images: [
         { url: 'http://www.benpaobao.com/img/case3_1.jpg' },
@@ -175,165 +175,165 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.home {
-  padding: 10px;
-  background: #f4f4f4;
+  .home {
+    padding: 10px;
+    background: #f4f4f4;
 
-  .grids-icon {
-    padding: 10px 0;
-    box-shadow: 0rpx 0rpx 4rpx #7e7e7e;
-    .grids-grid-icon {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto;
-      img {
+    .grids-icon {
+      padding: 10px 0;
+      box-shadow: 0rpx 0rpx 4rpx #7e7e7e;
+      .grids-grid-icon {
         width: 50px;
         height: 50px;
+        margin: 0 auto;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .grids-grid-label {
+        display: block;
+        text-align: center;
+        color: #000;
+        font-size: 12px;
+      }
+      .grids-grid-num {
+        display: block;
+        text-align: center;
+        color: #3598dc;
+        font-size: 16px;
       }
     }
-    .grids-grid-label {
-      display: block;
-      text-align: center;
-      color: #000;
-      font-size: 12px;
-    }
-    .grids-grid-num {
-      display: block;
-      text-align: center;
-      color: #3598dc;
-      font-size: 16px;
-    }
   }
-}
 
-.c-modal {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .c-mask {
-    position: absolute;
+  .c-modal {
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
-    opacity: 0.4;
-    background: #000;
-  }
-
-  .c-card {
-    width: 500rpx;
-    height: 380rpx;
-    background: white;
-    position: relative;
-    border-radius: 5px;
-    .c-head {
-      font-size: 16px;
-      font-weight: bold;
-      color: #363636;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80rpx;
-      color: #048fff;
-      border-bottom: 2px solid #048fff;
-    }
-    .c-content {
-      font-size: 14px;
-      color: #363636;
-      padding: 40rpx;
-    }
-
-    .c-bottom {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      display: flex;
-      .c-btn {
-        width: 40%;
-        font-size: 14px;
-        background-color: #048fff;
-        border: none;
-        border-radius: 2px;
-        color: white;
-      }
-    }
-  }
-}
-
-.show-pannel {
-  display: flex;
-  justify-content: space-around;
-
-  .show-item {
-    height: 140rpx;
-    width: 48%;
-    border-radius: 4px;
     display: flex;
-    color: grey;
-    background: white;
+    justify-content: center;
+    align-items: center;
 
-    .show-icon {
-      height: 140rpx;
-      width: 140rpx;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: 20rpx;
-
-      img {
-        width: 100rpx;
-        height: 100rpx;
-      }
-
-      .sign-img {
-        width: 80rpx;
-        height: 80rpx;
-      }
+    .c-mask {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      background: #000;
     }
-    .show-title {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      margin-right: 40rpx;
 
-      .show-num {
+    .c-card {
+      width: 500rpx;
+      height: 380rpx;
+      background: white;
+      position: relative;
+      border-radius: 5px;
+      .c-head {
         font-size: 16px;
         font-weight: bold;
-        letter-spacing: 3px;
+        color: #363636;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80rpx;
+        color: #048fff;
+        border-bottom: 2px solid #048fff;
+      }
+      .c-content {
+        font-size: 14px;
+        color: #363636;
+        padding: 40rpx;
+      }
+
+      .c-bottom {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        .c-btn {
+          width: 40%;
+          font-size: 14px;
+          background-color: #048fff;
+          border: none;
+          border-radius: 2px;
+          color: white;
+        }
       }
     }
   }
-}
 
-.creditGold {
-  font-weight: bold;
-  color: #fe2600;
-  letter-spacing: -3px;
-  text-shadow: 0 0 1rpx #fe2600;
-}
+  .show-pannel {
+    display: flex;
+    justify-content: space-around;
 
-.orange-shadow {
-  font-weight: bold;
-  color: #fe8300;
-  letter-spacing: -3px;
-  text-shadow: 0 0 1rpx #fe8300;
-}
+    .show-item {
+      height: 140rpx;
+      width: 48%;
+      border-radius: 4px;
+      display: flex;
+      color: grey;
+      background: white;
 
-.blue-shadow {
-  font-weight: bold;
-  color: #3aadfe;
-  letter-spacing: -3px;
-  text-shadow: 0 0 1rpx #3aadfe;
-}
+      .show-icon {
+        height: 140rpx;
+        width: 140rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20rpx;
+
+        img {
+          width: 100rpx;
+          height: 100rpx;
+        }
+
+        .sign-img {
+          width: 80rpx;
+          height: 80rpx;
+        }
+      }
+      .show-title {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        margin-right: 40rpx;
+
+        .show-num {
+          font-size: 16px;
+          font-weight: bold;
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+
+  .creditGold {
+    font-weight: bold;
+    color: #fe2600;
+    letter-spacing: -3px;
+    text-shadow: 0 0 1rpx #fe2600;
+  }
+
+  .orange-shadow {
+    font-weight: bold;
+    color: #fe8300;
+    letter-spacing: -3px;
+    text-shadow: 0 0 1rpx #fe8300;
+  }
+
+  .blue-shadow {
+    font-weight: bold;
+    color: #3aadfe;
+    letter-spacing: -3px;
+    text-shadow: 0 0 1rpx #3aadfe;
+  }
 </style>
 

@@ -15,11 +15,19 @@
         </span>
       </div>
       <div class="aui-footer-btn" @click="goMoney">
-        <upload-button>
+        <upload-button :path="path" :success="uploadSuccess">
           拍照确认&nbsp开始赚钱
         </upload-button>
       </div>
     </footer>
+    <wux-popup closable :visible="visible" title="拍照确认图片" @close="closePop">
+      <div class="pop-img">
+        <img :src="checkImg" alt="">
+      </div>
+      <div>
+        <wux-button block type="positive" @tap="goActive">确认</wux-button>
+      </div>
+    </wux-popup>
   </div>
 </template>
 <script>
@@ -27,7 +35,16 @@ import ServicePointRow from '@components/row/ServicePointRow';
 import UploadButton from '@components/upload/UploadButton'
 export default {
   data() {
-
+    return {
+      // 文件上传的路径
+      path: {
+        path: `service/check`
+      },
+      // pop是否显示
+      visible: true,
+      // 上传的确认图片
+      checkImg: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/service/check/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.Ka2LrJ8PB17Vfbc346b1ba5f83d19781148988cb9fac.png'
+    }
   },
   components: {
     ServicePointRow,
@@ -42,7 +59,18 @@ export default {
         scale: 15
       })
     },
-
+    closePop() {
+      this.visible = false
+    },
+    // 图片上传成功
+    uploadSuccess(img) {
+      this.checkImg = img
+      this.visible = true
+    },
+    // 去执行任务
+    goActive() {
+      wx.redirectTo({ url: '/pages/map/trip_clock' });
+    }
   }
 }
 </script>
@@ -104,6 +132,14 @@ export default {
         background: #fff;
         color: #4499ff;
         position: relative;
+      }
+    }
+    .pop-img {
+      width: 100%;
+      height: 370rpx;
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }

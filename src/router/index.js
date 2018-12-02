@@ -1,15 +1,16 @@
 module.exports = [
-  // 去服务点 粘贴广告
+
+  // 4 我的
   {
-    path: 'pages/active/service_point',
+    path: 'pages/my',
     config: {
-      navigationBarTitleText: '粘贴广告',
-      usingComponents: {
-        "wux-upload": "../../static/wux/upload/index",
-      },
-    },
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      // enablePullDownRefresh: false
+    }
   },
-  // 广告任务列表
+  },
+  // 2 广告任务
   {
     path: 'pages/market/active',
     config: {
@@ -21,8 +22,7 @@ module.exports = [
       },
     },
   },
-
-  // 首页
+  // 1 首页
   {
     path: 'pages/home',
     config: {
@@ -34,9 +34,7 @@ module.exports = [
       },
     },
   },
-
-
-  // 活动详情
+  // 2-1 活动详情
   {
     path: 'pages/active/detail',
     config: {
@@ -48,15 +46,37 @@ module.exports = [
       },
     },
   },
-  // 首页
 
-  // 地图
+  // 2-2 去服务点 粘贴广告
+  {
+    path: 'pages/active/service_point',
+    config: {
+      navigationBarTitleText: '粘贴广告',
+      usingComponents: {
+        "wux-upload": "../../static/wux/upload/index",
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
+  },
+
+  // 2-4 地图 出行打卡
   {
     path: 'pages/map/trip_clock',
     config: {
       navigationBarTitleText: '出行打卡'
     },
   },
+
+
+
+
+
+
+
+  // 首页
+
+
   // 地图
   {
     path: 'pages/map/index',
@@ -69,9 +89,7 @@ module.exports = [
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
 
-  {
-    path: 'pages/my', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-  },
+
   {
     // 用户认证页面
     path: 'pages/user/verify',
