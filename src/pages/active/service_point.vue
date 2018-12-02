@@ -1,5 +1,5 @@
 <template>
-  <div class="service-point" @click="goPoint">
+  <div class="service-point">
     <scroll-view scroll-y class="se-list">
       <div class="se-accept">
         <div>
@@ -14,12 +14,11 @@
           <span>广告粘贴完成</span>
         </span>
       </div>
-      <div>
+      <div class="aui-footer-btn" @click="goMoney">
         <upload-button>
-          asfasfssafasf
+          拍照确认&nbsp开始赚钱
         </upload-button>
       </div>
-      <!-- <div class="aui-footer-btn" @click="goMoney">拍照确认&nbsp开始赚钱</div> -->
     </footer>
   </div>
 </template>
@@ -49,65 +48,65 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.service-point {
-  background: #f7f8f9;
-  width: 100%;
-  height: calc(100vh - 20rpx);
-  padding-top: 20rpx;
-
-  .se-list {
-    height: calc(100vh - 110rpx);
-    overflow: hidden;
-    .se-accept {
-      width: calc(100vw - 40rpx);
-      height: 100rpx;
-      background: white;
-      margin-left: 20rpx;
-      margin-right: 20rpx;
-      border-radius: 10rpx;
-      font-size: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  // 底部按钮
-  .ac-footer {
+  .service-point {
+    background: #f7f8f9;
     width: 100%;
-    position: absolute;
-    bottom: 0rpx;
-    z-index: 102;
-    display: flex;
-    align-items: center;
-    padding: 0;
-    background-color: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 -2px 15px #dedede;
-    height: 90rpx;
+    height: calc(100vh - 20rpx);
+    padding-top: 20rpx;
 
-    .aui-footer-btn {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      background: #4499ff;
-      height: 100%;
-      font-size: 14px;
-      font-weight: bold;
-      .de-price {
-        font-size: 18px;
-        font-weight: bold;
+    .se-list {
+      height: calc(100vh - 110rpx);
+      overflow: hidden;
+      .se-accept {
+        width: calc(100vw - 40rpx);
+        height: 100rpx;
+        background: white;
+        margin-left: 20rpx;
+        margin-right: 20rpx;
+        border-radius: 10rpx;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
-    .aui-order-price {
-      background: #fff;
-      color: #4499ff;
-      position: relative;
+
+    // 底部按钮
+    .ac-footer {
+      width: 100%;
+      position: absolute;
+      bottom: 0rpx;
+      z-index: 102;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 -2px 15px #dedede;
+      height: 90rpx;
+
+      .aui-footer-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background: #4499ff;
+        height: 100%;
+        font-size: 14px;
+        font-weight: bold;
+        .de-price {
+          font-size: 18px;
+          font-weight: bold;
+        }
+      }
+      .aui-order-price {
+        background: #fff;
+        color: #4499ff;
+        position: relative;
+      }
     }
   }
-}
 </style>
 
 
