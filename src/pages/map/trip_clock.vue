@@ -23,7 +23,7 @@
       <cover-view class="item">
         <cover-view class="cl-title">打卡抽奖</cover-view>
         <cover-view class="cl-click">
-          <cover-view class="cl-text">
+          <cover-view class="cl-text" @click="activeClock">
             点击打卡
           </cover-view>
         </cover-view>
@@ -35,9 +35,11 @@
   </div>
 </template>
 <script>
+import { getQuery } from '@libs/utils';
 export default {
   data() {
     return {
+      map: null,
       icon: {
         // 回退
         back: 'https://feiyuoss.oss-cn-hangzhou.aliyuncs.com/mini/img/icon/back.png',
@@ -63,20 +65,67 @@ export default {
         color: "#FF0000DD",
         width: 2,
         dottedLine: true
-      }]
+      }],
+      active_id: null
     }
   },
   methods: {
-    mapClock() {
-      console.log('asff')
+    // 打卡
+    async activeClock() {
+      // 获取经纬度
+      const { latitude, longitude } = await new Promise((resolve, reject) => {
+        wx.getLocation({
+          type: 'gcj02',
+          success(res) {
+            resolve(res)
+          }
+        })
+      })
+      // 发送数据
+      const params = {
+        url: "active/clock",
+        payload: {
+          active_id: this.active_id,
+          longitude: longitude,
+          latitude: latitude
+        },
+        auth: true
+      }
+      const result = await this.post(params)
+      if (result.code === 1) {
+        const data = result.data
+        this.addMarker(data.latitude, data.longitude)
+      }
+    },
+    // 移动地图到当前定位
+    moveToLocation() {
+      this.map.moveToLocation()
+    },
+    // 新增地图坐标点
+    addMarker(latitude, longitude) {
+      this.markers.push({
+        iconPath: "../../static/images/map/car_marker.png",
+        id: 0,
+        latitude: latitude,
+        longitude: longitude,
+        width: 26,
+        height: 30
+      })
+      this.moveToLocation()
     },
     // 退出到活动列表
     back() {
       console.log('哈哈,点击啦')
       wx.redirectTo({ url: '/pages/market/active' });
     }
+  },
+  mounted() {
+    // 获取active_id
+    const { active_id } = getQuery()
+    this.active_id = active_id
+    // 初始化map
+    this.map = wx.createMapContext('map')
   }
-
 }
 </script>
 <style lang="less" scoped>

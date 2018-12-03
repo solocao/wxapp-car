@@ -25,12 +25,13 @@
         <img :src="checkImg" alt="">
       </div>
       <div>
-        <wux-button block type="positive" @tap="goActive">确认</wux-button>
+        <wux-button block type="positive" @tap="confirmActivePaste">确认</wux-button>
       </div>
     </wux-popup>
   </div>
 </template>
 <script>
+import { getQuery } from '@libs/utils';
 import ServicePointRow from '@components/row/ServicePointRow';
 import UploadButton from '@components/upload/UploadButton'
 export default {
@@ -48,19 +49,36 @@ export default {
   },
   components: {
     ServicePointRow,
-    UploadButton
+    UploadButton,
   },
   methods: {
     goPoint() {
-      wx.openLocation({
-        latitude: 41.12154,
-        longitude: 122.0518,
-        name: "去的地方",
-        scale: 15
-      })
+      // wx.openLocation({
+      //   latitude: 41.12154,
+      //   longitude: 122.0518,
+      //   name: "去的地方",
+      //   scale: 15
+      // })
     },
+    // 关闭弹窗
     closePop() {
       this.visible = false
+    },
+    // 确认已经粘贴、成功后去执行任务
+    async confirmActivePaste() {
+      const { active_id } = getQuery()
+      const params = {
+        url: 'service-point/active/paste',
+        payload: {
+          active_id: active_id,
+          paste_img: this.checkImg
+        },
+        auth: true
+      }
+      const result = await this.post(params)
+      if (result.code === 1) {
+        wx.redirectTo({ url: '/pages/map/trip_clock' });
+      }
     },
     // 图片上传成功
     uploadSuccess(img) {

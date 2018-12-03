@@ -18,7 +18,7 @@
           <p class="ac-d">{{start_at}}</p>
         </div>
         <div class="ac-item">
-          <span class="ac-long">共8天</span>
+          <span class="ac-long">共30天</span>
         </div>
         <div class="ac-item">
           <span class="ac-t">结束日期</span>
@@ -69,9 +69,14 @@ export default {
       week: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
       data: {
         state: 0,
-        show_img: ["http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png"],
-        "_id": "5bf90304fdfaf96f4558b615",
-        title: "a", brief: "dasf", cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png", "content": "<p>asfasf</p>", "start_at": "2018-11-24T07:40:14.600Z", "end_at": "2018-12-01T07:40:14.600Z", "create_user": "5bea8e7621a86d63ec7e8429", "create_at": "2018-11-24T07:51:32.439Z", "__v": 0
+        show_img: [null],
+        _id: "5bf90304fdfaf96f4558b615",
+        title: "a", brief: "dasf",
+        cover_img: "http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/2018-11-24/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%884.15.16.png",
+        content: "<p>asfasf</p>",
+        start_at: "2018-11-24T07:40:14.600Z",
+        end_at: "2018-12-01T07:40:14.600Z",
+        create_at: "2018-11-24T07:51:32.439Z",
       },
       form: {
         name: 'saff'
@@ -83,14 +88,13 @@ export default {
     start_at() {
       if (this.data.start_at !== undefined) {
         const week = this.week[dayjs(this.data.start_at).format('d')]
-
-        return dayjs(this.data.end_at).format('MM月DD日') + week
+        return dayjs(this.data.start_at).format('MM月DD日') + week
       }
       return '--'
     },
     end_at() {
       if (this.data.end_at !== undefined) {
-        const week = this.week[dayjs(this.data.start_at).format('d')]
+        const week = this.week[dayjs(this.data.end_at).format('d')]
         return dayjs(this.data.end_at).format('MM月DD日') + week
       }
       return '--'
@@ -114,15 +118,17 @@ export default {
       }
       const result = await this.post(params)
       if (result.code === 1) {
-        // 跳转到服务点，进行广告粘贴
+        const { active_id } = getQuery()
+        // 未粘贴广告，跳转到服务点，
         wx.navigateTo({
-          url: '/pages/active/service_point'
+          url: `/pages/active/service_point?active_id=${this.data._id}`
         })
-      } else {
+      }
+      if (result.code === 2) {
+        // 已经粘贴了广告，直接进入页面
         wx.navigateTo({
-          url: '/pages/active/service_point'
+          url: `/pages/map/trip_clock?active_id=${this.data._id}`
         })
-
       }
     },
     // 活动详情

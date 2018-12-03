@@ -1,4 +1,5 @@
 module.exports = [
+
   // 2 广告任务
   {
     path: 'pages/market/active',
