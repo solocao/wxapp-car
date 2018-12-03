@@ -62,9 +62,9 @@ export default {
           longitude: 113.324520,
           latitude: 23.21229
         }],
-        color: "#FF0000DD",
+        color: "#048FFFBB",
         width: 2,
-        dottedLine: true
+        dottedLine: false
       }],
       active_id: null
     }
@@ -110,6 +110,10 @@ export default {
         longitude: longitude,
         width: 26,
         height: 30
+      })
+      this.polyline[0].points.push({
+        longitude: longitude,
+        latitude: latitude
       })
       this.moveToLocation()
     },
