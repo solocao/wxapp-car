@@ -1,14 +1,4 @@
 module.exports = [
-
-  // 4 我的
-  {
-    path: 'pages/my',
-    config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
   // 2 广告任务
   {
     path: 'pages/market/active',
@@ -68,13 +58,15 @@ module.exports = [
   },
 
 
-
-
-
-
-
-  // 首页
-
+  // 4 我的
+  {
+    path: 'pages/my',
+    config: {
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
 
   // 地图
   {
