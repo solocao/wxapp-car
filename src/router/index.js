@@ -1,17 +1,25 @@
 module.exports = [
 
-  // 2 广告任务
   {
-    path: 'pages/market/active',
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
     config: {
-      navigationBarTitleText: '广告任务',
+      navigationBarTitleText: '车主认证',
       usingComponents: {
         'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
         'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
       },
     },
   },
+
   // 1 首页
   {
     path: 'pages/home',
@@ -21,6 +29,18 @@ module.exports = [
         'wux-col': '../static/wux/col/index',
         'wux-button': '../static/wux/button/index',
         'wux-dialog': '../static/wux/dialog/index',
+      },
+    },
+  },
+  // 2 广告任务
+  {
+    path: 'pages/market/active',
+    config: {
+      navigationBarTitleText: '广告任务',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
       },
     },
   },
@@ -59,15 +79,6 @@ module.exports = [
   },
 
 
-  // 4 我的
-  {
-    path: 'pages/my',
-    config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
 
   // 地图
   {
@@ -81,26 +92,18 @@ module.exports = [
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
 
-
+  // 4 我的 个人中心
   {
-    // 用户认证页面
-    path: 'pages/user/verify',
+    path: 'pages/my',
     config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
-      },
-    },
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
   },
+
+
+
 
   {
     path: 'pages/money',
