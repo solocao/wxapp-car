@@ -8,9 +8,11 @@
         <wux-input :value="form.car_number" label="车牌号" placeholder="请输入车牌号" @change="(e)=>{this.form.car_number=e.mp.detail.value }" />
       </wux-cell>
 
-      <wux-cell hover-class=" none">
-        <span class="z-cell-label">选择车型</span>
-        <span @click.stop="goSelectCar">请选择车辆品牌/车型</span>
+      <wux-cell>
+        <div style="display:flex">
+          <span class="z-cell-label">选择车型</span>
+          <span class="z-cell-content" @click.stop="goSelectCar">请选择车辆品牌/车型</span>
+        </div>
       </wux-cell>
       <wux-cell hover-class=" none">
         <span class="z-cell-label">车辆颜色</span>
@@ -266,6 +268,9 @@ export default {
       overflow: hidden;
       width: 220rpx;
       float: left;
+    }
+    .z-cell-content {
+      flex: 1;
     }
   }
 

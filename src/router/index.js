@@ -1,5 +1,4 @@
 module.exports = [
-
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
@@ -19,7 +18,6 @@ module.exports = [
       },
     },
   },
-
   // 1 首页
   {
     path: 'pages/home',
