@@ -7,7 +7,6 @@
       <wux-cell hover-class=" none">
         <wux-input :value="form.car_number" label="车牌号" placeholder="请输入车牌号" @change="(e)=>{this.form.car_number=e.mp.detail.value }" />
       </wux-cell>
-
       <wux-cell>
         <div style="display:flex">
           <span class="z-cell-label">选择车型</span>

@@ -1,4 +1,24 @@
 module.exports = [
+  // 5-1 汽车详情页
+  {
+    path: 'pages/car/detail',
+    config: {
+      navigationBarTitleText: '车辆选择',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
+  },
+
+  // 5 汽车分类列表
+  {
+    path: 'pages/car/category',
+    config: {
+      navigationBarTitleText: '车型分类',
+    },
+  },
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
@@ -101,29 +121,14 @@ module.exports = [
   },
 
 
-
-
   {
     path: 'pages/money',
     config: {
       navigationBarTitleText: '记录',
     },
   },
-  // 汽车分类
-  {
-    path: 'pages/car/category',
-  },
-  {
-    path: 'pages/car/detail',
-    config: {
-      navigationBarTitleText: '车辆选择',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
-      },
-    },
-  },
+
+
   {
     path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
     config: { // 页面配置，即 page.json 的内容，可选
