@@ -1,24 +1,7 @@
 module.exports = [
-  // 5-1 汽车详情页
-  {
-    path: 'pages/car/detail',
-    config: {
-      navigationBarTitleText: '车辆选择',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
-      },
-    },
-  },
 
-  // 5 汽车分类列表
-  {
-    path: 'pages/car/category',
-    config: {
-      navigationBarTitleText: '车型分类',
-    },
-  },
+
+
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
@@ -93,6 +76,27 @@ module.exports = [
     path: 'pages/map/trip_clock',
     config: {
       navigationBarTitleText: '出行打卡'
+    },
+  },
+
+  // 5 汽车分类列表
+  {
+    path: 'pages/car/category',
+    config: {
+      navigationBarTitleText: '车型分类',
+    },
+  },
+
+  // 5-1 汽车详情页
+  {
+    path: 'pages/car/detail',
+    config: {
+      navigationBarTitleText: '车辆选择',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
     },
   },
 

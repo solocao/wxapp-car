@@ -10,7 +10,10 @@
       <wux-cell>
         <div style="display:flex">
           <span class="z-cell-label">选择车型</span>
-          <span class="z-cell-content" @click.stop="goSelectCar">请选择车辆品牌/车型</span>
+          <div class="z-cell-content" @click.stop="goSelectCar">
+            <span v-if="form.car_model == null">请选择车辆品牌/车型</span>
+            <span v-else>{{form.car_model.car_name}}&nbsp{{form.car_model.batch_at}}</span>
+          </div>
         </div>
       </wux-cell>
       <wux-cell hover-class=" none">
@@ -61,6 +64,7 @@
 
 <script>
 import { $wuxSelect, $wuxToast } from '../../../static/wux/index';
+import { getQuery } from '@libs/utils';
 
 import UploadImg from '@/components/upload/UploadImg';
 import { mapState } from 'vuex';
@@ -204,10 +208,19 @@ export default {
     }
   },
   created() {
-    this.form = Object.assign({}, this.form, this.formTest)
+    // this.form = Object.assign({}, this.form, this.formTest)
   },
   mounted() {
-    console.log(this.user)
+    // 选择汽车型号后，在这里面显示
+    const { car_model } = getQuery()
+    if (car_model !== undefined) {
+      this.form.car_model = JSON.parse(car_model)
+    }
+
+    // 
+    // console.log('看看汽车model')
+    // console.log(car_model)
+    // console.log(this.user)
   }
 };
 

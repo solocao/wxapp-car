@@ -5,7 +5,7 @@
         {{brand.name}}
       </div>
       <div class="car-detail">
-        <div class="car-item" v-for="(car,ii) in brand.car" :key="ii" @click.stop="open">
+        <div class="car-item" v-for="(car,ii) in brand.car" :key="ii" @click.stop="open(brand,car)">
           <div class="item-img">
             <img :src="car.img" alt="">
           </div>
@@ -15,17 +15,12 @@
         </div>
       </div>
     </div>
-
+    <!-- 车辆款式的年份选择 -->
     <wux-popup closable :visible="visible" title="车辆款式" @close="close">
-      <div>
-        <div class="car-wrap">
-          <span class="car-select" v-for="r in 3" :key="r">
-            2012款式
-          </span>
+      <div class="car-batch-wrap">
+        <div class="car-batch-item" v-for="(batch,index) in batchList" :key="index" @click="selectBatch(batch)">
+          {{batch}}
         </div>
-      </div>
-      <div>
-        <wux-button block type="positive" @tap="close">确认选择</wux-button>
       </div>
     </wux-popup>
   </div>
@@ -36,13 +31,28 @@ export default {
   data() {
     return {
       visible: false,
-      brandList: []
+      brandList: [],
+      // 年份款式
+      batchList: [],
+      car: null,
+      // 车辆型号
+      model: {
+        // 大品牌型号
+        category_name: null,
+        // 具体小品牌的型号
+        brand_name: null,
+        // 汽车名称
+        car_name: null,
+        // 生产日期
+        batch_at: null
+      }
     };
   },
   methods: {
     // 获取品牌
     async getBrand() {
       const { category_name = '奥迪' } = getQuery();
+      this.model.category_name = category_name;
       const params = {
         url: `car/brand/${category_name}`,
         payload: {},
@@ -54,18 +64,25 @@ export default {
       }
       console.log(result)
     },
-    open() {
+    open(brand, car) {
+      this.model.brand_name = brand.name;
+      this.model.car_name = car.name;
+      this.batchList = car.batch_at;
       this.visible = true;
     },
     close() {
       this.visible = false;
       console.log('关闭了');
     },
+    selectBatch(batch) {
+      this.model.batch_at = batch;
+      wx.redirectTo({ url: `/pages/user/verify?car_model=${JSON.stringify(this.model)}` });
+    }
   },
   mounted() {
-    // this.getBrand();
+    this.getBrand();
 
-    this.brandList = [{ "car": [{ "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }], "_id": "5c0fad0e9548b0991ec0dcb0", "name": "一汽-大众奥迪" }, { "car": [{ "batch_at": ["2017年款", "2016年款", "2013年款"], "_id": "5c0faed25a3b2d9e40c79579", "name": "奥迪R8", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/s9018_200.jpg" }], "_id": "5c0fae7f5a3b2d9e40c79578", "name": "Audi Sport" }]
+    // this.brandList = [{ "car": [{ "batch_at": ["2018年款", "2017年款", "2016年款", "2016年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }], "_id": "5c0fad0e9548b0991ec0dcb0", "name": "一汽-大众奥迪" }, { "car": [{ "batch_at": ["2017年款", "2016年款", "2013年款"], "_id": "5c0faed25a3b2d9e40c79579", "name": "奥迪R8", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/s9018_200.jpg" }], "_id": "5c0fae7f5a3b2d9e40c79578", "name": "Audi Sport" }]
 
 
   }
@@ -121,18 +138,23 @@ export default {
     }
   }
 
-  .car-wrap {
-    height: auto;
-    .car-select {
-      width: 45%;
-      float: left;
-      padding-top: 6px;
-      padding-bottom: 6px;
-      border: 1px solid #048fff;
-      margin-bottom: 10px;
-    }
-    .car-select:nth-child(even) {
-      float: right;
+  .car-batch-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    .car-batch-item {
+      width: calc(50% - 20rpx);
+      margin: 10rpx;
+      box-shadow: #f4f4f4 0px 1px 2px 1px;
+      background: #048fff;
+      height: 60rpx;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: white;
+      border-radius: 2rpx;
     }
   }
 </style>
