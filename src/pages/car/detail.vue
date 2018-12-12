@@ -68,11 +68,12 @@ export default {
       this.model.brand_name = brand.name;
       this.model.car_name = car.name;
       this.batchList = car.batch_at;
+      console.log(this.model)
       this.visible = true;
+
     },
     close() {
       this.visible = false;
-      console.log('关闭了');
     },
     selectBatch(batch) {
       this.model.batch_at = batch;
@@ -81,10 +82,6 @@ export default {
   },
   mounted() {
     this.getBrand();
-
-    // this.brandList = [{ "car": [{ "batch_at": ["2018年款", "2017年款", "2016年款", "2016年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }, { "batch_at": ["2018年款", "2017年款", "2016年款"], "_id": "5c0fad1e9548b0991ec0dcb1", "name": "奥迪A4L", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-19%20%E4%B8%8B%E5%8D%883.42.50.png" }], "_id": "5c0fad0e9548b0991ec0dcb0", "name": "一汽-大众奥迪" }, { "car": [{ "batch_at": ["2017年款", "2016年款", "2013年款"], "_id": "5c0faed25a3b2d9e40c79579", "name": "奥迪R8", "img": "http://feiyuoss.oss-cn-hangzhou.aliyuncs.com/car/category/2018-12-11/s9018_200.jpg" }], "_id": "5c0fae7f5a3b2d9e40c79578", "name": "Audi Sport" }]
-
-
   }
 };
 </script>

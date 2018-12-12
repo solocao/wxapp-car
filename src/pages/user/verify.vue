@@ -56,6 +56,7 @@
     </div>
     <wux-select id="wux-select" />
     <div>
+      <wux-button block type="positive" @click="fill">填充数据</wux-button>
       <wux-button block type="positive" @click="submit">确认提交</wux-button>
     </div>
     <wux-toast id="wux-toast" />
@@ -103,21 +104,6 @@ export default {
         driving_licence_img: null,
         // 行驶证所有人
         driving_licence_owner: null,
-      },
-      formTest: {
-        name: '曹天骄',
-        car_number: '粤K000F0',
-        car_color: '白色',
-        car_model: '奔驰 2019款 A 180 L',
-        car_type: 0,
-        // 汽车封面照
-        car_cover_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.ZI8sdm1KH0vvfbc346b1ba5f83d19781148988cb9fac.png?x-oss-process=image/resize,l_200',
-        // 身份证正面
-        user_id_number_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.kykjWknJ8GcC1f32b501aab6e3631aadb1f29a93e5ef.png?x-oss-process=image/resize,l_200',
-        // 驾驶证
-        driver_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.cvGYNFaA6rxAe66062e18a86a5e8f762d9f1e3f80260.png?x-oss-process=image/resize,l_200',
-        // 行驶证
-        driving_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.KPYesrBXKA8Bec078c6502ee1591e28eb97eb6785982.png?x-oss-process=image/resize,l_20',
       },
       validText: {
         name: '请输入车主姓名',
@@ -188,6 +174,30 @@ export default {
       // wx.switchTab({ url: '/pages/my' });
       this.$router.push({ path: '/pages/my', switchTab: true });
     },
+    fill() {
+      this.colorIndex = 1;
+      const formTest = {
+        name: '曹天骄',
+        car_number: '粤K000F0',
+        car_color: '白色',
+        car_model: {
+          category_name: "奥迪",
+          brand_name: "一汽-大众奥",
+          car_name: "奥迪A4L",
+          batch_at: "2017年款"
+        },
+        car_type: 0,
+        // 汽车封面照
+        car_cover_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.ZI8sdm1KH0vvfbc346b1ba5f83d19781148988cb9fac.png?x-oss-process=image/resize,l_200',
+        // 身份证正面
+        user_id_number_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.kykjWknJ8GcC1f32b501aab6e3631aadb1f29a93e5ef.png?x-oss-process=image/resize,l_200',
+        // 驾驶证
+        driver_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.cvGYNFaA6rxAe66062e18a86a5e8f762d9f1e3f80260.png?x-oss-process=image/resize,l_200',
+        // 行驶证
+        driving_licence_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.KPYesrBXKA8Bec078c6502ee1591e28eb97eb6785982.png?x-oss-process=image/resize,l_20',
+      };
+      this.form = formTest
+    },
     pickerColor(e) {
       this.colorIndex = parseInt(e.target.value);
       this.form.car_color = this.colorArray[this.colorIndex];
@@ -207,6 +217,7 @@ export default {
       console.log(result)
     }
   },
+
   created() {
     // this.form = Object.assign({}, this.form, this.formTest)
   },
