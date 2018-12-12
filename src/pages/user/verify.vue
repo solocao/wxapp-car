@@ -5,7 +5,7 @@
         <wux-input :value="form.name" :controlled="true" label="车主姓名" placeholder="请填写本人姓名" @change="(e)=>{this.form.name=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input :value="form.car_number" label="车牌号" placeholder="请输入车牌号" @change="(e)=>{this.form.car_number=e.mp.detail.value }" />
+        <wux-input :value="form.car_number" :controlled="true" label="车牌号" placeholder="请输入车牌号" @change="(e)=>{this.form.car_number=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell>
         <div style="display:flex">
@@ -33,16 +33,16 @@
         </div>
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input :value="form.user_id_number" label="身份证号" placeholder="请输入身份证号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
+        <wux-input :value="form.user_id_number" :controlled="true" label="身份证号" placeholder="请输入身份证号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input :value="form.driver_licence" label="驾驶证号" placeholder="请输入驾驶证号" @change="(e)=>{this.form.driver_licence=e.mp.detail.value }" />
+        <wux-input :value="form.driver_licence" :controlled="true" label="驾驶证号" placeholder="请输入驾驶证号" @change="(e)=>{this.form.driver_licence=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input :value="form.driving_licence" label="行驶证号" placeholder="请输入行驶证号" @change="(e)=>{this.form.driving_licence=e.mp.detail.value }" />
+        <wux-input :value="form.driving_licence" :controlled="true" label="行驶证号" placeholder="请输入行驶证号" @change="(e)=>{this.form.driving_licence=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class=" none">
-        <wux-input :value="form.driving_licence_owner" label="行驶证所有人" placeholder="请输入行驶证所有人" @change="(e)=>{this.form.driving_licence_owner=e.mp.detail.value }" />
+        <wux-input :value="form.driving_licence_owner" :controlled="true" label="行驶证所有人" placeholder="请输入行驶证所有人" @change="(e)=>{this.form.driving_licence_owner=e.mp.detail.value }" />
       </wux-cell>
     </wux-cell-group>
     <div class="v-upload-wraper">
@@ -187,6 +187,14 @@ export default {
           batch_at: "2017年款"
         },
         car_type: 0,
+        // 身份证号
+        user_id_number: '150624197307108592',
+        // 驾驶证号
+        driver_licence: '23479294791274',
+        //行驶证
+        driving_licence: '324231241',
+        // 行驶证所有人
+        driving_licence_owner: '南京美盛汽车有限公司',
         // 汽车封面照
         car_cover_img: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/verify/oMrxa1FLnqTiETFyf8vOLvmgf18c/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.ZI8sdm1KH0vvfbc346b1ba5f83d19781148988cb9fac.png?x-oss-process=image/resize,l_200',
         // 身份证正面
