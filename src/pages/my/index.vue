@@ -12,7 +12,7 @@
               <div class="aui-flex-box">
                 <h3>{{user.nickname}}</h3>
                 <div class="aui-flex-org" @click="goVerify">
-                  <i class="icon icon-vip"></i>认证会员
+                  <i class="icon icon-vip"></i> {{verify_text}}
                 </div>
               </div>
             </div>
@@ -171,15 +171,22 @@ import { mapState, } from 'vuex';
 export default {
   computed: {
     ...mapState(['user']),
+    // 显示的认证文字
+    verify_text() {
+      switch (this.user.verify.state) {
+        case 0: return '点击认证';
+        case -1: return '认证不通过';
+        case 1: return '认证会员';
+        case 2: return '等待审核';
+        default: return '点击认证'
+      }
+    }
   },
   methods: {
-    // 
+    // 跳转到认证页面
     goVerify() {
-      console.log(this.$router.currentRoute);
-      // this.$router.push('pages/task');
-      wx.redirectTo({ url: '/pages/user/verify' });
+      wx.navigateTo({ url: '/pages/user/verify' });
     },
-
   },
 };
 </script>

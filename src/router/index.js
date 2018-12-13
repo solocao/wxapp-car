@@ -1,25 +1,12 @@
 module.exports = [
-
-
-
+  // 4 我的 个人中心
   {
-    // 4-1 用户认证页面
-    path: 'pages/user/verify',
+    path: 'pages/my',
     config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
-      },
-    },
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
   },
   // 1 首页
   {
@@ -57,7 +44,6 @@ module.exports = [
       },
     },
   },
-
   // 2-2 去服务点 粘贴广告
   {
     path: 'pages/active/service_point',
@@ -70,7 +56,6 @@ module.exports = [
       },
     },
   },
-
   // 2-4 地图 出行打卡
   {
     path: 'pages/map/trip_clock',
@@ -78,7 +63,25 @@ module.exports = [
       navigationBarTitleText: '出行打卡'
     },
   },
-
+  {
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
+    config: {
+      navigationBarTitleText: '车主认证',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
+      },
+    },
+  },
   // 5 汽车分类列表
   {
     path: 'pages/car/category',
@@ -86,7 +89,6 @@ module.exports = [
       navigationBarTitleText: '车型分类',
     },
   },
-
   // 5-1 汽车详情页
   {
     path: 'pages/car/detail',
@@ -99,9 +101,6 @@ module.exports = [
       },
     },
   },
-
-
-
   // 地图
   {
     path: 'pages/map/index',
@@ -114,15 +113,6 @@ module.exports = [
     path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
   },
 
-  // 4 我的 个人中心
-  {
-    path: 'pages/my',
-    config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
 
 
   {

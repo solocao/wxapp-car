@@ -28,8 +28,8 @@
       <wux-cell hover-class="none">
         <span class="z-cell-label">车辆类型</span>
         <div style="float:left">
-          <wux-selectable color="positive" value="1" :controlled="true" :checked="form.car_type==0" @change="()=>{this.form.car_type =0}" />网约车
-          <wux-selectable color="positive" value="2" :controlled="true" :checked="form.car_type==1" @change="()=>{this.form.car_type =1}" />私家车
+          <wux-selectable color="positive" value="1" :controlled="true" :checked="carType==0" @change="()=>{this.carType =0}" />网约车
+          <wux-selectable color="positive" value="2" :controlled="true" :checked="carType==1" @change="()=>{this.carType =1}" />私家车
         </div>
       </wux-cell>
       <wux-cell hover-class=" none">
@@ -80,6 +80,9 @@ export default {
       value1: '',
       colorArray: ['白色', '黑色', '银色', '红色', '金色', '蓝色', '棕色', '紫色', '绿色', '粉色', '黄色'],
       colorIndex: null,
+      // 车辆类型 0 网约车  1 私家车
+      carType: 0,
+      carTypeName: ['网约车', '私家车'],
       form: {
         name: null,
         car_number: null,
@@ -87,7 +90,7 @@ export default {
         // 车辆型号
         car_model: null,
         // 车辆类型  0 网约车 1 私家车
-        car_type: 0,
+        car_type: null,
         // 身份证号
         user_id_number: null,
         // 驾驶证号
@@ -176,6 +179,7 @@ export default {
     },
     fill() {
       this.colorIndex = 1;
+      this.carType = 0;
       const formTest = {
         name: '曹天骄',
         car_number: '粤K000F0',
@@ -186,7 +190,7 @@ export default {
           car_name: "奥迪A4L",
           batch_at: "2017年款"
         },
-        car_type: 0,
+        car_type: '网约车',
         // 身份证号
         user_id_number: '150624197307108592',
         // 驾驶证号
@@ -222,6 +226,10 @@ export default {
         auth: true
       }
       const result = await this.post(params)
+
+      if (result.code === 1) {
+        wx.switchTab({ url: '/pages/my' });
+      }
       console.log(result)
     }
   },
@@ -240,6 +248,12 @@ export default {
     // console.log('看看汽车model')
     // console.log(car_model)
     // console.log(this.user)
+  },
+  watch: {
+    carType(val) {
+      this.form.car_type = this.carTypeName[val]
+
+    }
   }
 };
 
