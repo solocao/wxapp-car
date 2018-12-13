@@ -1,4 +1,23 @@
 module.exports = [
+  {
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
+    config: {
+      navigationBarTitleText: '车主认证',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
+      },
+    },
+  },
   // 4 我的 个人中心
   {
     path: 'pages/my',
@@ -63,25 +82,7 @@ module.exports = [
       navigationBarTitleText: '出行打卡'
     },
   },
-  {
-    // 4-1 用户认证页面
-    path: 'pages/user/verify',
-    config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
-      },
-    },
-  },
+
   // 5 汽车分类列表
   {
     path: 'pages/car/category',

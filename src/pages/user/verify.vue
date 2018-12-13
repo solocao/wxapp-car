@@ -68,7 +68,7 @@ import { $wuxSelect, $wuxToast } from '../../../static/wux/index';
 import { getQuery } from '@libs/utils';
 
 import UploadImg from '@/components/upload/UploadImg';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 import { minor } from 'semver';
 
 export default {
@@ -146,6 +146,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'set'
+    ]),
     // 进行提交前的验证
     valid() {
       for (const key in this.form) {
@@ -172,11 +175,7 @@ export default {
     onChange(e) {
       console.log(e);
     },
-    go() {
-      console.log(this.$router.currentRoute);
-      // wx.switchTab({ url: '/pages/my' });
-      this.$router.push({ path: '/pages/my', switchTab: true });
-    },
+    // 填充数据
     fill() {
       this.colorIndex = 1;
       this.carType = 0;
@@ -228,10 +227,11 @@ export default {
       const result = await this.post(params)
 
       if (result.code === 1) {
+        this.set({ 'user.verify.state': 2 })
         wx.switchTab({ url: '/pages/my' });
       }
       console.log(result)
-    }
+    },
   },
 
   created() {

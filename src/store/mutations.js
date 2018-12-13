@@ -1,10 +1,16 @@
-
 const mutations = {
   set(state, params) {
-    const keys = Object.keys(params)
-    keys.forEach(x => {
-      const val = params[x]
-      state[x] = val
+    Object.keys(params).forEach(key => {
+      // 需要替换的值
+      const val = params[key];
+      const arr = key.split(".");
+      if (arr.length > 1) {
+        let obj = state;
+        while ((arr.length - 1) && (obj = obj[arr.shift()]));
+        obj[arr[0]] = val
+      } else {
+        state[key] = val
+      }
     })
   },
   setUserInfor(state, user) {
