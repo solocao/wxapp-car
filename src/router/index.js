@@ -1,29 +1,13 @@
 module.exports = [
-  // 2-4 地图 出行打卡
+  // 我的任务
   {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
-
-  {
-    // 4-1 用户认证页面
-    path: 'pages/user/verify',
-    config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
-      },
+    path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
+    config: { // 页面配置，即 page.json 的内容，可选
+      navigationBarTitleText: '我的任务',
+      enablePullDownRefresh: false,
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#2D8FF7',
+      navigationBarTextStyle: 'white',
     },
   },
   // 4 我的 个人中心
@@ -60,6 +44,8 @@ module.exports = [
     },
   },
 
+
+
   // 2-1 活动详情
   {
     path: 'pages/active/detail',
@@ -85,6 +71,32 @@ module.exports = [
     },
   },
 
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+  {
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
+    config: {
+      navigationBarTitleText: '车主认证',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
+      },
+    },
+  },
 
   // 5 汽车分类列表
   {
@@ -127,15 +139,6 @@ module.exports = [
   },
 
 
-  {
-    path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-    config: { // 页面配置，即 page.json 的内容，可选
-      navigationBarTitleText: '文章列表',
-      enablePullDownRefresh: false,
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#2D8FF7',
-      navigationBarTextStyle: 'white',
-    },
-  },
+
 
 ];
