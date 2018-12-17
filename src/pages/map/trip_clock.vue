@@ -313,11 +313,12 @@ export default {
       width: 60rpx;
       height: 60rpx;
       background: white;
-      opacity: 0.9;
+      opacity: 0.95;
       border-radius: 10rpx;
       .img {
-        width: 100%;
-        height: 100%;
+        width: 50rpx;
+        height: 50rpx;
+        margin: 5rpx;
       }
     }
 
@@ -327,10 +328,11 @@ export default {
       height: 60rpx;
       background: white;
       border-radius: 10rpx;
-      opacity: 0.9;
+      opacity: 0.95;
       .img {
-        width: 100%;
-        height: 100%;
+        width: 50rpx;
+        height: 50rpx;
+        margin: 5rpx;
       }
     }
   }
