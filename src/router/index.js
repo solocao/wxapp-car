@@ -1,4 +1,12 @@
 module.exports = [
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
@@ -51,6 +59,7 @@ module.exports = [
       },
     },
   },
+
   // 2-1 活动详情
   {
     path: 'pages/active/detail',
@@ -75,13 +84,7 @@ module.exports = [
       },
     },
   },
-  // 2-4 地图 出行打卡
-  {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
+
 
   // 5 汽车分类列表
   {

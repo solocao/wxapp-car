@@ -22,9 +22,14 @@
       </cover-view>
       <cover-view class="item">
         <cover-view class="cl-title">打卡抽奖</cover-view>
-        <cover-view class="cl-click">
+        <cover-view v-if="showtime == '结束'" class="cl-click">
           <cover-view class="cl-text" @click="activeClock">
             点击打卡
+          </cover-view>
+        </cover-view>
+        <cover-view v-else class="cl-click cl-click-disable">
+          <cover-view class="cl-text">
+            {{showtime}}
           </cover-view>
         </cover-view>
       </cover-view>
@@ -66,10 +71,63 @@ export default {
         width: 2,
         dottedLine: false
       }],
-      active_id: null
+      active_id: '5c03d811bb582bd7318a247c',
+      showtime: '...'
     }
   },
   methods: {
+    // 倒计时显示处理
+    countDownText(m, s) {
+      if (m < 0) {
+        this.showtime = ''
+        return false;
+      }
+      if (m !== 0) {
+        this.showtime = `${m}分:${s}秒`
+      } else {
+        this.showtime = `${s}秒`
+      }
+    },
+    // 需要倒计时的秒数
+    countDown(times) {
+      const self = this;
+      // 时间间隔 1秒
+      const interval = 1000;
+      // 计算时间，转化为毫秒
+      let ms = times * 1000;
+      let count = 0;
+      const startTime = new Date().getTime();
+      const endTime = startTime + ms;
+      let timeCounter;
+      timeCounter = setTimeout(countDownStart, interval)
+      function countDownStart() {
+        count++
+        const offset = new Date().getTime() - (startTime + count * interval);
+        // 计算剩余时间
+        const diff = endTime - new Date().getTime();
+        const h = Math.floor(diff / (60 * 1000 * 60));
+        const hdiff = diff % (60 * 1000 * 60);
+        const m = Math.floor(hdiff / (60 * 1000));
+        const mdiff = hdiff % (60 * 1000);
+        const s = mdiff / (1000);
+        const sCeil = Math.ceil(s);
+        const sFloor = Math.floor(s);
+        let nextTime = interval - offset;
+        if (nextTime < 0) {
+          nextTime = 0
+        }
+        ms = ms - interval;
+        console.log(`误差：${offset} ms，下一次执行：${nextTime} ms 后，离活动开始还有：${ms} ms`);
+        self.countDownText(m, sCeil)
+        if (ms < 0) {
+          clearTimeout(timeCounter)
+          self.showtime = "结束"
+
+        } else {
+          timeCounter = setTimeout(countDownStart, nextTime)
+        }
+      }
+    },
     // 打卡
     async activeClock() {
       // 获取经纬度
@@ -121,14 +179,16 @@ export default {
     back() {
       console.log('哈哈,点击啦')
       wx.redirectTo({ url: '/pages/market/active' });
-    }
+    },
   },
   mounted() {
     // 获取active_id
-    const { active_id } = getQuery()
+    const { active_id } = getQuery();
+    console.log(this.active_id)
     this.active_id = active_id
     // 初始化map
-    this.map = wx.createMapContext('map')
+    this.map = wx.createMapContext('map');
+    this.countDown(10);
   }
 }
 </script>
@@ -194,7 +254,7 @@ export default {
           width: 140rpx;
           height: 140rpx;
           border-radius: 50%;
-          background: gray;
+
           display: flex;
           justify-content: center;
           align-items: center;
@@ -203,7 +263,15 @@ export default {
 
           .cl-text {
             font-size: 12px;
+            font-weight: bold;
             color: white;
+          }
+        }
+        .cl-click-disable {
+          background: #c5c4c7;
+          box-shadow: 0 2px 10px #f2f2f2;
+          .cl-text {
+            font-weight: bold;
           }
         }
       }
