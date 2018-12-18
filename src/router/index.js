@@ -1,23 +1,15 @@
 module.exports = [
-  // 我的任务
+  // 2 广告任务
   {
-    path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-    config: { // 页面配置，即 page.json 的内容，可选
-      navigationBarTitleText: '我的任务',
-      enablePullDownRefresh: false,
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#2D8FF7',
-      navigationBarTextStyle: 'white',
-    },
-  },
-  // 4 我的 个人中心
-  {
-    path: 'pages/my',
+    path: 'pages/market/active',
     config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
+      navigationBarTitleText: '广告任务',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
+      },
+    },
   },
   // 1 首页
   {
@@ -31,21 +23,6 @@ module.exports = [
       },
     },
   },
-  // 2 广告任务
-  {
-    path: 'pages/market/active',
-    config: {
-      navigationBarTitleText: '广告任务',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
-      },
-    },
-  },
-
-
-
   // 2-1 活动详情
   {
     path: 'pages/active/detail',
@@ -58,7 +35,14 @@ module.exports = [
       },
     },
   },
-  // 2-2 去服务点 粘贴广告
+  // 2-2 参加活动的人员列表
+  {
+    path: 'pages/active/join_user',
+    config: {
+      navigationBarTitleText: '参与人员'
+    },
+  },
+  // 2-3 去服务点 粘贴广告
   {
     path: 'pages/active/service_point',
     config: {
@@ -77,6 +61,26 @@ module.exports = [
     config: {
       navigationBarTitleText: '出行打卡'
     },
+  },
+  // 3 我的任务
+  {
+    path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
+    config: { // 页面配置，即 page.json 的内容，可选
+      navigationBarTitleText: '我的任务',
+      enablePullDownRefresh: false,
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#2D8FF7',
+      navigationBarTextStyle: 'white',
+    },
+  },
+  // 4 我的 个人中心
+  {
+    path: 'pages/my',
+    config: {
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
   },
   {
     // 4-1 用户认证页面
@@ -97,7 +101,6 @@ module.exports = [
       },
     },
   },
-
   // 5 汽车分类列表
   {
     path: 'pages/car/category',
@@ -124,12 +127,6 @@ module.exports = [
       navigationBarTitleText: '地图'
     },
   },
-  // 参加活动的人员列表
-  {
-    path: 'pages/active/join_user', // 页面路径，同时是 vue 文件相对于 src 的路径，必填
-  },
-
-
 
   {
     path: 'pages/money',
@@ -137,8 +134,4 @@ module.exports = [
       navigationBarTitleText: '记录',
     },
   },
-
-
-
-
 ];

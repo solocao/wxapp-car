@@ -31,7 +31,21 @@ export default {
       console.log(this.$router.currentRoute);
       this.$router.push('/pages/task');
     },
+    async getActiveList() {
+      const result = await this.post({
+        url: 'active/join/list',
+        payload: {
+          page: 1,
+          size: 100
+        },
+        auth: true
+      })
+    }
+
   },
+  mounted() {
+    this.getActiveList()
+  }
 };
 </script>
 

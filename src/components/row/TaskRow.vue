@@ -16,8 +16,7 @@
         <span class="z-tag-red">满卡奖励300元</span>
         <span></span>
       </div>
-      <div>
-
+      <div class="z-in">
         <span class="z-tag-end">正在跑单</span>
         <span>12年12月-12年32</span>
       </div>

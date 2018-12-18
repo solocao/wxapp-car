@@ -42,7 +42,7 @@
           <div>投放时间</div>
           <div>{{create_at}}</div>
         </div>
-        <active-join></active-join>
+        <active-join :active_id="data._id"></active-join>
       </div>
     </scroll-view>
     <footer class="ac-footer">

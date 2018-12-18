@@ -10,39 +10,38 @@
         <span class="j-date">2018年09月12日</span>
       </div>
     </div>
-
   </div>
 </template>
 <style lang="less" scoped>
-.join-user {
-  color: #474747;
-  font-size: 14px;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+  .join-user {
+    color: #474747;
+    font-size: 14px;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
 
-  .j-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 120rpx;
-    border-bottom: 1px solid #f7f7f7;
-
-    .j-user {
+    .j-item {
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      height: 120rpx;
+      border-bottom: 1px solid #f7f7f7;
+
+      .j-user {
+        display: flex;
+        align-items: center;
+      }
+
+      img {
+        width: 90rpx;
+        height: 90rpx;
+        border-radius: 50%;
+        margin-right: 10rpx;
+      }
     }
 
-    img {
-      width: 90rpx;
-      height: 90rpx;
-      border-radius: 50%;
+    .j-money {
       margin-right: 10rpx;
     }
   }
-
-  .j-money {
-    margin-right: 10rpx;
-  }
-}
 </style>
 
