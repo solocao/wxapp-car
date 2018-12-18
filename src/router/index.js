@@ -1,4 +1,14 @@
 module.exports = [
+  // 2-2 参加活动的人员列表
+  {
+    path: 'pages/active/join_user',
+    config: {
+      navigationBarTitleText: '参与人员',
+      usingComponents: {
+        'wux-refresher': '../../static/wux/refresher/index'
+      },
+    },
+  },
   // 2 广告任务
   {
     path: 'pages/market/active',
@@ -35,13 +45,7 @@ module.exports = [
       },
     },
   },
-  // 2-2 参加活动的人员列表
-  {
-    path: 'pages/active/join_user',
-    config: {
-      navigationBarTitleText: '参与人员'
-    },
-  },
+
   // 2-3 去服务点 粘贴广告
   {
     path: 'pages/active/service_point',
