@@ -15,7 +15,7 @@
         </span>
       </div>
       <div class="aui-footer-btn" @click="goMoney">
-        <upload-button :path="path" :success="uploadSuccess">
+        <upload-button :path="path" :success="uploadSuccess" :sourceType="['camera']">
           拍照确认&nbsp开始赚钱
         </upload-button>
       </div>
@@ -42,7 +42,7 @@ export default {
         path: `service/check`
       },
       // pop是否显示
-      visible: true,
+      visible: false,
       // 上传的确认图片
       checkImg: 'http://hehecms.oss-cn-hangzhou.aliyuncs.com/service/check/wx212ce8e249e36ef4.o6zAJs64KXfZ8SWRB2IGyk6alpvw.Ka2LrJ8PB17Vfbc346b1ba5f83d19781148988cb9fac.png'
     }

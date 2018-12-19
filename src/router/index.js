@@ -1,14 +1,4 @@
 module.exports = [
-  // 2-2 参加活动的人员列表
-  {
-    path: 'pages/active/join_user',
-    config: {
-      navigationBarTitleText: '参与人员',
-      usingComponents: {
-        'wux-refresher': '../../static/wux/refresher/index'
-      },
-    },
-  },
   // 2 广告任务
   {
     path: 'pages/market/active',
@@ -19,6 +9,14 @@ module.exports = [
         'wux-button': '../../static/wux/button/index',
         'wux-popup': '../../static/wux/popup/index',
       },
+    },
+  },
+
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
     },
   },
   // 1 首页
@@ -45,7 +43,16 @@ module.exports = [
       },
     },
   },
-
+  // 2-2 参加活动的人员列表
+  {
+    path: 'pages/active/join_user',
+    config: {
+      navigationBarTitleText: '参与人员',
+      usingComponents: {
+        'wux-refresher': '../../static/wux/refresher/index'
+      },
+    },
+  },
   // 2-3 去服务点 粘贴广告
   {
     path: 'pages/active/service_point',
@@ -59,13 +66,6 @@ module.exports = [
     },
   },
 
-  // 2-4 地图 出行打卡
-  {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
   // 3 我的任务
   {
     path: 'pages/task', // 页面路径，同时是 vue 文件相对于 src 的路径，必填

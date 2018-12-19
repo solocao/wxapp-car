@@ -71,7 +71,7 @@ export default {
         width: 2,
         dottedLine: false
       }],
-      active_id: '5c03d811bb582bd7318a247c',
+      active_id: '5c18a4d896a1854cf953c1fa',
       showtime: '...'
     }
   },
@@ -128,7 +128,7 @@ export default {
         }
       }
     },
-    // 打卡
+    // 活动打卡
     async activeClock() {
       // 获取经纬度
       const { latitude, longitude } = await new Promise((resolve, reject) => {
@@ -153,6 +153,19 @@ export default {
       if (result.code === 1) {
         const data = result.data
         this.addMarker(data.latitude, data.longitude)
+      }
+    },
+    // 获取此次任务打卡情况详情
+    async clockDetail() {
+      const result = this.post({
+        url: 'active/clock/detail',
+        payload: {
+          active_id: this.active_id
+        },
+        auth: true
+      });
+      if (result.code === 1) {
+        console.log('看看结果')
       }
     },
     // 移动地图到当前定位
@@ -183,12 +196,12 @@ export default {
   },
   mounted() {
     // 获取active_id
-    const { active_id } = getQuery();
-    console.log(this.active_id)
-    this.active_id = active_id
+    // const { active_id } = getQuery();
+    // this.active_id = active_id;
     // 初始化map
     this.map = wx.createMapContext('map');
-    this.countDown(10);
+    this.clockDetail();
+    // this.countDown(10);
   }
 }
 </script>

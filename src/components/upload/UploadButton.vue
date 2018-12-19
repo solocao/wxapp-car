@@ -1,6 +1,6 @@
 <template>
   <div class="upload-button">
-    <wux-upload :formData="path" url="http://api.caowei.wang/ali-oss/upload/img" @change="onChange" @fail="onFail" @complete="onComplete">
+    <wux-upload :formData="path" url="http://api.caowei.wang/ali-oss/upload/img" @change="onChange" @fail="onFail" @complete="onComplete" :sourceType="sourceType">
       <slot></slot>
     </wux-upload>
   </div>
@@ -18,6 +18,10 @@ export default {
     },
     success: {
       type: Function
+    },
+    sourceType: {
+      type: Array,
+      default: ['album', 'camera']
     }
   },
   data() {
