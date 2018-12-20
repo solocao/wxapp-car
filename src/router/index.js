@@ -1,4 +1,11 @@
 module.exports = [
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
   // 2 广告任务
   {
     path: 'pages/market/active',
@@ -9,14 +16,6 @@ module.exports = [
         'wux-button': '../../static/wux/button/index',
         'wux-popup': '../../static/wux/popup/index',
       },
-    },
-  },
-
-  // 2-4 地图 出行打卡
-  {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
     },
   },
   // 1 首页

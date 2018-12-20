@@ -14,7 +14,7 @@
         <cover-view class="cl-title">累计打卡</cover-view>
         <cover-view class="cl-total">
           <cover-view class="total-text">
-            80次
+            {{totalClocks}}次
           </cover-view>
         </cover-view>
       </cover-view>
@@ -35,12 +35,13 @@
       </cover-view>
     </cover-view>
     <cover-view class="clock-money">
-      <cover-view>¥ 23.21元</cover-view>
+      <cover-view>¥ {{clock_reward}}元</cover-view>
     </cover-view>
   </div>
 </template>
 <script>
 import { getQuery } from '@libs/utils';
+import dayjs from 'dayjs'
 export default {
   data() {
     return {
@@ -71,8 +72,17 @@ export default {
         width: 2,
         dottedLine: false
       }],
-      active_id: '5c18a4d896a1854cf953c1fa',
-      showtime: '...'
+      active_id: '5c1a498967aa51690ff92953',
+      // 如果等于‘结束’就是显示打卡界面 其余显示灰色倒计时界面
+      showtime: '...',
+      // 打卡收益
+      clock_reward: '--',
+      per_reward: null,
+      // 总计打卡次数
+      totalClocks: '-',
+      dayClocks: null,
+      // 一天最多打卡次数
+      maxClocks: 10
     }
   },
   methods: {
@@ -122,7 +132,6 @@ export default {
         if (ms < 0) {
           clearTimeout(timeCounter)
           self.showtime = "结束"
-
         } else {
           timeCounter = setTimeout(countDownStart, nextTime)
         }
@@ -151,13 +160,15 @@ export default {
       }
       const result = await this.post(params)
       if (result.code === 1) {
-        const data = result.data
+        const data = result.data;
+        const { clock_reward, per_reward, clock } = data;
+        this.clockJudge(clock_reward, per_reward, clock);
         this.addMarker(data.latitude, data.longitude)
       }
     },
     // 获取此次任务打卡情况详情
     async clockDetail() {
-      const result = this.post({
+      const result = await this.post({
         url: 'active/clock/detail',
         payload: {
           active_id: this.active_id
@@ -165,7 +176,39 @@ export default {
         auth: true
       });
       if (result.code === 1) {
-        console.log('看看结果')
+        //         打卡奖励    每次打卡收益   详细
+        const { clock_reward, per_reward, clock } = result.data;
+        this.clockJudge(clock_reward, per_reward, clock);
+      }
+    },
+    // 打卡的判定
+    clockJudge(clock_reward, per_reward, clock) {
+      this.clock_reward = clock_reward.toFixed(2);
+      this.per_reward = per_reward;
+      // 手机端时间数据
+      const dawnDate = new Date(new Date().setHours(0, 0, 0, 0));
+      // 总计打卡次数
+      this.totalClocks = clock.length;
+      // 今天打卡的记录
+      const dayClocks = clock.filter(x => {
+        return new Date(x.create_at) > dawnDate
+      })
+      if (dayClocks === undefined) {
+        // 需要倒计时秒数 0
+        this.countDown(0);
+      } else {
+        if (dayClocks.length > this.maxClocks) {
+          this.showtime = '打卡关闭';
+          return false
+        }
+        const lastClockAt = dayjs(dayClocks[dayClocks.length - 1].create_at);
+        const nowAt = dayjs(new Date());
+        const diff = nowAt.diff(lastClockAt, 'second');
+        if (diff > 3600) {
+          this.countDown(0);
+        } else {
+          this.countDown(3600 - diff);
+        }
       }
     },
     // 移动地图到当前定位
