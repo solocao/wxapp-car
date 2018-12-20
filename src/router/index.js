@@ -1,22 +1,12 @@
 module.exports = [
-  // 2-4 地图 出行打卡
+  // 4 我的 个人中心
   {
-    path: 'pages/map/trip_clock',
+    path: 'pages/my',
     config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
-  // 2 广告任务
-  {
-    path: 'pages/market/active',
-    config: {
-      navigationBarTitleText: '广告任务',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-button': '../../static/wux/button/index',
-        'wux-popup': '../../static/wux/popup/index',
-      },
-    },
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
   },
   // 1 首页
   {
@@ -39,6 +29,25 @@ module.exports = [
         'wux-cell-group': '../../static/wux/cell-group/index',
         'wux-cell': '../../static/wux/cell/index',
         'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+  // 2 广告任务
+  {
+    path: 'pages/market/active',
+    config: {
+      navigationBarTitleText: '广告任务',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-button': '../../static/wux/button/index',
+        'wux-popup': '../../static/wux/popup/index',
       },
     },
   },
@@ -76,15 +85,7 @@ module.exports = [
       navigationBarTextStyle: 'white',
     },
   },
-  // 4 我的 个人中心
-  {
-    path: 'pages/my',
-    config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
+
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
