@@ -82,7 +82,11 @@ export default {
       totalClocks: '-',
       dayClocks: null,
       // 一天最多打卡次数
-      maxClocks: 10
+      maxClocks: 10,
+      // 打卡时间间隔
+      clockInterval: 3600,
+      // 计时器,注意需要进行销毁
+      timeCounter: null
     }
   },
   methods: {
@@ -108,9 +112,13 @@ export default {
       let count = 0;
       const startTime = new Date().getTime();
       const endTime = startTime + ms;
-      let timeCounter;
-      timeCounter = setTimeout(countDownStart, interval)
+
+      self.timeCounter = setTimeout(countDownStart, interval);
       function countDownStart() {
+        if (self.timeCounter == null) {
+          return false;
+        }
+        console.log(self.timeCounter)
         count++
         const offset = new Date().getTime() - (startTime + count * interval);
         // 计算剩余时间
@@ -130,10 +138,10 @@ export default {
         console.log(`误差：${offset} ms，下一次执行：${nextTime} ms 后，离活动开始还有：${ms} ms`);
         self.countDownText(m, sCeil)
         if (ms < 0) {
-          clearTimeout(timeCounter)
+          clearTimeout(self.timeCounter)
           self.showtime = "结束"
         } else {
-          timeCounter = setTimeout(countDownStart, nextTime)
+          self.timeCounter = setTimeout(countDownStart, nextTime)
         }
       }
     },
@@ -233,8 +241,9 @@ export default {
     },
     // 退出到活动列表
     back() {
-      console.log('哈哈,点击啦')
-      wx.redirectTo({ url: '/pages/market/active' });
+      clearTimeout(this.timeCounter);
+      this.timeCounter = null;
+      wx.switchTab({ url: '/pages/market/active' });
     },
   },
   mounted() {
@@ -244,7 +253,6 @@ export default {
     // 初始化map
     this.map = wx.createMapContext('map');
     this.clockDetail();
-    // this.countDown(10);
   }
 }
 </script>
