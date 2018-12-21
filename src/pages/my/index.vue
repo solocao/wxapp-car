@@ -19,7 +19,7 @@
             <div class="aui-palace aui-palace-one b-line">
               <a href="javascript:;" class="aui-palace-grid">
                 <div class="aui-palace-grid-icon">
-                  <span>23元</span>
+                  <span>{{balance}}元</span>
                 </div>
                 <div class="aui-palace-grid-text">
                   <h2>余额</h2>
@@ -27,7 +27,7 @@
               </a>
               <a href="javascript:;" class="aui-palace-grid">
                 <div class="aui-palace-grid-icon">
-                  <span>123</span>
+                  <span>{{wait_income}}元</span>
                 </div>
                 <div class="aui-palace-grid-text">
                   <h2>待收收益</h2>
@@ -35,7 +35,7 @@
               </a>
               <a href="javascript:;" class="aui-palace-grid">
                 <div class="aui-palace-grid-icon">
-                  <span>9</span>
+                  <span>{{total_income}}元</span>
                 </div>
                 <div class="aui-palace-grid-text">
                   <h2>累计收益</h2>
@@ -130,6 +130,15 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
 export default {
+  data() {
+    return {
+      balance: '--',
+      // 累计收益
+      total_income: '--',
+      // 待收收益
+      wait_income: '--'
+    }
+  },
   computed: {
     ...mapState(['user']),
     // 显示的认证文字
@@ -144,11 +153,28 @@ export default {
     }
   },
   methods: {
+    // 获取用户收益相关
+    async getUserIncome() {
+      const result = await this.get({
+        url: 'user/income',
+        payload: {},
+        auth: true
+      });
+      if (result.code === 1) {
+        const { balance, total_income, wait_income } = result.data;
+        this.balance = balance;
+        this.total_income = total_income;
+        this.wait_income = wait_income;
+      }
+    },
     // 跳转到认证页面
     goVerify() {
       wx.navigateTo({ url: '/pages/user/verify' });
     },
   },
+  mounted() {
+    this.getUserIncome()
+  }
 };
 </script>
 
@@ -201,18 +227,12 @@ export default {
       width: 100%;
       height: 1px;
       border-bottom: 1px solid #e2e2e2;
-      -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5);
-      -webkit-transform-origin: 0 100%;
       transform-origin: 0 100%;
     }
 
     .aui-flex {
-      display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
       align-items: center;
       padding: 15px;
       position: relative;
