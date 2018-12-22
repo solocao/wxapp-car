@@ -1,4 +1,14 @@
 module.exports = [
+
+  // 4 我的 银行列表
+  {
+    path: 'pages/money/bank',
+    config: {
+      navigationBarTitleText: '选择银行',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
   // 4 我的 个人中心
   {
     path: 'pages/my',
