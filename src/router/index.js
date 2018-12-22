@@ -1,5 +1,4 @@
 module.exports = [
-
   // 4-1 提现
   {
     path: 'pages/money/withdraw',
@@ -16,6 +15,7 @@ module.exports = [
       },
     }
   },
+
   // 4 我的 个人中心
   {
     path: 'pages/my',

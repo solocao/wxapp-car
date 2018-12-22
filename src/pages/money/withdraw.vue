@@ -40,6 +40,7 @@
       </wux-cell>
     </wux-cell-group>
     <div style="padding:20rpx">
+      <wux-button block type="positive" @click="fill">填充</wux-button>
       <wux-button block type="positive" @click="submit">提现</wux-button>
     </div>
   </div>
@@ -53,7 +54,7 @@ export default {
       form: {
         money: null,
         // 银行名称
-        name: null,
+        bank: null,
         // 持卡人姓名
         holder: null,
         // 银行卡号
@@ -75,10 +76,31 @@ export default {
       wx.navigateTo({ url: '/pages/money/bank' });
     },
     setBank(key, value) {
-      console.log('来了，老弟')
-      console.log(value)
-      console.log(key)
       this.set({ key: value })
+    },
+    // 填充
+    fill() {
+      this.form = {
+        money: 100,
+        // 持卡人姓名
+        holder: '曹天骄',
+        // 银行卡号
+        number: '3134912412041241241414',
+        // 开户行
+        branch: '南京文德路支行',
+      }
+    },
+    async submit() {
+      this.form.bank = this.bank.name;
+      const result = await this.post({
+        url: 'money/withdraw/bank',
+        payload: this.form,
+        auth: true
+      })
+      console.log(result)
+      if (result.code === 1) {
+        console.log('已经提交，等待审核')
+      }
     }
   },
   mounted() {
