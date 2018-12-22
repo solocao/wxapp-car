@@ -1,12 +1,19 @@
 module.exports = [
 
-  // 4 我的 银行列表
+  // 4-1 提现
   {
-    path: 'pages/money/bank',
+    path: 'pages/money/withdraw',
     config: {
-      navigationBarTitleText: '选择银行',
+      navigationBarTitleText: '提现',
       // disableScroll: true,
-      enablePullDownRefresh: false
+      enablePullDownRefresh: false,
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        "wux-input-number": '../../static/wux/input-number/index',
+        'wux-button': '../../static/wux/button/index',
+      },
     }
   },
   // 4 我的 个人中心
@@ -14,6 +21,15 @@ module.exports = [
     path: 'pages/my',
     config: {
       navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
+  // 4 我的 银行列表
+  {
+    path: 'pages/money/bank',
+    config: {
+      navigationBarTitleText: '选择银行',
       // disableScroll: true,
       enablePullDownRefresh: false
     }

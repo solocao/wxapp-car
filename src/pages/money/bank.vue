@@ -3,7 +3,9 @@
   <div class="money-bank">
     <topComponent title='请选择银行'></topComponent>
     <ul class="listCom list-arrow list-bank no-top">
-      <bank-row v-for="(data,index) of datas" :bank="data.name" :key="index"></bank-row>
+      <div v-for="(data,index) of datas" :key="index" @click="chooseBank(data.name)">
+        <bank-row :bank="data.name"></bank-row>
+      </div>
     </ul>
   </div>
 </template>
@@ -11,6 +13,7 @@
 import BankRow from '@components/row/BankRow'
 //引入银行数据
 import bankDatas from '../../data/bankData.json'
+import { mapState, mapMutations } from 'vuex';
 export default {
   components: {
     BankRow
@@ -20,9 +23,22 @@ export default {
       datas: []
     }
   },
+  computed: {
+    ...mapState(['bank']),
+  },
+  methods: {
+    ...mapMutations([
+      'set'
+    ]),
+    // 选择银行 并且返回
+    chooseBank(bank) {
+      this.set({ 'bank.name': bank })
+      wx.navigateBack({ url: `/pages/money/withdraw` });
+    }
+  },
   mounted() {
     this.datas = bankDatas
-  }
+  },
 }
 </script>
 

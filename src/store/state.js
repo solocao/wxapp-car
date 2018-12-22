@@ -12,6 +12,16 @@ const state = {
   }, // 默认地址
   count: 1, // 购买数量
   payment: 1, // 支付方式，默认余额
+  bank: {
+    // 银行名称
+    name: null,
+    // 持卡人姓名
+    holder: null,
+    // 银行卡号
+    number: null,
+    // 开户行
+    branch: null,
+  }
 };
 
 export default state;
