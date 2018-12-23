@@ -1,4 +1,13 @@
 module.exports = [
+  // 4 我的 活动历史
+  {
+    path: 'pages/active/history',
+    config: {
+      navigationBarTitleText: '历史任务',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
   // 4 我的 个人中心
   {
     path: 'pages/my',
