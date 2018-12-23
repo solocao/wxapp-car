@@ -71,14 +71,14 @@
                   <h2>提现记录</h2>
                 </div>
               </a>
-              <a href="javascript:;" class="aui-palace-grid">
+              <div class="aui-palace-grid" @click="goNowActive">
                 <div class="aui-palace-grid-icon">
                   <img src="../../../static/img/my/car_at.png" alt="">
                 </div>
                 <div class="aui-palace-grid-text">
                   <h2>当前任务</h2>
                 </div>
-              </a>
+              </div>
               <a href="javascript:;" class="aui-palace-grid">
                 <div class="aui-palace-grid-icon">
                   <img src="../../../static/img/my/car_list.png" alt="">
@@ -171,6 +171,10 @@ export default {
     goVerify() {
       wx.navigateTo({ url: '/pages/user/verify' });
     },
+    // 跳转到当前任务
+    goNowActive() {
+      wx.navigateTo({ url: '/pages/map/trip_clock' });
+    }
   },
   mounted() {
     this.getUserIncome()

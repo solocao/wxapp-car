@@ -1,15 +1,4 @@
 module.exports = [
-
-  // 4-2 提现历史记录
-  {
-    path: 'pages/money/withdraw_list',
-    config: {
-      navigationBarTitleText: '提现记录',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
-    }
-  },
-
   // 4 我的 个人中心
   {
     path: 'pages/my',
@@ -33,6 +22,17 @@ module.exports = [
         "wux-input-number": '../../static/wux/input-number/index',
         'wux-button': '../../static/wux/button/index',
       },
+    }
+  },
+
+
+  // 4-2 提现历史记录
+  {
+    path: 'pages/money/withdraw_list',
+    config: {
+      navigationBarTitleText: '提现记录',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
     }
   },
   // 4-1-1 我的 银行列表
