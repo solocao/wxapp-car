@@ -174,6 +174,10 @@ export default {
     // 跳转到当前任务
     goNowActive() {
       wx.navigateTo({ url: '/pages/map/trip_clock' });
+    },
+    // 跳转到历史任务界面
+    goActiveHistory() {
+      wx.navigateTo({ url: '/pages/active/history' });
     }
   },
   mounted() {
