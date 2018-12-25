@@ -33,22 +33,22 @@
         </div>
       </wux-cell>
       <wux-cell hover-class="手机号">
-        <wux-input :value="form.user_id_number" :controlled="true" label="手机号" placeholder="请输入手机号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
+        <wux-input :value="form.mobile" :controlled="true" label="手机号" placeholder="请输入手机号" @change="(e)=>{this.form.mobile=e.mp.detail.value }" />
       </wux-cell>
       <wux-cell hover-class="验证码">
         <span class="z-cell-label">验证码</span>
-        <captcha-row></captcha-row>
+        <captcha-row :mobile="form.mobile" :code.sync="form.code"></captcha-row>
       </wux-cell>
-      <wux-cell hover-class=" none">
+      <wux-cell hover-class="none">
         <wux-input :value="form.user_id_number" :controlled="true" label="身份证号" placeholder="请输入身份证号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
       </wux-cell>
-      <wux-cell hover-class=" none">
+      <wux-cell hover-class="none">
         <wux-input :value="form.driver_licence" :controlled="true" label="驾驶证号" placeholder="请输入驾驶证号" @change="(e)=>{this.form.driver_licence=e.mp.detail.value }" />
       </wux-cell>
-      <wux-cell hover-class=" none">
+      <wux-cell hover-class="none">
         <wux-input :value="form.driving_licence" :controlled="true" label="行驶证号" placeholder="请输入行驶证号" @change="(e)=>{this.form.driving_licence=e.mp.detail.value }" />
       </wux-cell>
-      <wux-cell hover-class=" none">
+      <wux-cell hover-class="none">
         <wux-input :value="form.driving_licence_owner" :controlled="true" label="行驶证所有人" placeholder="请输入行驶证所有人" @change="(e)=>{this.form.driving_licence_owner=e.mp.detail.value }" />
       </wux-cell>
     </wux-cell-group>
@@ -93,8 +93,12 @@ export default {
       carType: 0,
       carTypeName: ['网约车', '私家车'],
       form: {
+        // 姓名
         name: null,
         car_number: null,
+        // 手机号
+        mobile: '17768118595',
+        code: null,
         car_color: null,
         // 车辆型号
         car_model: null,
@@ -190,6 +194,7 @@ export default {
       this.carType = 0;
       const formTest = {
         name: '曹天骄',
+        mobile: '17768118595',
         car_number: '粤K000F0',
         car_color: '白色',
         car_model: {

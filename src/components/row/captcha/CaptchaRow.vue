@@ -1,6 +1,6 @@
 <template>
   <div class="captcha-row">
-    <input class="captcha-input" placeholder="输入验证码" auto-focus />
+    <input class="captcha-input" placeholder="输入验证码" auto-focus @input="codeChange" />
     <div v-if="showtime===null" class="captcha-button" @click="send">
       获取验证码
     </div>
@@ -10,7 +10,16 @@
   </div>
 </template>
 <script>
+import { isMobile } from '@/libs/regex.js'
 export default {
+  props: {
+    mobile: {
+      type: String
+    },
+    code: {
+      type: String
+    }
+  },
   data() {
     return {
       // 计时器,注意需要进行销毁
@@ -20,6 +29,11 @@ export default {
     }
   },
   methods: {
+    // 验证码的数据同步
+    codeChange(e) {
+      const value = e.mp.detail.value;
+      this.$emit('update:code', value);
+    },
     // 倒计时显示处理
     countDownText(s) {
       this.showtime = `${s}s后重新获取`
@@ -45,8 +59,25 @@ export default {
         }
       }
     },
+    // 发送验证码短信
     send() {
-      this.countDown(60);
+      if (isMobile(this.mobile)) {
+        // 发送验证码请求
+        this.post({
+          url: 'verify/captcha/send',
+          payload: {
+            mobile: this.mobile
+          },
+          auth: true
+        });
+        this.countDown(60);
+      } else {
+        wx.showToast({
+          title: '手机号不合法',
+          icon: 'none',
+          duration: 2000
+        })
+      }
     }
   },
 }
