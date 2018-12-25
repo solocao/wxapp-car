@@ -1,5 +1,5 @@
 <template>
-  <section class="aui-flexView">
+  <section class="my-container">
     <section class="aui-scrollView">
       <div class="aui-tour-content"></div>
       <div class="aui-tour-box">
@@ -188,7 +188,7 @@ export default {
 
 <style lang="less" scoped>
   /* 必要布局样式css */
-  .aui-flexView {
+  .my-container {
     width: 100%;
     height: 100%;
     margin: 0 auto;

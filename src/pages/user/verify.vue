@@ -32,6 +32,13 @@
           <wux-selectable color="positive" value="2" :controlled="true" :checked="carType==1" @change="()=>{this.carType =1}" />私家车
         </div>
       </wux-cell>
+      <wux-cell hover-class="手机号">
+        <wux-input :value="form.user_id_number" :controlled="true" label="手机号" placeholder="请输入手机号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
+      </wux-cell>
+      <wux-cell hover-class="验证码">
+        <span class="z-cell-label">验证码</span>
+        <captcha-row></captcha-row>
+      </wux-cell>
       <wux-cell hover-class=" none">
         <wux-input :value="form.user_id_number" :controlled="true" label="身份证号" placeholder="请输入身份证号" @change="(e)=>{this.form.user_id_number=e.mp.detail.value }" />
       </wux-cell>
@@ -68,12 +75,14 @@ import { $wuxSelect, $wuxToast } from '../../../static/wux/index';
 import { getQuery } from '@libs/utils';
 
 import UploadImg from '@/components/upload/UploadImg';
+import CaptchaRow from '@/components/row/captcha/CaptchaRow';
 import { mapState, mapMutations } from 'vuex';
 import { minor } from 'semver';
 
 export default {
   components: {
-    UploadImg
+    UploadImg,
+    CaptchaRow
   },
   data() {
     return {

@@ -1,58 +1,26 @@
 module.exports = [
-  // 4 我的 活动历史
   {
-    path: 'pages/active/history',
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
     config: {
-      navigationBarTitleText: '历史任务',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
-  // 4 我的 个人中心
-  {
-    path: 'pages/my',
-    config: {
-      navigationBarTitleText: '我的',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
-  // 4-1 提现
-  {
-    path: 'pages/money/withdraw',
-    config: {
-      navigationBarTitleText: '提现',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
+      navigationBarTitleText: '车主认证',
       usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
         'wux-cell-group': '../../static/wux/cell-group/index',
         'wux-cell': '../../static/wux/cell/index',
         'wux-input': '../../static/wux/input/index',
-        "wux-input-number": '../../static/wux/input-number/index',
         'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
       },
-    }
+    },
   },
 
 
-  // 4-2 提现历史记录
-  {
-    path: 'pages/money/withdraw_list',
-    config: {
-      navigationBarTitleText: '提现记录',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
-    }
-  },
-  // 4-1-1 我的 银行列表
-  {
-    path: 'pages/money/bank',
-    config: {
-      navigationBarTitleText: '选择银行',
-      // disableScroll: true,
-      enablePullDownRefresh: false
-    }
-  },
+
   // 1 首页
   {
     path: 'pages/home',
@@ -131,24 +99,61 @@ module.exports = [
     },
   },
 
+  // 4 我的 个人中心
   {
-    // 4-1 用户认证页面
-    path: 'pages/user/verify',
+    path: 'pages/my',
     config: {
-      navigationBarTitleText: '车主认证',
+      navigationBarTitleText: '我的',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
+
+
+
+  // 4-2 提现
+  {
+    path: 'pages/money/withdraw',
+    config: {
+      navigationBarTitleText: '提现',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
       usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
         'wux-cell-group': '../../static/wux/cell-group/index',
         'wux-cell': '../../static/wux/cell/index',
         'wux-input': '../../static/wux/input/index',
+        "wux-input-number": '../../static/wux/input-number/index',
         'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
       },
-    },
+    }
+  },
+  // 4-2 提现历史记录
+  {
+    path: 'pages/money/withdraw_list',
+    config: {
+      navigationBarTitleText: '提现记录',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
+    }
+  },
+  // 4-1-1 我的 银行列表
+  {
+    path: 'pages/money/bank',
+    config: {
+      navigationBarTitleText: '选择银行',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
+  },
+
+  // 4 我的 活动历史
+  {
+    path: 'pages/active/history',
+    config: {
+      navigationBarTitleText: '历史任务',
+      // disableScroll: true,
+      enablePullDownRefresh: false
+    }
   },
   // 5 汽车分类列表
   {
