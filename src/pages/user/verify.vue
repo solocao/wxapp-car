@@ -277,45 +277,6 @@ export default {
   .verify {
     padding: 10px;
     font-size: 14px;
-
-    .grids-icon {
-      padding: 10px 0;
-
-      .grids-grid-icon {
-        width: 50px;
-
-        height: 50px;
-
-        margin: 0 auto;
-
-        img {
-          width: 50px;
-
-          height: 50px;
-        }
-      }
-
-      .grids-grid-label {
-        display: block;
-
-        text-align: center;
-
-        color: #000;
-
-        font-size: 12px;
-      }
-
-      .grids-grid-num {
-        display: block;
-
-        text-align: center;
-
-        color: #3598dc;
-
-        font-size: 16px;
-      }
-    }
-
     .flex-space-between {
       display: flex;
       justify-content: space-between;
