@@ -1,26 +1,11 @@
 module.exports = [
+  // 2-4 地图 出行打卡
   {
-    // 4-1 用户认证页面
-    path: 'pages/user/verify',
+    path: 'pages/map/trip_clock',
     config: {
-      navigationBarTitleText: '车主认证',
-      usingComponents: {
-        'wux-select': '../../static/wux/select/index',
-        'wux-selectable': '../../static/wux/selectable/index',
-        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
-        'wux-checkbox': '../../static/wux/checkbox/index',
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        'wux-button': '../../static/wux/button/index',
-        "wux-upload": "../../static/wux/upload/index",
-        "wux-toast": "../../static/wux/toast/index"
-      },
+      navigationBarTitleText: '出行打卡'
     },
   },
-
-
-
   // 1 首页
   {
     path: 'pages/home',
@@ -45,13 +30,7 @@ module.exports = [
       },
     },
   },
-  // 2-4 地图 出行打卡
-  {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
+
   // 2 广告任务
   {
     path: 'pages/market/active',
@@ -109,9 +88,27 @@ module.exports = [
     }
   },
 
+  {
+    // 4-1 用户认证页面
+    path: 'pages/user/verify',
+    config: {
+      navigationBarTitleText: '车主认证',
+      usingComponents: {
+        'wux-select': '../../static/wux/select/index',
+        'wux-selectable': '../../static/wux/selectable/index',
+        'wux-checkbox-group': '../../static/wux/checkbox-group/index',
+        'wux-checkbox': '../../static/wux/checkbox/index',
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        'wux-button': '../../static/wux/button/index',
+        "wux-upload": "../../static/wux/upload/index",
+        "wux-toast": "../../static/wux/toast/index"
+      },
+    },
+  },
 
-
-  // 4-2 提现
+  // 4-2 提现页面
   {
     path: 'pages/money/withdraw',
     config: {
@@ -127,16 +124,8 @@ module.exports = [
       },
     }
   },
-  // 4-2 提现历史记录
-  {
-    path: 'pages/money/withdraw_list',
-    config: {
-      navigationBarTitleText: '提现记录',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
-    }
-  },
-  // 4-1-1 我的 银行列表
+
+  // 4-2-1 我的 银行列表
   {
     path: 'pages/money/bank',
     config: {
@@ -145,6 +134,16 @@ module.exports = [
       enablePullDownRefresh: false
     }
   },
+  // 4-3 提现历史记录
+  {
+    path: 'pages/money/withdraw_list',
+    config: {
+      navigationBarTitleText: '提现记录',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
+    }
+  },
+
 
   // 4 我的 活动历史
   {
@@ -155,6 +154,7 @@ module.exports = [
       enablePullDownRefresh: false
     }
   },
+
   // 5 汽车分类列表
   {
     path: 'pages/car/category',
@@ -174,6 +174,7 @@ module.exports = [
       },
     },
   },
+
   // 地图
   {
     path: 'pages/map/index',

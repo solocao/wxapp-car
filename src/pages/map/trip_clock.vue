@@ -118,7 +118,6 @@ export default {
         if (self.timeCounter == null) {
           return false;
         }
-        console.log(self.timeCounter)
         count++
         const offset = new Date().getTime() - (startTime + count * interval);
         // 计算剩余时间
@@ -185,6 +184,7 @@ export default {
       });
       if (result.code === 1) {
         //         打卡奖励    每次打卡收益   详细
+        //                                 clock 包含了每次打卡记录 create_at
         const { clock_reward, per_reward, clock } = result.data;
         this.clockJudge(clock_reward, per_reward, clock);
       }
@@ -192,8 +192,9 @@ export default {
     // 打卡的判定
     clockJudge(clock_reward, per_reward, clock) {
       this.clock_reward = clock_reward.toFixed(2);
+      // 每次打卡收益
       this.per_reward = per_reward;
-      // 手机端时间数据
+      // 手机端 今日凌晨时间
       const dawnDate = new Date(new Date().setHours(0, 0, 0, 0));
       // 总计打卡次数
       this.totalClocks = clock.length;
@@ -201,10 +202,11 @@ export default {
       const dayClocks = clock.filter(x => {
         return new Date(x.create_at) > dawnDate
       })
-      if (dayClocks === undefined) {
-        // 需要倒计时秒数 0
+      // 当天还没有打卡,直接进行打卡
+      if (dayClocks.length === 0) {
         this.countDown(0);
       } else {
+        // 超过了一天最大打卡次数
         if (dayClocks.length > this.maxClocks) {
           this.showtime = '打卡关闭';
           return false
