@@ -1,35 +1,4 @@
 module.exports = [
-  // 2-4 地图 出行打卡
-  {
-    path: 'pages/map/trip_clock',
-    config: {
-      navigationBarTitleText: '出行打卡'
-    },
-  },
-  // 1 首页
-  {
-    path: 'pages/home',
-    config: {
-      usingComponents: {
-        'wux-row': '../static/wux/row/index',
-        'wux-col': '../static/wux/col/index',
-        'wux-button': '../static/wux/button/index',
-        'wux-dialog': '../static/wux/dialog/index',
-      },
-    },
-  },
-  // 2-1 活动详情
-  {
-    path: 'pages/active/detail',
-    config: {
-      navigationBarTitleText: '活动详情',
-      usingComponents: {
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-      },
-    },
-  },
 
   // 2 广告任务
   {
@@ -43,13 +12,16 @@ module.exports = [
       },
     },
   },
-  // 2-2 参加活动的人员列表
+
+  // 1 首页
   {
-    path: 'pages/active/join_user',
+    path: 'pages/home',
     config: {
-      navigationBarTitleText: '参与人员',
       usingComponents: {
-        'wux-refresher': '../../static/wux/refresher/index'
+        'wux-row': '../static/wux/row/index',
+        'wux-col': '../static/wux/col/index',
+        'wux-button': '../static/wux/button/index',
+        'wux-dialog': '../static/wux/dialog/index',
       },
     },
   },
@@ -65,6 +37,38 @@ module.exports = [
       },
     },
   },
+
+  // 2-4 地图 出行打卡
+  {
+    path: 'pages/map/trip_clock',
+    config: {
+      navigationBarTitleText: '出行打卡'
+    },
+  },
+  // 2-1 活动详情
+  {
+    path: 'pages/active/detail',
+    config: {
+      navigationBarTitleText: '活动详情',
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+      },
+    },
+  },
+
+  // 2-2 参加活动的人员列表
+  {
+    path: 'pages/active/join_user',
+    config: {
+      navigationBarTitleText: '参与人员',
+      usingComponents: {
+        'wux-refresher': '../../static/wux/refresher/index'
+      },
+    },
+  },
+
 
   // 3 我的任务
   {
@@ -88,6 +92,32 @@ module.exports = [
     }
   },
 
+  // 4-2 提现页面
+  {
+    path: 'pages/money/withdraw',
+    config: {
+      navigationBarTitleText: '提现',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
+      usingComponents: {
+        'wux-cell-group': '../../static/wux/cell-group/index',
+        'wux-cell': '../../static/wux/cell/index',
+        'wux-input': '../../static/wux/input/index',
+        "wux-input-number": '../../static/wux/input-number/index',
+        'wux-button': '../../static/wux/button/index',
+      },
+    }
+  },
+  // 4-3 提现历史记录
+  {
+    path: 'pages/money/withdraw_list',
+    config: {
+      navigationBarTitleText: '提现记录',
+      // disableScroll: true,
+      enablePullDownRefresh: false,
+    }
+  },
+
   {
     // 4-1 用户认证页面
     path: 'pages/user/verify',
@@ -108,22 +138,6 @@ module.exports = [
     },
   },
 
-  // 4-2 提现页面
-  {
-    path: 'pages/money/withdraw',
-    config: {
-      navigationBarTitleText: '提现',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
-      usingComponents: {
-        'wux-cell-group': '../../static/wux/cell-group/index',
-        'wux-cell': '../../static/wux/cell/index',
-        'wux-input': '../../static/wux/input/index',
-        "wux-input-number": '../../static/wux/input-number/index',
-        'wux-button': '../../static/wux/button/index',
-      },
-    }
-  },
 
   // 4-2-1 我的 银行列表
   {
@@ -134,15 +148,7 @@ module.exports = [
       enablePullDownRefresh: false
     }
   },
-  // 4-3 提现历史记录
-  {
-    path: 'pages/money/withdraw_list',
-    config: {
-      navigationBarTitleText: '提现记录',
-      // disableScroll: true,
-      enablePullDownRefresh: false,
-    }
-  },
+
 
 
   // 4 我的 活动历史

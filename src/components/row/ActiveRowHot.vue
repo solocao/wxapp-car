@@ -2,9 +2,9 @@
   <div class="active-row-hot" @click="goDetail">
     <div class="aui-goods-img">
       <img :src="data.cover_img" alt="">
-      <span class="aui-goods-top aui-goods-top-img">
+      <!-- <span class="aui-goods-top aui-goods-top-img">
         <img src="http://www.17sucai.com/preview/1268063/2018-10-09/Hot/images/icon-top-001.png" alt="">
-      </span>
+      </span> -->
     </div>
     <div class="a-detail">
       <div class="a-head">{{data.title}}</div>
@@ -14,7 +14,6 @@
         <span class="red-tag">收益 | ¥{{data.price}}</span>
         <span class="blue-tag">周期 | {{data.clock_days}}天</span>
       </div>
-
     </div>
   </div>
 </template>

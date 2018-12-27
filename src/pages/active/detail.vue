@@ -163,11 +163,15 @@ export default {
 
 }
 </script>
-<style lang="less" scoped>
+<style lang="less">
   .active-detail {
     background: #f4f4f4;
     .ac-scroll {
       height: calc(100vh - 90rpx);
+    }
+
+    .ac-content {
+      color: white !important;
     }
     // 需要封装成统一的
     .nc-cell {
@@ -287,6 +291,14 @@ export default {
         background: #fff;
         color: #4499ff;
         position: relative;
+      }
+    }
+  }
+
+  .wxParse {
+    view {
+      view {
+        color: white !important;
       }
     }
   }
